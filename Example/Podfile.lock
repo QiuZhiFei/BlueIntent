@@ -1,0 +1,24 @@
+PODS:
+  - BlueIntent (0.1.0):
+    - BlueIntent/Foundation (= 0.1.0)
+    - BlueIntent/UIKit (= 0.1.0)
+  - BlueIntent/Base (0.1.0)
+  - BlueIntent/Foundation (0.1.0):
+    - BlueIntent/Base
+  - BlueIntent/UIKit (0.1.0):
+    - BlueIntent/Base
+    - BlueIntent/Foundation
+
+DEPENDENCIES:
+  - BlueIntent (from `../BlueIntent.podspec`)
+
+EXTERNAL SOURCES:
+  BlueIntent:
+    :path: "../BlueIntent.podspec"
+
+SPEC CHECKSUMS:
+  BlueIntent: 9538a2a374af775f6ce6e29ca3b932f6af1b33c3
+
+PODFILE CHECKSUM: c4a51c76b122e352253185013ff3f226cb0a6eb4
+
+COCOAPODS: 1.10.0.rc.1

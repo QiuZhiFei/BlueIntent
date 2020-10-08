@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'BlueIntent'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of BlueIntent.'
+  s.summary          = 'Swfit block utilities.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,9 +17,9 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+#  s.description      = <<-DESC
+#TODO: Add long description of the pod here.
+#                       DESC
 
   s.homepage         = 'https://github.com/qiuzhifei/BlueIntent'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
@@ -28,9 +28,9 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/qiuzhifei/BlueIntent.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
-  s.source_files = 'BlueIntent/Classes/**/*'
+  #  s.source_files = 'BlueIntent/Classes/Base/**/*'
   
   # s.resource_bundles = {
   #   'BlueIntent' => ['BlueIntent/Assets/*.png']
@@ -39,4 +39,27 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  
+  s.default_subspecs = 'Foundation', 'UIKit'
+  
+  s.subspec 'Base' do |ss|
+    ss.source_files = 'BlueIntent/Classes/Base/**/*'
+  end
+   
+  s.subspec 'Foundation' do |ss|
+    ss.source_files = 'BlueIntent/Classes/Foundation/**/*'
+    ss.dependency 'BlueIntent/Base'
+  end
+  
+  s.subspec 'UIKit' do |ss|
+    ss.source_files = 'BlueIntent/Classes/UIKit/**/*'
+    ss.dependency 'BlueIntent/Base'
+    ss.dependency 'BlueIntent/Foundation'
+  end
+  
+  s.subspec 'AppleLogin' do |ss|
+    ss.source_files = 'BlueIntent/Classes/AppleLogin/**/*'
+    ss.dependency 'BlueIntent/Base'
+  end
+  
 end
