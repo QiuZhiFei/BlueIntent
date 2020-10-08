@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'BlueIntent_Example' do
+  pod 'BlueIntent', :path => '../'
+
+  target 'BlueIntent_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
