@@ -1,6 +1,6 @@
 platform :ios, '9.0'
 inhibit_all_warnings!
-use_frameworks!
+use_frameworks! :linkage => :static
 
 target 'BlueIntent_Example' do
   pod 'BlueIntent', :path => '../BlueIntent.podspec'

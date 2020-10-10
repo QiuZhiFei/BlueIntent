@@ -26,9 +26,9 @@ EXTERNAL SOURCES:
     :path: "../BlueIntent.podspec"
 
 SPEC CHECKSUMS:
-  BlueIntent: 910c71d792d1eb4ef36c33e651efa39282527786
+  BlueIntent: b19597ea8da4186545d415d223ca5596771f6044
   PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
 
-PODFILE CHECKSUM: ad5dab0fcd9ddec5ffdcfff6cef611ff75cc45a9
+PODFILE CHECKSUM: 9db95a22e0d123d3e34d281e8a7428f74903bdeb
 
 COCOAPODS: 1.10.0.rc.1
