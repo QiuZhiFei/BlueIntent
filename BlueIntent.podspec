@@ -62,4 +62,10 @@ Pod::Spec.new do |s|
     ss.dependency 'BlueIntent/Base'
   end
   
+  s.subspec 'Layout' do |ss|
+    ss.source_files = 'BlueIntent/Classes/Layout/**/*'
+    ss.dependency 'BlueIntent/Base'
+    ss.dependency 'PureLayout',       '~> 3.1.6'
+  end
+  
 end

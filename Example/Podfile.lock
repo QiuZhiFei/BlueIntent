@@ -5,20 +5,30 @@ PODS:
   - BlueIntent/Base (0.1.0)
   - BlueIntent/Foundation (0.1.0):
     - BlueIntent/Base
+  - BlueIntent/Layout (0.1.0):
+    - BlueIntent/Base
+    - PureLayout (~> 3.1.6)
   - BlueIntent/UIKit (0.1.0):
     - BlueIntent/Base
     - BlueIntent/Foundation
+  - PureLayout (3.1.6)
 
 DEPENDENCIES:
   - BlueIntent (from `../BlueIntent.podspec`)
+  - BlueIntent/Layout (from `../BlueIntent.podspec`)
+
+SPEC REPOS:
+  trunk:
+    - PureLayout
 
 EXTERNAL SOURCES:
   BlueIntent:
     :path: "../BlueIntent.podspec"
 
 SPEC CHECKSUMS:
-  BlueIntent: 9538a2a374af775f6ce6e29ca3b932f6af1b33c3
+  BlueIntent: 910c71d792d1eb4ef36c33e651efa39282527786
+  PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
 
-PODFILE CHECKSUM: c4a51c76b122e352253185013ff3f226cb0a6eb4
+PODFILE CHECKSUM: ad5dab0fcd9ddec5ffdcfff6cef611ff75cc45a9
 
 COCOAPODS: 1.10.0.rc.1
