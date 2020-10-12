@@ -122,6 +122,12 @@ public extension BlueIntentExtension where Base: UIView {
   }
   
   @discardableResult
+  func size(width: CGFloat, height: CGFloat) -> Self {
+    sizeLayout(width: width, height: height)
+    return self
+  }
+  
+  @discardableResult
   func left(_ left: CGFloat = 0) -> Self {
     leftLayout(left)
     return self
@@ -140,8 +146,24 @@ public extension BlueIntentExtension where Base: UIView {
   }
   
   @discardableResult
+  func top(_ controller: UIViewController,
+           inset: CGFloat = 0,
+           relation: NSLayoutConstraint.Relation = .equal) -> Self {
+    topLayout(controller, inset: inset, relation: relation)
+    return self
+  }
+  
+  @discardableResult
   func bottom(_ bottom: CGFloat) -> Self {
     bottomLayout(bottom)
+    return self
+  }
+  
+  @discardableResult
+  func bottom(_ controller: UIViewController,
+              inset: CGFloat = 0,
+              relation: NSLayoutConstraint.Relation = .equal) -> Self {
+    bottomLayout(controller, inset: inset, relation: relation)
     return self
   }
   
@@ -161,6 +183,12 @@ public extension BlueIntentExtension where Base: UIView {
   func center(_ axis: ALAxis,
               offset: CGFloat) -> Self {
     centerLayout(axis, offset: offset)
+    return self
+  }
+  
+  @discardableResult
+  func centerInSuperview() -> Self {
+    centerInSuperviewLayout()
     return self
   }
   
@@ -215,6 +243,11 @@ public extension BlueIntentExtension where Base: UIView {
 
 public extension BlueIntentExtension where Base: UIView {
   @discardableResult
+  func sizeLayout(width: CGFloat, height: CGFloat) -> [NSLayoutConstraint] {
+    return sizeLayout(CGSize(width: width, height: height))
+  }
+  
+  @discardableResult
   func sizeLayout(_ size: CGSize) -> [NSLayoutConstraint] {
     return base.autoSetDimensions(to: size)
   }
@@ -248,8 +281,26 @@ public extension BlueIntentExtension where Base: UIView {
   }
   
   @discardableResult
+  func topLayout(_ controller: UIViewController,
+                 inset: CGFloat = 0,
+                 relation: NSLayoutConstraint.Relation = .equal) -> NSLayoutConstraint {
+    return base.autoPin(toTopLayoutGuideOf: controller,
+                        withInset: inset,
+                        relation: relation)
+  }
+  
+  @discardableResult
   func bottomLayout(_ bottom: CGFloat) -> NSLayoutConstraint {
     return base.autoPinEdge(toSuperviewEdge: .bottom, withInset: bottom)
+  }
+  
+  @discardableResult
+  func bottomLayout(_ controller: UIViewController,
+                    inset: CGFloat = 0,
+                    relation: NSLayoutConstraint.Relation = .equal) -> NSLayoutConstraint {
+    return base.autoPin(toBottomLayoutGuideOf: controller,
+                        withInset: inset,
+                        relation: relation)
   }
   
   @discardableResult
@@ -268,6 +319,11 @@ public extension BlueIntentExtension where Base: UIView {
     return base.autoAlignAxis(axis,
                               toSameAxisOf: base.superview! ,
                               withOffset: offset)
+  }
+  
+  @discardableResult
+  func centerInSuperviewLayout() -> [NSLayoutConstraint] {
+    return base.autoCenterInSuperview()
   }
   
   @discardableResult
