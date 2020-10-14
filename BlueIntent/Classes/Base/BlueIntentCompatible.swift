@@ -9,11 +9,11 @@
 import Foundation
 
 public protocol BlueIntentCompatible {
-  associatedtype CompatibleType
-
-  var bi: CompatibleType { get }
+  associatedtype BlueIntentCompatibleType
+ 
+  var bi: BlueIntentCompatibleType { get }
   
-  static var bi: CompatibleType.Type { get }
+  static var bi: BlueIntentCompatibleType.Type { get }
 }
 
 public extension BlueIntentCompatible {
