@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B4EA7D42DD040EBFD4B3473 /* Pods_BlueIntent_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D67E5F80ECEF3C395C4AE8D /* Pods_BlueIntent_Tests.framework */; };
+		5B1ACEE22536E6A700F45C49 /* BlueIntentAESTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1ACEE12536E6A700F45C49 /* BlueIntentAESTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -36,6 +37,8 @@
 		5B19B8A8252F3D8100C1B54C /* String+BlueIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String+BlueIntent.swift"; path = "../BlueIntent/Classes/Foundation/String+BlueIntent.swift"; sourceTree = "<group>"; };
 		5B19B8AC252F3DAA00C1B54C /* Optional+BlueIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Optional+BlueIntent.swift"; path = "../BlueIntent/Classes/Foundation/Optional+BlueIntent.swift"; sourceTree = "<group>"; };
 		5B19B8BC252F41B500C1B54C /* BlueIntentColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentColor.swift; path = ../BlueIntent/Classes/UIKit/BlueIntentColor.swift; sourceTree = "<group>"; };
+		5B1ACEB02536DB6F00F45C49 /* BlueIntentAES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentAES.swift; path = ../BlueIntent/Classes/Crypto/BlueIntentAES.swift; sourceTree = "<group>"; };
+		5B1ACEE12536E6A700F45C49 /* BlueIntentAESTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueIntentAESTests.swift; sourceTree = "<group>"; };
 		5B8CE2E1253031C70087F739 /* BlueIntentAppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentAppleLogin.swift; path = ../BlueIntent/Classes/AppleLogin/BlueIntentAppleLogin.swift; sourceTree = "<group>"; };
 		5B8CE5902531591F0087F739 /* BlueIntentLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentLayout.swift; path = ../BlueIntent/Classes/Layout/BlueIntentLayout.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* BlueIntent_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueIntent_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +90,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5B1ACECC2536E57600F45C49 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				5B1ACEE12536E6A700F45C49 /* BlueIntentAESTests.swift */,
+			);
+			name = Crypto;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +144,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				5B1ACECC2536E57600F45C49 /* Crypto */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -162,6 +174,7 @@
 				5B19B8AC252F3DAA00C1B54C /* Optional+BlueIntent.swift */,
 				5B8CE2E1253031C70087F739 /* BlueIntentAppleLogin.swift */,
 				5B8CE5902531591F0087F739 /* BlueIntentLayout.swift */,
+				5B1ACEB02536DB6F00F45C49 /* BlueIntentAES.swift */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -342,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				5B1ACEE22536E6A700F45C49 /* BlueIntentAESTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

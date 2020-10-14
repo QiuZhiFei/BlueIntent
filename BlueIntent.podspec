@@ -70,4 +70,10 @@ Pod::Spec.new do |s|
     ss.dependency 'PureLayout',       '~> 3.1.6'
   end
   
+  s.subspec 'Crypto' do |ss|
+    ss.source_files = 'BlueIntent/Classes/Crypto/**/*'
+    ss.dependency 'BlueIntent/Base'
+    ss.dependency 'CryptoSwift',      '~> 1.3.1'
+  end
+  
 end

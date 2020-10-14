@@ -5,6 +5,7 @@ use_frameworks! :linkage => :static
 target 'BlueIntent_Example' do
   pod 'BlueIntent', :path => '../BlueIntent.podspec'
   pod 'BlueIntent/Layout', :path => '../BlueIntent.podspec'
+  pod 'BlueIntent/Crypto', :path => '../BlueIntent.podspec'
 
   target 'BlueIntent_Tests' do
     inherit! :search_paths

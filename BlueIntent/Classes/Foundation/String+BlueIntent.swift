@@ -21,3 +21,12 @@ extension String {
     return String(Array(self)[safe: bounds])
   }
 }
+
+extension String: BlueIntentCompatible { }
+
+extension BlueIntentExtension where Base == String {
+  public static func random(_ length: Int) -> String {
+    let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~`!@#$%^&*()-=_+[]{}\\|;:'\",<.>/?"
+    return String((0..<length).map{ _ in letters.randomElement()! })
+  }
+}
