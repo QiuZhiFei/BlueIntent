@@ -29,6 +29,7 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
+  s.watchos.deployment_target = '3.0'
   
   s.swift_versions = ['5.1', '5.2']
 
@@ -45,16 +46,19 @@ Pod::Spec.new do |s|
   s.default_subspecs = 'Foundation', 'UIKit'
   
   s.subspec 'Base' do |ss|
-    ss.source_files = 'BlueIntent/Classes/Base/**/*'
+    ss.ios.source_files = 'BlueIntent/Classes/Base/**/*'
+    ss.watchos.source_files = 'BlueIntent/Classes/Base/**/*'
   end
    
   s.subspec 'Foundation' do |ss|
-    ss.source_files = 'BlueIntent/Classes/Foundation/**/*'
+    ss.ios.source_files = 'BlueIntent/Classes/Foundation/**/*'
+    ss.watchos.source_files = 'BlueIntent/Classes/Foundation/**/*'
     ss.dependency 'BlueIntent/Base'
   end
   
   s.subspec 'UIKit' do |ss|
-    ss.source_files = 'BlueIntent/Classes/UIKit/**/*'
+    ss.ios.source_files = 'BlueIntent/Classes/UIKit/iOS/**/*'
+    ss.watchos.source_files = 'BlueIntent/Classes/UIKit/WatchOS/**/*'
     ss.dependency 'BlueIntent/Base'
     ss.dependency 'BlueIntent/Foundation'
   end
