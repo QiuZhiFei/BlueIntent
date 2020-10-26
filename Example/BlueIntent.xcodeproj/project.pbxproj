@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		1B4EA7D42DD040EBFD4B3473 /* Pods_BlueIntent_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D67E5F80ECEF3C395C4AE8D /* Pods_BlueIntent_Tests.framework */; };
 		5B1ACEE22536E6A700F45C49 /* BlueIntentAESTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1ACEE12536E6A700F45C49 /* BlueIntentAESTests.swift */; };
+		5BBD55A825469E92007E762B /* BlueIntent_Watch_Example WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5BBD55A725469E92007E762B /* BlueIntent_Watch_Example WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5BBD55AE25469E92007E762B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD55AC25469E92007E762B /* Interface.storyboard */; };
+		5BBD55B025469E94007E762B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD55AF25469E94007E762B /* Assets.xcassets */; };
+		5BBD55B725469E94007E762B /* BlueIntent_Watch_Example WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5BBD55B625469E94007E762B /* BlueIntent_Watch_Example WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5BBD55BC25469E94007E762B /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD55BB25469E94007E762B /* InterfaceController.swift */; };
+		5BBD55BE25469E94007E762B /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD55BD25469E94007E762B /* ExtensionDelegate.swift */; };
+		5BBD55C025469E94007E762B /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD55BF25469E94007E762B /* NotificationController.swift */; };
+		5BBD55C225469E94007E762B /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD55C125469E94007E762B /* ComplicationController.swift */; };
+		5BBD55C425469E95007E762B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD55C325469E95007E762B /* Assets.xcassets */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -16,9 +25,24 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		67B209AAB585A114DF8C1FDE /* Pods_BlueIntent_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8024FE4A8AA751D7310266F0 /* Pods_BlueIntent_Example.framework */; };
+		9EEA4C410DC7EA61F02CD486 /* Pods_BlueIntent_Watch_Example_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA04E03EEB722A9120E81CB /* Pods_BlueIntent_Watch_Example_WatchKit_Extension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5BBD55A925469E92007E762B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BBD55A625469E92007E762B;
+			remoteInfo = "BlueIntent_Watch_Example WatchKit App";
+		};
+		5BBD55B825469E94007E762B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BBD55B525469E94007E762B;
+			remoteInfo = "BlueIntent_Watch_Example WatchKit Extension";
+		};
 		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
@@ -28,7 +52,34 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5BBD55C925469E95007E762B /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				5BBD55A825469E92007E762B /* BlueIntent_Watch_Example WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BBD55CC25469E95007E762B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5BBD55B725469E94007E762B /* BlueIntent_Watch_Example WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1CAE72AD8744A20DF53C9382 /* Pods-BlueIntent_Watch_Example WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Watch_Example WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Watch_Example WatchKit Extension/Pods-BlueIntent_Watch_Example WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		34FDAD6D062300B72152D91D /* Pods-BlueIntent_Watch_Example WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Watch_Example WatchKit Extension.debug.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Watch_Example WatchKit Extension/Pods-BlueIntent_Watch_Example WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		3B058D676181A4B6409DE5F7 /* Pods-BlueIntent_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Tests.debug.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Tests/Pods-BlueIntent_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B19B880252F394B00C1B54C /* BlueIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntent.swift; path = ../BlueIntent/Classes/Base/BlueIntent.swift; sourceTree = "<group>"; };
 		5B19B897252F3C3900C1B54C /* BlueIntentCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentCompatible.swift; path = ../BlueIntent/Classes/Base/BlueIntentCompatible.swift; sourceTree = "<group>"; };
@@ -36,11 +87,24 @@
 		5B19B8A4252F3D5700C1B54C /* Array+BlueIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Array+BlueIntent.swift"; path = "../BlueIntent/Classes/Foundation/Array+BlueIntent.swift"; sourceTree = "<group>"; };
 		5B19B8A8252F3D8100C1B54C /* String+BlueIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String+BlueIntent.swift"; path = "../BlueIntent/Classes/Foundation/String+BlueIntent.swift"; sourceTree = "<group>"; };
 		5B19B8AC252F3DAA00C1B54C /* Optional+BlueIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Optional+BlueIntent.swift"; path = "../BlueIntent/Classes/Foundation/Optional+BlueIntent.swift"; sourceTree = "<group>"; };
-		5B19B8BC252F41B500C1B54C /* BlueIntentColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentColor.swift; path = ../BlueIntent/Classes/UIKit/BlueIntentColor.swift; sourceTree = "<group>"; };
 		5B1ACEB02536DB6F00F45C49 /* BlueIntentAES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentAES.swift; path = ../BlueIntent/Classes/Crypto/BlueIntentAES.swift; sourceTree = "<group>"; };
 		5B1ACEE12536E6A700F45C49 /* BlueIntentAESTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueIntentAESTests.swift; sourceTree = "<group>"; };
 		5B8CE2E1253031C70087F739 /* BlueIntentAppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentAppleLogin.swift; path = ../BlueIntent/Classes/AppleLogin/BlueIntentAppleLogin.swift; sourceTree = "<group>"; };
 		5B8CE5902531591F0087F739 /* BlueIntentLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentLayout.swift; path = ../BlueIntent/Classes/Layout/BlueIntentLayout.swift; sourceTree = "<group>"; };
+		5BBD555C25467D2D007E762B /* BlueIntentColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentColor.swift; path = ../BlueIntent/Classes/UIKit/BlueIntentColor.swift; sourceTree = "<group>"; };
+		5BBD55A425469E92007E762B /* BlueIntent_Watch_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueIntent_Watch_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BBD55A725469E92007E762B /* BlueIntent_Watch_Example WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BlueIntent_Watch_Example WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BBD55AD25469E92007E762B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		5BBD55AF25469E94007E762B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5BBD55B125469E94007E762B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BBD55B625469E94007E762B /* BlueIntent_Watch_Example WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BlueIntent_Watch_Example WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BBD55BB25469E94007E762B /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		5BBD55BD25469E94007E762B /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		5BBD55BF25469E94007E762B /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		5BBD55C125469E94007E762B /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		5BBD55C325469E95007E762B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5BBD55C525469E95007E762B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BBD55C625469E95007E762B /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* BlueIntent_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueIntent_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +115,7 @@
 		607FACE51AFB9204008FA782 /* BlueIntent_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlueIntent_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		6DA04E03EEB722A9120E81CB /* Pods_BlueIntent_Watch_Example_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueIntent_Watch_Example_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C3C0D06F07EC524AC5AC22C /* BlueIntent.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BlueIntent.podspec; path = ../BlueIntent.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8024FE4A8AA751D7310266F0 /* Pods_BlueIntent_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueIntent_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A8420186A39DB93996F6D1E /* Pods-BlueIntent_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Tests.release.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Tests/Pods-BlueIntent_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,6 +127,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5251A1CB09C3F69280A2A024 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BBD55B325469E94007E762B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EEA4C410DC7EA61F02CD486 /* Pods_BlueIntent_Watch_Example_WatchKit_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,6 +158,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B2FF2D27F2A189AC7F6E028B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -86,6 +173,7 @@
 			children = (
 				8024FE4A8AA751D7310266F0 /* Pods_BlueIntent_Example.framework */,
 				9D67E5F80ECEF3C395C4AE8D /* Pods_BlueIntent_Tests.framework */,
+				6DA04E03EEB722A9120E81CB /* Pods_BlueIntent_Watch_Example_WatchKit_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -98,12 +186,38 @@
 			name = Crypto;
 			sourceTree = "<group>";
 		};
+		5BBD55AB25469E92007E762B /* BlueIntent_Watch_Example WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				5BBD55AC25469E92007E762B /* Interface.storyboard */,
+				5BBD55AF25469E94007E762B /* Assets.xcassets */,
+				5BBD55B125469E94007E762B /* Info.plist */,
+			);
+			path = "BlueIntent_Watch_Example WatchKit App";
+			sourceTree = "<group>";
+		};
+		5BBD55BA25469E94007E762B /* BlueIntent_Watch_Example WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5BBD55BB25469E94007E762B /* InterfaceController.swift */,
+				5BBD55BD25469E94007E762B /* ExtensionDelegate.swift */,
+				5BBD55BF25469E94007E762B /* NotificationController.swift */,
+				5BBD55C125469E94007E762B /* ComplicationController.swift */,
+				5BBD55C325469E95007E762B /* Assets.xcassets */,
+				5BBD55C525469E95007E762B /* Info.plist */,
+				5BBD55C625469E95007E762B /* PushNotificationPayload.apns */,
+			);
+			path = "BlueIntent_Watch_Example WatchKit Extension";
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for BlueIntent */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				5BBD55AB25469E92007E762B /* BlueIntent_Watch_Example WatchKit App */,
+				5BBD55BA25469E94007E762B /* BlueIntent_Watch_Example WatchKit Extension */,
 				607FACD11AFB9204008FA782 /* Products */,
 				661322C477BB29D545C82BE4 /* Pods */,
 				113B9C7B47393611492C8C4B /* Frameworks */,
@@ -115,6 +229,9 @@
 			children = (
 				607FACD01AFB9204008FA782 /* BlueIntent_Example.app */,
 				607FACE51AFB9204008FA782 /* BlueIntent_Tests.xctest */,
+				5BBD55A425469E92007E762B /* BlueIntent_Watch_Example.app */,
+				5BBD55A725469E92007E762B /* BlueIntent_Watch_Example WatchKit App.app */,
+				5BBD55B625469E94007E762B /* BlueIntent_Watch_Example WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,7 +283,6 @@
 				BFD497FFB10F4F74C6FABDAB /* README.md */,
 				D900086B184C4F3BCF1C9D77 /* LICENSE */,
 				5B19B880252F394B00C1B54C /* BlueIntent.swift */,
-				5B19B8BC252F41B500C1B54C /* BlueIntentColor.swift */,
 				5B19B897252F3C3900C1B54C /* BlueIntentCompatible.swift */,
 				5B19B89A252F3D2B00C1B54C /* BlueIntentApp.swift */,
 				5B19B8A4252F3D5700C1B54C /* Array+BlueIntent.swift */,
@@ -175,6 +291,7 @@
 				5B8CE2E1253031C70087F739 /* BlueIntentAppleLogin.swift */,
 				5B8CE5902531591F0087F739 /* BlueIntentLayout.swift */,
 				5B1ACEB02536DB6F00F45C49 /* BlueIntentAES.swift */,
+				5BBD555C25467D2D007E762B /* BlueIntentColor.swift */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -186,6 +303,8 @@
 				B13C74B5904B126B9A9E8897 /* Pods-BlueIntent_Example.release.xcconfig */,
 				3B058D676181A4B6409DE5F7 /* Pods-BlueIntent_Tests.debug.xcconfig */,
 				8A8420186A39DB93996F6D1E /* Pods-BlueIntent_Tests.release.xcconfig */,
+				34FDAD6D062300B72152D91D /* Pods-BlueIntent_Watch_Example WatchKit Extension.debug.xcconfig */,
+				1CAE72AD8744A20DF53C9382 /* Pods-BlueIntent_Watch_Example WatchKit Extension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -193,6 +312,60 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5BBD55A325469E91007E762B /* BlueIntent_Watch_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BBD55D125469E95007E762B /* Build configuration list for PBXNativeTarget "BlueIntent_Watch_Example" */;
+			buildPhases = (
+				5BBD55A225469E91007E762B /* Resources */,
+				5BBD55C925469E95007E762B /* Embed Watch Content */,
+				5251A1CB09C3F69280A2A024 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BBD55AA25469E92007E762B /* PBXTargetDependency */,
+			);
+			name = BlueIntent_Watch_Example;
+			productName = BlueIntent_Watch_Example;
+			productReference = 5BBD55A425469E92007E762B /* BlueIntent_Watch_Example.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		5BBD55A625469E92007E762B /* BlueIntent_Watch_Example WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BBD55D025469E95007E762B /* Build configuration list for PBXNativeTarget "BlueIntent_Watch_Example WatchKit App" */;
+			buildPhases = (
+				5BBD55A525469E92007E762B /* Resources */,
+				5BBD55CC25469E95007E762B /* Embed App Extensions */,
+				B2FF2D27F2A189AC7F6E028B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BBD55B925469E94007E762B /* PBXTargetDependency */,
+			);
+			name = "BlueIntent_Watch_Example WatchKit App";
+			productName = "BlueIntent_Watch_Example WatchKit App";
+			productReference = 5BBD55A725469E92007E762B /* BlueIntent_Watch_Example WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		5BBD55B525469E94007E762B /* BlueIntent_Watch_Example WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BBD55CF25469E95007E762B /* Build configuration list for PBXNativeTarget "BlueIntent_Watch_Example WatchKit Extension" */;
+			buildPhases = (
+				44EE5BF10325E5FEAEE7129C /* [CP] Check Pods Manifest.lock */,
+				5BBD55B225469E94007E762B /* Sources */,
+				5BBD55B325469E94007E762B /* Frameworks */,
+				5BBD55B425469E94007E762B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BlueIntent_Watch_Example WatchKit Extension";
+			productName = "BlueIntent_Watch_Example WatchKit Extension";
+			productReference = 5BBD55B625469E94007E762B /* BlueIntent_Watch_Example WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		607FACCF1AFB9204008FA782 /* BlueIntent_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "BlueIntent_Example" */;
@@ -236,10 +409,25 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					5BBD55A325469E91007E762B = {
+						CreatedOnToolsVersion = 12.0.1;
+						DevelopmentTeam = AYZZSQA769;
+						ProvisioningStyle = Automatic;
+					};
+					5BBD55A625469E92007E762B = {
+						CreatedOnToolsVersion = 12.0.1;
+						DevelopmentTeam = AYZZSQA769;
+						ProvisioningStyle = Automatic;
+					};
+					5BBD55B525469E94007E762B = {
+						CreatedOnToolsVersion = 12.0.1;
+						DevelopmentTeam = AYZZSQA769;
+						ProvisioningStyle = Automatic;
+					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = AYZZSQA769;
@@ -269,11 +457,38 @@
 			targets = (
 				607FACCF1AFB9204008FA782 /* BlueIntent_Example */,
 				607FACE41AFB9204008FA782 /* BlueIntent_Tests */,
+				5BBD55A325469E91007E762B /* BlueIntent_Watch_Example */,
+				5BBD55A625469E92007E762B /* BlueIntent_Watch_Example WatchKit App */,
+				5BBD55B525469E94007E762B /* BlueIntent_Watch_Example WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5BBD55A225469E91007E762B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BBD55A525469E92007E762B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BBD55B025469E94007E762B /* Assets.xcassets in Resources */,
+				5BBD55AE25469E92007E762B /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BBD55B425469E94007E762B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BBD55C425469E95007E762B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCE1AFB9204008FA782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,6 +509,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		44EE5BF10325E5FEAEE7129C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlueIntent_Watch_Example WatchKit Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4C192122AF62CD7BD9C7C46D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -341,6 +578,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5BBD55B225469E94007E762B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BBD55C025469E94007E762B /* NotificationController.swift in Sources */,
+				5BBD55C225469E94007E762B /* ComplicationController.swift in Sources */,
+				5BBD55BE25469E94007E762B /* ExtensionDelegate.swift in Sources */,
+				5BBD55BC25469E94007E762B /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -362,6 +610,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5BBD55AA25469E92007E762B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BBD55A625469E92007E762B /* BlueIntent_Watch_Example WatchKit App */;
+			targetProxy = 5BBD55A925469E92007E762B /* PBXContainerItemProxy */;
+		};
+		5BBD55B925469E94007E762B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BBD55B525469E94007E762B /* BlueIntent_Watch_Example WatchKit Extension */;
+			targetProxy = 5BBD55B825469E94007E762B /* PBXContainerItemProxy */;
+		};
 		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 607FACCF1AFB9204008FA782 /* BlueIntent_Example */;
@@ -370,6 +628,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5BBD55AC25469E92007E762B /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BBD55AD25469E92007E762B /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -389,6 +655,185 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5BBD55C725469E95007E762B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = AYZZSQA769;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dou.BlueIntent-Watch-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5BBD55C825469E95007E762B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AYZZSQA769;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dou.BlueIntent-Watch-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5BBD55CA25469E95007E762B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = AYZZSQA769;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IBSC_MODULE = BlueIntent_Watch_Example_WatchKit_Extension;
+				INFOPLIST_FILE = "BlueIntent_Watch_Example WatchKit App/Info.plist";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dou.BlueIntent-Watch-Example.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Debug;
+		};
+		5BBD55CB25469E95007E762B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AYZZSQA769;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IBSC_MODULE = BlueIntent_Watch_Example_WatchKit_Extension;
+				INFOPLIST_FILE = "BlueIntent_Watch_Example WatchKit App/Info.plist";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dou.BlueIntent-Watch-Example.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Release;
+		};
+		5BBD55CD25469E95007E762B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34FDAD6D062300B72152D91D /* Pods-BlueIntent_Watch_Example WatchKit Extension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = AYZZSQA769;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "BlueIntent_Watch_Example WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dou.BlueIntent-Watch-Example.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Debug;
+		};
+		5BBD55CE25469E95007E762B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CAE72AD8744A20DF53C9382 /* Pods-BlueIntent_Watch_Example WatchKit Extension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AYZZSQA769;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "BlueIntent_Watch_Example WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dou.BlueIntent-Watch-Example.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Release;
+		};
 		607FACED1AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -565,6 +1010,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5BBD55CF25469E95007E762B /* Build configuration list for PBXNativeTarget "BlueIntent_Watch_Example WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BBD55CD25469E95007E762B /* Debug */,
+				5BBD55CE25469E95007E762B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BBD55D025469E95007E762B /* Build configuration list for PBXNativeTarget "BlueIntent_Watch_Example WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BBD55CA25469E95007E762B /* Debug */,
+				5BBD55CB25469E95007E762B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BBD55D125469E95007E762B /* Build configuration list for PBXNativeTarget "BlueIntent_Watch_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BBD55C725469E95007E762B /* Debug */,
+				5BBD55C825469E95007E762B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "BlueIntent" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

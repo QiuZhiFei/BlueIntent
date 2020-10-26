@@ -57,8 +57,8 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'UIKit' do |ss|
-    ss.ios.source_files = 'BlueIntent/Classes/UIKit/iOS/**/*'
-    ss.watchos.source_files = 'BlueIntent/Classes/UIKit/WatchOS/**/*'
+    ss.ios.source_files = 'BlueIntent/Classes/UIKit/**/*'
+    ss.watchos.source_files = 'BlueIntent/Classes/UIKit/**/*'
     ss.dependency 'BlueIntent/Base'
     ss.dependency 'BlueIntent/Foundation'
   end

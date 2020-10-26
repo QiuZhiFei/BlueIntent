@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public extension BlueIntent {
   struct ColorRGBA: Equatable {
@@ -45,7 +46,10 @@ public extension BlueIntentExtension where Base: UIColor {
     let blue = CGFloat( hex & 0x0000FF) / divisor
     return UIColor(red: red, green: green, blue: blue, alpha: alpha)
   }
-  
+}
+
+#if os(iOS)
+public extension BlueIntentExtension where Base: UIColor {
   static func dynamic(_ light: UInt, dark: UInt? = nil) -> UIColor {
     let dark = dark.var { (it) -> UIColor? in
       if let it = it {
@@ -68,6 +72,5 @@ public extension BlueIntentExtension where Base: UIColor {
     return light
   }
 }
-
-
+#endif
 
