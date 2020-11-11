@@ -154,7 +154,7 @@ public extension BlueIntentExtension where Base: UIView {
   }
   
   @discardableResult
-  func bottom(_ bottom: CGFloat) -> Self {
+  func bottom(_ bottom: CGFloat = 0) -> Self {
     bottomLayout(bottom)
     return self
   }
@@ -183,6 +183,14 @@ public extension BlueIntentExtension where Base: UIView {
   func center(_ axis: ALAxis,
               offset: CGFloat) -> Self {
     centerLayout(axis, offset: offset)
+    return self
+  }
+  
+  @discardableResult
+  func center(_ axis: ALAxis,
+              view: UIView,
+              offset: CGFloat) -> Self {
+    centerLayout(axis, view: view, offset: offset)
     return self
   }
   
@@ -316,8 +324,17 @@ public extension BlueIntentExtension where Base: UIView {
   @discardableResult
   func centerLayout(_ axis: ALAxis,
                     offset: CGFloat) -> NSLayoutConstraint {
+    return centerLayout(axis,
+                        view: base.superview!,
+                        offset: offset)
+  }
+  
+  @discardableResult
+  func centerLayout(_ axis: ALAxis,
+                    view: UIView,
+                    offset: CGFloat) -> NSLayoutConstraint {
     return base.autoAlignAxis(axis,
-                              toSameAxisOf: base.superview! ,
+                              toSameAxisOf: view,
                               withOffset: offset)
   }
   
