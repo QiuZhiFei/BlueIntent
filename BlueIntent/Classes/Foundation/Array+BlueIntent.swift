@@ -28,3 +28,10 @@ extension Array where Element : Equatable {
   }
 }
 
+extension Array where Element : Equatable {
+  public subscript(safe index: Int) -> Element? {
+    if index < 0 { return nil }
+    if index >= count { return nil }
+    return self[index]
+  }
+}
