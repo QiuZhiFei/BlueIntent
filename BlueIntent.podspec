@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BlueIntent'
-  s.version          = '0.4.0'
+  s.version          = '0.5.0'
   s.summary          = 'Swfit block utilities.'
 
 # This description is used to generate tags and improve search results.
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
-  s.watchos.deployment_target = '3.0'
+  # s.watchos.deployment_target = '3.0'
   
   s.swift_versions = ['5.1', '5.2']
 
@@ -46,18 +46,22 @@ Pod::Spec.new do |s|
   s.default_subspecs = 'Foundation', 'UIKit'
   
   s.subspec 'Base' do |ss|
+    ss.ios.deployment_target = '9.0'
     ss.ios.source_files = 'BlueIntent/Classes/Base/**/*'
+    ss.watchos.deployment_target = '3.0'
     ss.watchos.source_files = 'BlueIntent/Classes/Base/**/*'
   end
    
   s.subspec 'Foundation' do |ss|
     ss.ios.source_files = 'BlueIntent/Classes/Foundation/**/*'
-    ss.watchos.source_files = 'BlueIntent/Classes/Foundation/**/*'
     ss.dependency 'BlueIntent/Base'
+    ss.watchos.deployment_target = '3.0'
+    ss.watchos.source_files = 'BlueIntent/Classes/Foundation/**/*'
   end
   
   s.subspec 'UIKit' do |ss|
     ss.ios.source_files = 'BlueIntent/Classes/UIKit/**/*'
+    ss.watchos.deployment_target = '3.0'
     ss.watchos.source_files = 'BlueIntent/Classes/UIKit/**/*'
     ss.dependency 'BlueIntent/Base'
     ss.dependency 'BlueIntent/Foundation'

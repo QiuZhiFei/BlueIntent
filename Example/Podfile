@@ -20,6 +20,7 @@ target 'BlueIntent_Watch_Example WatchKit Extension' do
   inhibit_all_warnings!
   use_frameworks! :linkage => :static
   
-  pod 'BlueIntent', :path => '../BlueIntent.podspec'
+  pod 'BlueIntent/Foundation', :path => '../BlueIntent.podspec'
+  pod 'BlueIntent/UIKit', :path => '../BlueIntent.podspec'
   
 end
