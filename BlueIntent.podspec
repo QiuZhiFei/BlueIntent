@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BlueIntent'
-  s.version          = '0.5.0'
+  s.version          = '0.6.0'
   s.summary          = 'Swfit block utilities.'
 
 # This description is used to generate tags and improve search results.
@@ -53,6 +53,7 @@ Pod::Spec.new do |s|
   end
    
   s.subspec 'Foundation' do |ss|
+    ss.ios.deployment_target = '9.0'
     ss.ios.source_files = 'BlueIntent/Classes/Foundation/**/*'
     ss.dependency 'BlueIntent/Base'
     ss.watchos.deployment_target = '3.0'
@@ -60,6 +61,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'UIKit' do |ss|
+    ss.ios.deployment_target = '9.0'
     ss.ios.source_files = 'BlueIntent/Classes/UIKit/**/*'
     ss.watchos.deployment_target = '3.0'
     ss.watchos.source_files = 'BlueIntent/Classes/UIKit/**/*'
@@ -68,17 +70,20 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'AppleLogin' do |ss|
+    ss.ios.deployment_target = '9.0'
     ss.source_files = 'BlueIntent/Classes/AppleLogin/**/*'
     ss.dependency 'BlueIntent/Base'
   end
   
   s.subspec 'Layout' do |ss|
+    ss.ios.deployment_target = '9.0'
     ss.source_files = 'BlueIntent/Classes/Layout/**/*'
     ss.dependency 'BlueIntent/Base'
     ss.dependency 'PureLayout',       '~> 3.1.6'
   end
   
   s.subspec 'Crypto' do |ss|
+    ss.ios.deployment_target = '9.0'
     ss.source_files = 'BlueIntent/Classes/Crypto/**/*'
     ss.dependency 'BlueIntent/Base'
     ss.dependency 'CryptoSwift',      '~> 1.3.1'
