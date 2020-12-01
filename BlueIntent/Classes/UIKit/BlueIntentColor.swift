@@ -46,6 +46,22 @@ public extension BlueIntentExtension where Base: UIColor {
     let blue = CGFloat( hex & 0x0000FF) / divisor
     return UIColor(red: red, green: green, blue: blue, alpha: alpha)
   }
+  
+  static func hex(_ hex: String?, alpha: CGFloat = 1) -> UIColor? {
+    guard let hex = hex else { return nil }
+    guard hex.first == "#" else { return nil }
+    if hex.count == 4 {
+      let hex = "#" + Array(hex).map { (char) -> String in
+        if char == "#" { return "" }
+        return "\(char)\(char)"
+      }.joined()
+      return UIColor.bi.hex(hex)
+    }
+    if hex.count == 7, let hex = UInt(hex[safe: 1, 7], radix: 16) {
+      return UIColor.bi.hex(hex, alpha: alpha)
+    }
+    return nil
+  }
 }
 
 #if os(iOS)
