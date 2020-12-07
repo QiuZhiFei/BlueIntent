@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B4EA7D42DD040EBFD4B3473 /* Pods_BlueIntent_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D67E5F80ECEF3C395C4AE8D /* Pods_BlueIntent_Tests.framework */; };
 		5B1ACEE22536E6A700F45C49 /* BlueIntentAESTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1ACEE12536E6A700F45C49 /* BlueIntentAESTests.swift */; };
+		5B3942BF2581475A000F668C /* BlueIntentDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3942BE2581475A000F668C /* BlueIntentDBTests.swift */; };
 		5BBD55A825469E92007E762B /* BlueIntent_Watch_Example WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5BBD55A725469E92007E762B /* BlueIntent_Watch_Example WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5BBD55AE25469E92007E762B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD55AC25469E92007E762B /* Interface.storyboard */; };
 		5BBD55B025469E94007E762B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD55AF25469E94007E762B /* Assets.xcassets */; };
@@ -89,6 +90,7 @@
 		5B19B8AC252F3DAA00C1B54C /* Optional+BlueIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Optional+BlueIntent.swift"; path = "../BlueIntent/Classes/Foundation/Optional+BlueIntent.swift"; sourceTree = "<group>"; };
 		5B1ACEB02536DB6F00F45C49 /* BlueIntentAES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentAES.swift; path = ../BlueIntent/Classes/Crypto/BlueIntentAES.swift; sourceTree = "<group>"; };
 		5B1ACEE12536E6A700F45C49 /* BlueIntentAESTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueIntentAESTests.swift; sourceTree = "<group>"; };
+		5B3942BE2581475A000F668C /* BlueIntentDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueIntentDBTests.swift; sourceTree = "<group>"; };
 		5B8CE2E1253031C70087F739 /* BlueIntentAppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentAppleLogin.swift; path = ../BlueIntent/Classes/AppleLogin/BlueIntentAppleLogin.swift; sourceTree = "<group>"; };
 		5B8CE5902531591F0087F739 /* BlueIntentLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentLayout.swift; path = ../BlueIntent/Classes/Layout/BlueIntentLayout.swift; sourceTree = "<group>"; };
 		5BBD555C25467D2D007E762B /* BlueIntentColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentColor.swift; path = ../BlueIntent/Classes/UIKit/BlueIntentColor.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		5BBD55C325469E95007E762B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BBD55C525469E95007E762B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BBD55C625469E95007E762B /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		5BC2E3C2257E004E0091F416 /* BlueIntentDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentDB.swift; path = ../BlueIntent/Classes/DB/BlueIntentDB.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* BlueIntent_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueIntent_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +189,14 @@
 			name = Crypto;
 			sourceTree = "<group>";
 		};
+		5B3942BD2581474C000F668C /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				5B3942BE2581475A000F668C /* BlueIntentDBTests.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 		5BBD55AB25469E92007E762B /* BlueIntent_Watch_Example WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +272,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				5B3942BD2581474C000F668C /* DB */,
 				5B1ACECC2536E57600F45C49 /* Crypto */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
@@ -292,6 +304,7 @@
 				5B8CE5902531591F0087F739 /* BlueIntentLayout.swift */,
 				5B1ACEB02536DB6F00F45C49 /* BlueIntentAES.swift */,
 				5BBD555C25467D2D007E762B /* BlueIntentColor.swift */,
+				5BC2E3C2257E004E0091F416 /* BlueIntentDB.swift */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -603,6 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				5B3942BF2581475A000F668C /* BlueIntentDBTests.swift in Sources */,
 				5B1ACEE22536E6A700F45C49 /* BlueIntentAESTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -969,6 +983,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B058D676181A4B6409DE5F7 /* Pods-BlueIntent_Tests.debug.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BlueIntent_Example.app/BlueIntent_Example";
 				DEVELOPMENT_TEAM = AYZZSQA769;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -992,6 +1007,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8A8420186A39DB93996F6D1E /* Pods-BlueIntent_Tests.release.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BlueIntent_Example.app/BlueIntent_Example";
 				DEVELOPMENT_TEAM = AYZZSQA769;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",

@@ -68,6 +68,14 @@ Pod::Spec.new do |s|
     ss.dependency 'BlueIntent/Base'
     ss.dependency 'BlueIntent/Foundation'
   end
+
+  s.subspec 'DB' do |ss|
+    ss.ios.deployment_target = '9.0'
+    ss.source_files = 'BlueIntent/Classes/DB/**/*'
+    ss.dependency 'BlueIntent/Base'
+    ss.dependency 'BlueIntent/Foundation'
+    ss.dependency 'FMDB',             '~> 2.7'
+  end
   
   s.subspec 'AppleLogin' do |ss|
     ss.ios.deployment_target = '9.0'
