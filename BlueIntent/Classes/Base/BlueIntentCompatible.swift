@@ -43,4 +43,9 @@ extension BlueIntentExtension {
     block?(base)
     return self
   }
+  
+  @discardableResult
+  public func `var`(_ block: ((_ it: Base) -> Base)?) -> Base {
+    return block?(base) ?? base
+  }
 }
