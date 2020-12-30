@@ -93,6 +93,7 @@
 		5B1ACEE12536E6A700F45C49 /* BlueIntentAESTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueIntentAESTests.swift; sourceTree = "<group>"; };
 		5B3942BE2581475A000F668C /* BlueIntentDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueIntentDBTests.swift; sourceTree = "<group>"; };
 		5B6A407D259B2C860066DFD3 /* BlueIntentColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueIntentColorTests.swift; sourceTree = "<group>"; };
+		5B6A40DB259C89160066DFD3 /* UIView+BlueIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+BlueIntent.swift"; path = "../BlueIntent/Classes/UIKit/UIView+BlueIntent.swift"; sourceTree = "<group>"; };
 		5B8CE2E1253031C70087F739 /* BlueIntentAppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentAppleLogin.swift; path = ../BlueIntent/Classes/AppleLogin/BlueIntentAppleLogin.swift; sourceTree = "<group>"; };
 		5B8CE5902531591F0087F739 /* BlueIntentLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentLayout.swift; path = ../BlueIntent/Classes/Layout/BlueIntentLayout.swift; sourceTree = "<group>"; };
 		5BBD555C25467D2D007E762B /* BlueIntentColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentColor.swift; path = ../BlueIntent/Classes/UIKit/BlueIntentColor.swift; sourceTree = "<group>"; };
@@ -315,6 +316,7 @@
 				5B8CE5902531591F0087F739 /* BlueIntentLayout.swift */,
 				5B1ACEB02536DB6F00F45C49 /* BlueIntentAES.swift */,
 				5BBD555C25467D2D007E762B /* BlueIntentColor.swift */,
+				5B6A40DB259C89160066DFD3 /* UIView+BlueIntent.swift */,
 				5BC2E3C2257E004E0091F416 /* BlueIntentDB.swift */,
 			);
 			name = "Podspec Metadata";
