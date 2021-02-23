@@ -33,14 +33,18 @@ public extension BlueIntent {
     private let dbQueue: FMDatabaseQueue?
     public let path: String
     
+    // path is Documents/blueintent/db/shared.db
+    // isExcludedFromBackup is true, excluded from backups
     public static let shared: BlueIntent.DB = {
-      let db = BlueIntent.DB(path: "\(NSHomeDirectory())/blueintent_shared.db", isExcludedFromBackup: true)
+      let documentDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+      let dbPath = documentDir.appendingPathComponent("blueintent/db/shared.db")
+      let db = BlueIntent.DB(url: dbPath, isExcludedFromBackup: true)
       return db
     }()
     
     @discardableResult
-    public convenience init(url: URL) {
-      self.init(path: url.path)
+    public convenience init(url: URL, isExcludedFromBackup: Bool = true, defer: ((DBResult) -> Void)? = nil) {
+      self.init(path: url.path, isExcludedFromBackup: isExcludedFromBackup, defer: `defer`)
     }
     
     @discardableResult
@@ -173,5 +177,52 @@ fileprivate extension BlueIntent.DB {
       }
     }
     return nil
+  }
+}
+
+// MARK: DBWrapper
+
+extension BlueIntent.DB.DBWrapper {
+  public typealias Key = (() -> String)
+}
+
+extension BlueIntent.DB {
+  
+  @propertyWrapper
+  public struct DBWrapper<Value> {
+    private let key: Key
+    private let `default`: Value
+    private let db: BlueIntent.DB
+    
+    public init(_ key: String, default: Value, db: BlueIntent.DB) {
+      self.key = {key}
+      self.default = `default`
+      self.db = db
+    }
+    
+    public init(_ key: @escaping Key, default: Value, db: BlueIntent.DB) {
+      self.key = key
+      self.default = `default`
+      self.db = db
+    }
+    
+    public var wrappedValue: Value {
+      get {
+        return db[key(), Value.self] ?? self.default
+      }
+      set {
+        db[key(), Value.self] = newValue
+      }
+    }
+  }
+}
+
+public extension BlueIntent.DB.DBWrapper where Value: ExpressibleByNilLiteral {
+  init(_ key: String, db: BlueIntent.DB) {
+    self.init(key, default: nil, db: db)
+  }
+  
+  init(_ key: @escaping Key, db: BlueIntent.DB) {
+    self.init(key, default: nil, db: db)
   }
 }

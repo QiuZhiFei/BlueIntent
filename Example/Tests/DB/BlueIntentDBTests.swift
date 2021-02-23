@@ -11,9 +11,26 @@ import BlueIntent
 
 extension BlueIntentDBTests {
   struct Constant {
-    static let dbName = "test.db"
-    static let dbDir = NSHomeDirectory() + "/DB"
-    static let dbPath =  "\(dbDir)/com/db/\(dbName)"
+    static let documentDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let testDBPath = documentDir.appendingPathComponent("blueintent/db/test.db")
+    static let customDBPath = documentDir.appendingPathComponent("blueintent/db/custom.db")
+  }
+}
+
+extension BlueIntent.DB {
+  static let custom = BlueIntent.DB(url: BlueIntentDBTests.Constant.customDBPath, isExcludedFromBackup: true)
+}
+
+extension BlueIntentDBTests {
+  struct CustomDB {
+    @BlueIntent.DB.DBWrapper("name", default: "name", db: .custom)
+    static var name
+    
+    @BlueIntent.DB.DBWrapper("age", db: .custom)
+    static var age: Int?
+    
+    @BlueIntent.DB.DBWrapper({"uid" + "\(Date().timeIntervalSince1970)"}, db: .custom)
+    static var uid: String?
   }
 }
 
@@ -43,17 +60,19 @@ extension BlueIntentDBTests {
 }
 
 class BlueIntentDBTests: XCTestCase {
-  
-  override func setUpWithError() throws {
-    try? FileManager.default.removeItem(atPath: Constant.dbPath)
+  override class func setUp() {
     BlueIntent.DB.shared.deleteAll()
+    debugPrint("shared db path: \(BlueIntent.DB.shared.path)")
     
-    debugPrint("DB Custom Path: \(Constant.dbPath)")
-    debugPrint("DB Shared Path: \(BlueIntent.DB.shared.path)")
+    try? FileManager.default.removeItem(at: Constant.testDBPath)
+    debugPrint("test db path: \(Constant.testDBPath)")
+    
+    try? FileManager.default.removeItem(at: Constant.customDBPath)
+    debugPrint("custom db path: \(Constant.customDBPath)")
   }
   
   func testFailedDB() throws {
-    BlueIntent.DB(path: Constant.dbName) { (result) in
+    BlueIntent.DB(path: "1.db") { (result) in
       switch result {
       case .success:
         XCTAssertTrue(false)
@@ -73,7 +92,7 @@ class BlueIntentDBTests: XCTestCase {
   }
   
   func testCustomDB() throws {
-    let db = BlueIntent.DB(path: Constant.dbPath) { (result) in
+    let db = BlueIntent.DB(url: Constant.testDBPath) { (result) in
       switch result {
       case .success:
         XCTAssertTrue(true)
@@ -103,5 +122,22 @@ class BlueIntentDBTests: XCTestCase {
     XCTAssertNotNil(db["key", TestSong.self])
     XCTAssertTrue(db["key", TestSong.self]?.title == song.title)
     XCTAssertTrue(db.count == 1)
+  }
+  
+  func testDBWrapper() throws {
+    typealias db = CustomDB
+    
+    // test default name
+    XCTAssertTrue(db.name == "name")
+    
+    db.name = "name1"
+    XCTAssertTrue(db.name == "name1")
+    
+    XCTAssertNil(db.age)
+    db.age = 1
+    XCTAssertTrue(db.age == 1)
+    
+    db.uid = "123"
+    XCTAssertNil(db.uid)
   }
 }
