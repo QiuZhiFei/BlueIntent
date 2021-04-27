@@ -92,10 +92,13 @@
 		5B1ACEB02536DB6F00F45C49 /* BlueIntentAES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentAES.swift; path = ../BlueIntent/Classes/Crypto/BlueIntentAES.swift; sourceTree = "<group>"; };
 		5B1ACEE12536E6A700F45C49 /* BlueIntentAESTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueIntentAESTests.swift; sourceTree = "<group>"; };
 		5B3942BE2581475A000F668C /* BlueIntentDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueIntentDBTests.swift; sourceTree = "<group>"; };
+		5B4E58062648075100564F43 /* BlueIntentMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentMath.swift; path = ../BlueIntent/Classes/Foundation/BlueIntentMath.swift; sourceTree = "<group>"; };
 		5B6A407D259B2C860066DFD3 /* BlueIntentColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueIntentColorTests.swift; sourceTree = "<group>"; };
 		5B6A40DB259C89160066DFD3 /* UIView+BlueIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+BlueIntent.swift"; path = "../BlueIntent/Classes/UIKit/UIView+BlueIntent.swift"; sourceTree = "<group>"; };
 		5B8CE2E1253031C70087F739 /* BlueIntentAppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentAppleLogin.swift; path = ../BlueIntent/Classes/AppleLogin/BlueIntentAppleLogin.swift; sourceTree = "<group>"; };
 		5B8CE5902531591F0087F739 /* BlueIntentLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentLayout.swift; path = ../BlueIntent/Classes/Layout/BlueIntentLayout.swift; sourceTree = "<group>"; };
+		5B9CE27C264A941E0025B172 /* BlueIntentBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentBezierPath.swift; path = ../BlueIntent/Classes/BezierPath/BlueIntentBezierPath.swift; sourceTree = "<group>"; };
+		5B9CE27D264A942F0025B172 /* BlueIntentBezierPathUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentBezierPathUIKit.swift; path = ../BlueIntent/Classes/BezierPath/BlueIntentBezierPathUIKit.swift; sourceTree = "<group>"; };
 		5BBD555C25467D2D007E762B /* BlueIntentColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentColor.swift; path = ../BlueIntent/Classes/UIKit/BlueIntentColor.swift; sourceTree = "<group>"; };
 		5BBD55A425469E92007E762B /* BlueIntent_Watch_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueIntent_Watch_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBD55A725469E92007E762B /* BlueIntent_Watch_Example WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BlueIntent_Watch_Example WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +127,8 @@
 		6DA04E03EEB722A9120E81CB /* Pods_BlueIntent_Watch_Example_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueIntent_Watch_Example_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C3C0D06F07EC524AC5AC22C /* BlueIntent.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BlueIntent.podspec; path = ../BlueIntent.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8024FE4A8AA751D7310266F0 /* Pods_BlueIntent_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueIntent_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		840B42A2264ADF2B00A95869 /* BlueIntentYYText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BlueIntentYYText.h; path = ../BlueIntent/Classes/BezierPath/BlueIntentYYText.h; sourceTree = "<group>"; };
+		840B42A3264ADF2B00A95869 /* BlueIntentYYText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BlueIntentYYText.m; path = ../BlueIntent/Classes/BezierPath/BlueIntentYYText.m; sourceTree = "<group>"; };
 		8A8420186A39DB93996F6D1E /* Pods-BlueIntent_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Tests.release.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Tests/Pods-BlueIntent_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9D67E5F80ECEF3C395C4AE8D /* Pods_BlueIntent_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueIntent_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B13C74B5904B126B9A9E8897 /* Pods-BlueIntent_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Example.release.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Example/Pods-BlueIntent_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -310,6 +315,7 @@
 				5B19B897252F3C3900C1B54C /* BlueIntentCompatible.swift */,
 				5B19B89A252F3D2B00C1B54C /* BlueIntentApp.swift */,
 				5B19B8A4252F3D5700C1B54C /* Array+BlueIntent.swift */,
+				5B4E58062648075100564F43 /* BlueIntentMath.swift */,
 				5B19B8A8252F3D8100C1B54C /* String+BlueIntent.swift */,
 				5B19B8AC252F3DAA00C1B54C /* Optional+BlueIntent.swift */,
 				5B8CE2E1253031C70087F739 /* BlueIntentAppleLogin.swift */,
@@ -317,6 +323,10 @@
 				5B1ACEB02536DB6F00F45C49 /* BlueIntentAES.swift */,
 				5BBD555C25467D2D007E762B /* BlueIntentColor.swift */,
 				5B6A40DB259C89160066DFD3 /* UIView+BlueIntent.swift */,
+				5B9CE27C264A941E0025B172 /* BlueIntentBezierPath.swift */,
+				5B9CE27D264A942F0025B172 /* BlueIntentBezierPathUIKit.swift */,
+				840B42A2264ADF2B00A95869 /* BlueIntentYYText.h */,
+				840B42A3264ADF2B00A95869 /* BlueIntentYYText.m */,
 				5BC2E3C2257E004E0091F416 /* BlueIntentDB.swift */,
 			);
 			name = "Podspec Metadata";

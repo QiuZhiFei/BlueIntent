@@ -3,6 +3,9 @@ PODS:
     - BlueIntent/Foundation (= 0.10.0)
     - BlueIntent/UIKit (= 0.10.0)
   - BlueIntent/Base (0.10.0)
+  - BlueIntent/BezierPath (0.10.0):
+    - BlueIntent/Base
+    - YYText (~> 1.0.7)
   - BlueIntent/Crypto (0.10.0):
     - BlueIntent/Base
     - CryptoSwift (~> 1.3.1)
@@ -18,14 +21,16 @@ PODS:
   - BlueIntent/UIKit (0.10.0):
     - BlueIntent/Base
     - BlueIntent/Foundation
-  - CryptoSwift (1.3.2)
+  - CryptoSwift (1.3.8)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
-  - PureLayout (3.1.6)
+  - PureLayout (3.1.7)
+  - YYText (1.0.7)
 
 DEPENDENCIES:
   - BlueIntent (from `../BlueIntent.podspec`)
+  - BlueIntent/BezierPath (from `../BlueIntent.podspec`)
   - BlueIntent/Crypto (from `../BlueIntent.podspec`)
   - BlueIntent/DB (from `../BlueIntent.podspec`)
   - BlueIntent/Foundation (from `../BlueIntent.podspec`)
@@ -37,17 +42,19 @@ SPEC REPOS:
     - CryptoSwift
     - FMDB
     - PureLayout
+    - YYText
 
 EXTERNAL SOURCES:
   BlueIntent:
     :path: "../BlueIntent.podspec"
 
 SPEC CHECKSUMS:
-  BlueIntent: fb4f721edc51d81921df8c4148c0ea09325fd33e
-  CryptoSwift: 093499be1a94b0cae36e6c26b70870668cb56060
+  BlueIntent: e302080ee6f0a87cddcca86dc1229c45585c297b
+  CryptoSwift: 01b0f0cba1d5c212e5a335ff6c054fb75a204f00
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
-  PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
+  PureLayout: e9e5921347547e1068333f3149e737c972cb6037
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: ced7a1a62cffe9460bde2da40bbc0081407372c2
+PODFILE CHECKSUM: 61d9d3fa925ee903637b8f6ed812ecdc0d05088e
 
 COCOAPODS: 1.10.1

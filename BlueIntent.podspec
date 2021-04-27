@@ -96,5 +96,12 @@ Pod::Spec.new do |s|
     ss.dependency 'BlueIntent/Base'
     ss.dependency 'CryptoSwift',      '~> 1.3.1'
   end
+
+  s.subspec 'BezierPath' do |ss|
+    ss.ios.deployment_target = '9.0'
+    ss.source_files = 'BlueIntent/Classes/BezierPath/**/*'
+    ss.dependency 'BlueIntent/Base' 
+    ss.dependency 'YYText',           '~> 1.0.7'
+  end
   
 end
