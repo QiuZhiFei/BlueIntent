@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		1B4EA7D42DD040EBFD4B3473 /* Pods_BlueIntent_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D67E5F80ECEF3C395C4AE8D /* Pods_BlueIntent_Tests.framework */; };
+		5B007DFA264CD305009D3FE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B007DF9264CD305009D3FE5 /* AppDelegate.swift */; };
+		5B007DFC264CD305009D3FE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B007DFB264CD305009D3FE5 /* SceneDelegate.swift */; };
+		5B007DFE264CD305009D3FE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B007DFD264CD305009D3FE5 /* ViewController.swift */; };
+		5B007E01264CD305009D3FE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B007DFF264CD305009D3FE5 /* Main.storyboard */; };
+		5B007E03264CD306009D3FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B007E02264CD306009D3FE5 /* Assets.xcassets */; };
+		5B007E06264CD306009D3FE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B007E04264CD306009D3FE5 /* LaunchScreen.storyboard */; };
+		5B007E11264CD306009D3FE5 /* BlueIntent_BezierPath_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B007E10264CD306009D3FE5 /* BlueIntent_BezierPath_ExampleTests.swift */; };
+		5B007E1C264CD307009D3FE5 /* BlueIntent_BezierPath_ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B007E1B264CD307009D3FE5 /* BlueIntent_BezierPath_ExampleUITests.swift */; };
+		5B007E43264D2131009D3FE5 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B007E42264D2131009D3FE5 /* CanvasView.swift */; };
 		5B1ACEE22536E6A700F45C49 /* BlueIntentAESTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1ACEE12536E6A700F45C49 /* BlueIntentAESTests.swift */; };
 		5B3942BF2581475A000F668C /* BlueIntentDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3942BE2581475A000F668C /* BlueIntentDBTests.swift */; };
 		5B6A407E259B2C860066DFD3 /* BlueIntentColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6A407D259B2C860066DFD3 /* BlueIntentColorTests.swift */; };
@@ -28,9 +37,24 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		67B209AAB585A114DF8C1FDE /* Pods_BlueIntent_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8024FE4A8AA751D7310266F0 /* Pods_BlueIntent_Example.framework */; };
 		9EEA4C410DC7EA61F02CD486 /* Pods_BlueIntent_Watch_Example_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA04E03EEB722A9120E81CB /* Pods_BlueIntent_Watch_Example_WatchKit_Extension.framework */; };
+		F5E569DBE593D22EC5F853DF /* Pods_BlueIntent_BezierPath_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0D5575C7AE3C811CF753E3 /* Pods_BlueIntent_BezierPath_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5B007E0D264CD306009D3FE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B007DF6264CD305009D3FE5;
+			remoteInfo = BlueIntent_BezierPath_Example;
+		};
+		5B007E18264CD307009D3FE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B007DF6264CD305009D3FE5;
+			remoteInfo = BlueIntent_BezierPath_Example;
+		};
 		5BBD55A925469E92007E762B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
@@ -83,6 +107,23 @@
 		1CAE72AD8744A20DF53C9382 /* Pods-BlueIntent_Watch_Example WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Watch_Example WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Watch_Example WatchKit Extension/Pods-BlueIntent_Watch_Example WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		34FDAD6D062300B72152D91D /* Pods-BlueIntent_Watch_Example WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Watch_Example WatchKit Extension.debug.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Watch_Example WatchKit Extension/Pods-BlueIntent_Watch_Example WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		3B058D676181A4B6409DE5F7 /* Pods-BlueIntent_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Tests.debug.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Tests/Pods-BlueIntent_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		4A0D5575C7AE3C811CF753E3 /* Pods_BlueIntent_BezierPath_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueIntent_BezierPath_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E5DF80085E6A54FD5632C90 /* Pods-BlueIntent_BezierPath_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_BezierPath_Example.debug.xcconfig"; path = "Target Support Files/Pods-BlueIntent_BezierPath_Example/Pods-BlueIntent_BezierPath_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		5B007DF7264CD305009D3FE5 /* BlueIntent_BezierPath_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueIntent_BezierPath_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B007DF9264CD305009D3FE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5B007DFB264CD305009D3FE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5B007DFD264CD305009D3FE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5B007E00264CD305009D3FE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B007E02264CD306009D3FE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B007E05264CD306009D3FE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5B007E07264CD306009D3FE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B007E0C264CD306009D3FE5 /* BlueIntent_BezierPath_ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlueIntent_BezierPath_ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B007E10264CD306009D3FE5 /* BlueIntent_BezierPath_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueIntent_BezierPath_ExampleTests.swift; sourceTree = "<group>"; };
+		5B007E12264CD306009D3FE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B007E17264CD307009D3FE5 /* BlueIntent_BezierPath_ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlueIntent_BezierPath_ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B007E1B264CD307009D3FE5 /* BlueIntent_BezierPath_ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueIntent_BezierPath_ExampleUITests.swift; sourceTree = "<group>"; };
+		5B007E1D264CD307009D3FE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B007E42264D2131009D3FE5 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		5B19B880252F394B00C1B54C /* BlueIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntent.swift; path = ../BlueIntent/Classes/Base/BlueIntent.swift; sourceTree = "<group>"; };
 		5B19B897252F3C3900C1B54C /* BlueIntentCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentCompatible.swift; path = ../BlueIntent/Classes/Base/BlueIntentCompatible.swift; sourceTree = "<group>"; };
 		5B19B89A252F3D2B00C1B54C /* BlueIntentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentApp.swift; path = ../BlueIntent/Classes/Foundation/BlueIntentApp.swift; sourceTree = "<group>"; };
@@ -130,6 +171,7 @@
 		840B42A2264ADF2B00A95869 /* BlueIntentYYText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BlueIntentYYText.h; path = ../BlueIntent/Classes/BezierPath/BlueIntentYYText.h; sourceTree = "<group>"; };
 		840B42A3264ADF2B00A95869 /* BlueIntentYYText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BlueIntentYYText.m; path = ../BlueIntent/Classes/BezierPath/BlueIntentYYText.m; sourceTree = "<group>"; };
 		8A8420186A39DB93996F6D1E /* Pods-BlueIntent_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Tests.release.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Tests/Pods-BlueIntent_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		9380DB111A8F55FDEDF2A022 /* Pods-BlueIntent_BezierPath_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_BezierPath_Example.release.xcconfig"; path = "Target Support Files/Pods-BlueIntent_BezierPath_Example/Pods-BlueIntent_BezierPath_Example.release.xcconfig"; sourceTree = "<group>"; };
 		9D67E5F80ECEF3C395C4AE8D /* Pods_BlueIntent_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueIntent_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B13C74B5904B126B9A9E8897 /* Pods-BlueIntent_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Example.release.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Example/Pods-BlueIntent_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BFD497FFB10F4F74C6FABDAB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -139,6 +181,28 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		5251A1CB09C3F69280A2A024 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B007DF4264CD305009D3FE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5E569DBE593D22EC5F853DF /* Pods_BlueIntent_BezierPath_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B007E09264CD306009D3FE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B007E14264CD307009D3FE5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -185,8 +249,42 @@
 				8024FE4A8AA751D7310266F0 /* Pods_BlueIntent_Example.framework */,
 				9D67E5F80ECEF3C395C4AE8D /* Pods_BlueIntent_Tests.framework */,
 				6DA04E03EEB722A9120E81CB /* Pods_BlueIntent_Watch_Example_WatchKit_Extension.framework */,
+				4A0D5575C7AE3C811CF753E3 /* Pods_BlueIntent_BezierPath_Example.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B007DF8264CD305009D3FE5 /* BlueIntent_BezierPath_Example */ = {
+			isa = PBXGroup;
+			children = (
+				5B007DF9264CD305009D3FE5 /* AppDelegate.swift */,
+				5B007DFB264CD305009D3FE5 /* SceneDelegate.swift */,
+				5B007DFD264CD305009D3FE5 /* ViewController.swift */,
+				5B007E42264D2131009D3FE5 /* CanvasView.swift */,
+				5B007DFF264CD305009D3FE5 /* Main.storyboard */,
+				5B007E02264CD306009D3FE5 /* Assets.xcassets */,
+				5B007E04264CD306009D3FE5 /* LaunchScreen.storyboard */,
+				5B007E07264CD306009D3FE5 /* Info.plist */,
+			);
+			path = BlueIntent_BezierPath_Example;
+			sourceTree = "<group>";
+		};
+		5B007E0F264CD306009D3FE5 /* BlueIntent_BezierPath_ExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B007E10264CD306009D3FE5 /* BlueIntent_BezierPath_ExampleTests.swift */,
+				5B007E12264CD306009D3FE5 /* Info.plist */,
+			);
+			path = BlueIntent_BezierPath_ExampleTests;
+			sourceTree = "<group>";
+		};
+		5B007E1A264CD307009D3FE5 /* BlueIntent_BezierPath_ExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5B007E1B264CD307009D3FE5 /* BlueIntent_BezierPath_ExampleUITests.swift */,
+				5B007E1D264CD307009D3FE5 /* Info.plist */,
+			);
+			path = BlueIntent_BezierPath_ExampleUITests;
 			sourceTree = "<group>";
 		};
 		5B1ACECC2536E57600F45C49 /* Crypto */ = {
@@ -245,6 +343,9 @@
 				607FACE81AFB9204008FA782 /* Tests */,
 				5BBD55AB25469E92007E762B /* BlueIntent_Watch_Example WatchKit App */,
 				5BBD55BA25469E94007E762B /* BlueIntent_Watch_Example WatchKit Extension */,
+				5B007DF8264CD305009D3FE5 /* BlueIntent_BezierPath_Example */,
+				5B007E0F264CD306009D3FE5 /* BlueIntent_BezierPath_ExampleTests */,
+				5B007E1A264CD307009D3FE5 /* BlueIntent_BezierPath_ExampleUITests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				661322C477BB29D545C82BE4 /* Pods */,
 				113B9C7B47393611492C8C4B /* Frameworks */,
@@ -259,6 +360,9 @@
 				5BBD55A425469E92007E762B /* BlueIntent_Watch_Example.app */,
 				5BBD55A725469E92007E762B /* BlueIntent_Watch_Example WatchKit App.app */,
 				5BBD55B625469E94007E762B /* BlueIntent_Watch_Example WatchKit Extension.appex */,
+				5B007DF7264CD305009D3FE5 /* BlueIntent_BezierPath_Example.app */,
+				5B007E0C264CD306009D3FE5 /* BlueIntent_BezierPath_ExampleTests.xctest */,
+				5B007E17264CD307009D3FE5 /* BlueIntent_BezierPath_ExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -341,6 +445,8 @@
 				8A8420186A39DB93996F6D1E /* Pods-BlueIntent_Tests.release.xcconfig */,
 				34FDAD6D062300B72152D91D /* Pods-BlueIntent_Watch_Example WatchKit Extension.debug.xcconfig */,
 				1CAE72AD8744A20DF53C9382 /* Pods-BlueIntent_Watch_Example WatchKit Extension.release.xcconfig */,
+				4E5DF80085E6A54FD5632C90 /* Pods-BlueIntent_BezierPath_Example.debug.xcconfig */,
+				9380DB111A8F55FDEDF2A022 /* Pods-BlueIntent_BezierPath_Example.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -348,6 +454,60 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5B007DF6264CD305009D3FE5 /* BlueIntent_BezierPath_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B007E24264CD307009D3FE5 /* Build configuration list for PBXNativeTarget "BlueIntent_BezierPath_Example" */;
+			buildPhases = (
+				F81FD2F90E927588ED0B3B17 /* [CP] Check Pods Manifest.lock */,
+				5B007DF3264CD305009D3FE5 /* Sources */,
+				5B007DF4264CD305009D3FE5 /* Frameworks */,
+				5B007DF5264CD305009D3FE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlueIntent_BezierPath_Example;
+			productName = BlueIntent_BezierPath_Example;
+			productReference = 5B007DF7264CD305009D3FE5 /* BlueIntent_BezierPath_Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5B007E0B264CD306009D3FE5 /* BlueIntent_BezierPath_ExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B007E25264CD307009D3FE5 /* Build configuration list for PBXNativeTarget "BlueIntent_BezierPath_ExampleTests" */;
+			buildPhases = (
+				5B007E08264CD306009D3FE5 /* Sources */,
+				5B007E09264CD306009D3FE5 /* Frameworks */,
+				5B007E0A264CD306009D3FE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B007E0E264CD306009D3FE5 /* PBXTargetDependency */,
+			);
+			name = BlueIntent_BezierPath_ExampleTests;
+			productName = BlueIntent_BezierPath_ExampleTests;
+			productReference = 5B007E0C264CD306009D3FE5 /* BlueIntent_BezierPath_ExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5B007E16264CD307009D3FE5 /* BlueIntent_BezierPath_ExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B007E26264CD307009D3FE5 /* Build configuration list for PBXNativeTarget "BlueIntent_BezierPath_ExampleUITests" */;
+			buildPhases = (
+				5B007E13264CD307009D3FE5 /* Sources */,
+				5B007E14264CD307009D3FE5 /* Frameworks */,
+				5B007E15264CD307009D3FE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B007E19264CD307009D3FE5 /* PBXTargetDependency */,
+			);
+			name = BlueIntent_BezierPath_ExampleUITests;
+			productName = BlueIntent_BezierPath_ExampleUITests;
+			productReference = 5B007E17264CD307009D3FE5 /* BlueIntent_BezierPath_ExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		5BBD55A325469E91007E762B /* BlueIntent_Watch_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BBD55D125469E95007E762B /* Build configuration list for PBXNativeTarget "BlueIntent_Watch_Example" */;
@@ -445,10 +605,27 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					5B007DF6264CD305009D3FE5 = {
+						CreatedOnToolsVersion = 12.4;
+						DevelopmentTeam = QWQ7FU2HXV;
+						ProvisioningStyle = Automatic;
+					};
+					5B007E0B264CD306009D3FE5 = {
+						CreatedOnToolsVersion = 12.4;
+						DevelopmentTeam = QWQ7FU2HXV;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5B007DF6264CD305009D3FE5;
+					};
+					5B007E16264CD307009D3FE5 = {
+						CreatedOnToolsVersion = 12.4;
+						DevelopmentTeam = QWQ7FU2HXV;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5B007DF6264CD305009D3FE5;
+					};
 					5BBD55A325469E91007E762B = {
 						CreatedOnToolsVersion = 12.0.1;
 						DevelopmentTeam = AYZZSQA769;
@@ -496,11 +673,38 @@
 				5BBD55A325469E91007E762B /* BlueIntent_Watch_Example */,
 				5BBD55A625469E92007E762B /* BlueIntent_Watch_Example WatchKit App */,
 				5BBD55B525469E94007E762B /* BlueIntent_Watch_Example WatchKit Extension */,
+				5B007DF6264CD305009D3FE5 /* BlueIntent_BezierPath_Example */,
+				5B007E0B264CD306009D3FE5 /* BlueIntent_BezierPath_ExampleTests */,
+				5B007E16264CD307009D3FE5 /* BlueIntent_BezierPath_ExampleUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5B007DF5264CD305009D3FE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B007E06264CD306009D3FE5 /* LaunchScreen.storyboard in Resources */,
+				5B007E03264CD306009D3FE5 /* Assets.xcassets in Resources */,
+				5B007E01264CD305009D3FE5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B007E0A264CD306009D3FE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B007E15264CD307009D3FE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5BBD55A225469E91007E762B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -611,9 +815,58 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F81FD2F90E927588ED0B3B17 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlueIntent_BezierPath_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5B007DF3264CD305009D3FE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B007DFE264CD305009D3FE5 /* ViewController.swift in Sources */,
+				5B007DFA264CD305009D3FE5 /* AppDelegate.swift in Sources */,
+				5B007E43264D2131009D3FE5 /* CanvasView.swift in Sources */,
+				5B007DFC264CD305009D3FE5 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B007E08264CD306009D3FE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B007E11264CD306009D3FE5 /* BlueIntent_BezierPath_ExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B007E13264CD307009D3FE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B007E1C264CD307009D3FE5 /* BlueIntent_BezierPath_ExampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5BBD55B225469E94007E762B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -648,6 +901,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5B007E0E264CD306009D3FE5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B007DF6264CD305009D3FE5 /* BlueIntent_BezierPath_Example */;
+			targetProxy = 5B007E0D264CD306009D3FE5 /* PBXContainerItemProxy */;
+		};
+		5B007E19264CD307009D3FE5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B007DF6264CD305009D3FE5 /* BlueIntent_BezierPath_Example */;
+			targetProxy = 5B007E18264CD307009D3FE5 /* PBXContainerItemProxy */;
+		};
 		5BBD55AA25469E92007E762B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5BBD55A625469E92007E762B /* BlueIntent_Watch_Example WatchKit App */;
@@ -666,6 +929,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5B007DFF264CD305009D3FE5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B007E00264CD305009D3FE5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5B007E04264CD306009D3FE5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B007E05264CD306009D3FE5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		5BBD55AC25469E92007E762B /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -693,6 +972,187 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5B007E1E264CD307009D3FE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E5DF80085E6A54FD5632C90 /* Pods-BlueIntent_BezierPath_Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = QWQ7FU2HXV;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BlueIntent_BezierPath_Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.deer.BlueIntent-BezierPath-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B007E1F264CD307009D3FE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9380DB111A8F55FDEDF2A022 /* Pods-BlueIntent_BezierPath_Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QWQ7FU2HXV;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BlueIntent_BezierPath_Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.deer.BlueIntent-BezierPath-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5B007E20264CD307009D3FE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = QWQ7FU2HXV;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BlueIntent_BezierPath_ExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.deer.BlueIntent-BezierPath-ExampleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlueIntent_BezierPath_Example.app/BlueIntent_BezierPath_Example";
+			};
+			name = Debug;
+		};
+		5B007E21264CD307009D3FE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QWQ7FU2HXV;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BlueIntent_BezierPath_ExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.deer.BlueIntent-BezierPath-ExampleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlueIntent_BezierPath_Example.app/BlueIntent_BezierPath_Example";
+			};
+			name = Release;
+		};
+		5B007E22264CD307009D3FE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = QWQ7FU2HXV;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BlueIntent_BezierPath_ExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.deer.BlueIntent-BezierPath-ExampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BlueIntent_BezierPath_Example;
+			};
+			name = Debug;
+		};
+		5B007E23264CD307009D3FE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QWQ7FU2HXV;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BlueIntent_BezierPath_ExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.deer.BlueIntent-BezierPath-ExampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BlueIntent_BezierPath_Example;
+			};
+			name = Release;
+		};
 		5BBD55C725469E95007E762B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1050,6 +1510,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5B007E24264CD307009D3FE5 /* Build configuration list for PBXNativeTarget "BlueIntent_BezierPath_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B007E1E264CD307009D3FE5 /* Debug */,
+				5B007E1F264CD307009D3FE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B007E25264CD307009D3FE5 /* Build configuration list for PBXNativeTarget "BlueIntent_BezierPath_ExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B007E20264CD307009D3FE5 /* Debug */,
+				5B007E21264CD307009D3FE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B007E26264CD307009D3FE5 /* Build configuration list for PBXNativeTarget "BlueIntent_BezierPath_ExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B007E22264CD307009D3FE5 /* Debug */,
+				5B007E23264CD307009D3FE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5BBD55CF25469E95007E762B /* Build configuration list for PBXNativeTarget "BlueIntent_Watch_Example WatchKit Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

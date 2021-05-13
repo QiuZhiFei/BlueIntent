@@ -49,6 +49,7 @@ public extension BlueIntentExtension where Base: CGContext {
   // 添加图片
   func add(rect: CGRect,
            image: UIImage?,
+           contentMode: BlueIntent.BezierPath.ContentMode = .scaleToFill,
            cornerRadius: CGFloat = 0) {
     guard let image = image,
           let cgImage = image.cgImage else { return }
@@ -60,7 +61,11 @@ public extension BlueIntentExtension where Base: CGContext {
     context.translateBy(x: rect.origin.x, y: rect.origin.y)
     context.scaleBy(x: 1, y: -1)
     context.translateBy(x: 0, y: -imageSize.height)
-    context.draw(cgImage, in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
+    
+    let imageFrame = image.bi.frame(containerFrame: CGRect(origin: .zero, size: rect.size),
+                                    contentMode: contentMode)
+    context.draw(cgImage, in: imageFrame)
+    
     context.restoreGState()
   }
   
@@ -85,6 +90,184 @@ public extension BlueIntentExtension where Base: CGContext {
 }
 
 // MARK: - image
+
+public extension BlueIntent.BezierPath {
+  public enum ContentMode {
+    case scaleToFill
+    case scaleAspectFit
+    case scaleAspectFill
+    case redraw
+    case center
+    case top
+    case bottom
+    case left
+    case right
+    case topLeft
+    case topRight
+    case bottomLeft
+    case bottomRight
+    
+    case scaleAspectFitWidth
+    case scaleAspectFitHeight
+    
+    public init(_ contentMode: UIView.ContentMode) {
+      switch contentMode {
+      case .scaleToFill:
+        self = .scaleToFill
+      case .scaleAspectFit:
+        self = .scaleAspectFit
+      case .scaleAspectFill:
+        self = .scaleAspectFill
+      case .redraw:
+        self = .redraw
+      case .center:
+        self = .center
+      case .top:
+        self = .top
+      case .bottom:
+        self = .bottom
+      case .left:
+        self = .left
+      case .right:
+        self = .right
+      case .topLeft:
+        self = .topLeft
+      case .topRight:
+        self = .topRight
+      case .bottomLeft:
+        self = .bottomLeft
+      case .bottomRight:
+        self = .bottomRight
+      }
+    }
+  }
+}
+
+public extension BlueIntentExtension where Base: UIImage {
+  func frame(containerFrame: CGRect,
+             contentMode: BlueIntent.BezierPath.ContentMode) -> CGRect {
+    switch contentMode {
+    case .scaleToFill:
+      return CGRect(origin: .zero, size: containerFrame.size)
+    case .scaleAspectFit:
+      let imageSize = self.base.size
+      var width = containerFrame.width
+      var height = width / imageSize.width * imageSize.height
+      if max(imageSize.width, imageSize.height) == imageSize.height {
+        height = containerFrame.height
+        width = height / imageSize.height * imageSize.width
+      }
+      return CGRect(x: (containerFrame.width - width) / 2.0,
+                    y: (containerFrame.height - height) / 2.0,
+                    width: width,
+                    height: height)
+    case .scaleAspectFill:
+      let imageSize = self.base.size
+      var width = containerFrame.width
+      var height = width / imageSize.width * imageSize.height
+      if max(imageSize.width, imageSize.height) == imageSize.width {
+        height = containerFrame.height
+        width = height / imageSize.height * imageSize.width
+      }
+      return CGRect(x: (containerFrame.width - width) / 2.0,
+                    y: (containerFrame.height - height) / 2.0,
+                    width: width,
+                    height: height)
+    case .redraw:
+      return self.frame(containerFrame: containerFrame, contentMode: .scaleToFill)
+    case .center:
+      let imageSize = self.base.size
+      var width = imageSize.width
+      let height = imageSize.height
+      return CGRect(x: (containerFrame.width - width) / 2.0,
+                    y: (containerFrame.height - height) / 2.0,
+                    width: width,
+                    height: height)
+    case .top:
+      let imageSize = self.base.size
+      var width = imageSize.width
+      let height = imageSize.height
+      return CGRect(x: (containerFrame.width - width) / 2.0,
+                    y: containerFrame.height - height,
+                    width: width,
+                    height: height)
+    case .bottom:
+      let imageSize = self.base.size
+      var width = imageSize.width
+      let height = imageSize.height
+      return CGRect(x: (containerFrame.width - width) / 2.0,
+                    y: 0,
+                    width: width,
+                    height: height)
+    case .left:
+      let imageSize = self.base.size
+      var width = imageSize.width
+      let height = imageSize.height
+      return CGRect(x: 0,
+                    y: (containerFrame.height - height) / 2.0,
+                    width: width,
+                    height: height)
+    case .right:
+      let imageSize = self.base.size
+      var width = imageSize.width
+      let height = imageSize.height
+      return CGRect(x: containerFrame.width - width,
+                    y: (containerFrame.height - height) / 2.0,
+                    width: width,
+                    height: height)
+    case .topLeft:
+      let imageSize = self.base.size
+      var width = imageSize.width
+      let height = imageSize.height
+      return CGRect(x: self.frame(containerFrame: containerFrame, contentMode: .left).origin.x,
+                    y: self.frame(containerFrame: containerFrame, contentMode: .top).origin.y,
+                    width: width,
+                    height: height)
+    case .topRight:
+      let imageSize = self.base.size
+      var width = imageSize.width
+      let height = imageSize.height
+      return CGRect(x: self.frame(containerFrame: containerFrame, contentMode: .right).origin.x,
+                    y: self.frame(containerFrame: containerFrame, contentMode: .top).origin.y,
+                    width: width,
+                    height: height)
+    case .bottomLeft:
+      let imageSize = self.base.size
+      var width = imageSize.width
+      let height = imageSize.height
+      return CGRect(x: self.frame(containerFrame: containerFrame, contentMode: .left).origin.x,
+                    y: self.frame(containerFrame: containerFrame, contentMode: .bottom).origin.y,
+                    width: width,
+                    height: height)
+    case .bottomRight:
+      let imageSize = self.base.size
+      var width = imageSize.width
+      let height = imageSize.height
+      return CGRect(x: self.frame(containerFrame: containerFrame, contentMode: .right).origin.x,
+                    y: self.frame(containerFrame: containerFrame, contentMode: .bottom).origin.y,
+                    width: width,
+                    height: height)
+    case .scaleAspectFitWidth:
+      let imageSize = self.base.size
+      let width = containerFrame.width
+      let height = width / imageSize.width * imageSize.height
+      return CGRect(x: (containerFrame.width - width) / 2.0,
+                    y: (containerFrame.height - height) / 2.0,
+                    width: width,
+                    height: height)
+    case .scaleAspectFitHeight:
+      let imageSize = self.base.size
+      let height = containerFrame.height
+      let width = height / imageSize.height * imageSize.width
+      return CGRect(x: (containerFrame.width - width) / 2.0,
+                    y: (containerFrame.height - height) / 2.0,
+                    width: width,
+                    height: height)
+    default:
+      return self.frame(containerFrame: containerFrame, contentMode: .scaleToFill)
+    }
+  }
+}
 
 public extension BlueIntentExtension where Base: CGContext {
   static func screenshot(size: CGSize,

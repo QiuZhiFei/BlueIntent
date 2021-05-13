@@ -34,6 +34,8 @@ public extension BlueIntent.BezierPath {
     public var rotateAngle: CGFloat?
     public var anchorPoint: CGPoint?
     
+    public var contentMode: BlueIntent.BezierPath.ContentMode = .scaleToFill
+    
     public var image: UIImage?
     public var cornerRadius: CGFloat?
     public var shadow: NSShadow?
@@ -122,26 +124,53 @@ public extension BlueIntent.BezierPath {
 
 extension BlueIntentExtension where Base: CGContext {
   public func add(_ view: BlueIntent.BezierPath.View) {
-    self.add(shadow: view.shadow) { (context) in
-      let anchorPoint = view.anchorPoint ?? CGPoint.zero
+    let anchorPoint = view.anchorPoint ?? CGPoint.zero
+    let rect = CGRect(x: -anchorPoint.x,
+                      y: -anchorPoint.y,
+                      width: view.frame.width,
+                      height: view.frame.height)
+    let cornerRadius = view.cornerRadius ?? 0
+    
+    var backgroundShadow: NSShadow? = nil
+    var imageShadow: NSShadow? = nil
+    if view.backgroundColor != nil {
+      backgroundShadow = view.shadow
+    }
+    if view.image != nil {
+      imageShadow = view.shadow
+    }
+    if view.backgroundColor != nil, view.image != nil {
+      // 图片未充满，以图片为 shadow，否则以 background 为 shadow
+      backgroundShadow = view.shadow
+      imageShadow = nil
+      if let filled = view.image?.bi.frame(containerFrame: CGRect(origin: .zero, size: rect.size), contentMode: view.contentMode).contains(CGRect(origin: .zero, size: rect.size)), filled == false {
+        backgroundShadow = nil
+        imageShadow = view.shadow
+      }
+    }
+    
+    self.add(shadow: backgroundShadow) { (context) in
       context.saveGState()
       context.translateBy(x: anchorPoint.x + view.frame.origin.x, y: anchorPoint.y + view.frame.origin.y)
       if let rotateAngle = view.rotateAngle {
         context.rotate(by: rotateAngle * CGFloat.pi/180)
       }
-      
-      let rect = CGRect(x: -anchorPoint.x,
-                        y: -anchorPoint.y,
-                        width: view.frame.width,
-                        height: view.frame.height)
-      let cornerRadius = view.cornerRadius ?? 0
       CGContext.bi.add(rect: rect,
                        color: view.backgroundColor,
                        cornerRadius: cornerRadius)
+      context.restoreGState()
+    }
+    
+    self.add(shadow: imageShadow) { (context) in
+      context.saveGState()
+      context.translateBy(x: anchorPoint.x + view.frame.origin.x, y: anchorPoint.y + view.frame.origin.y)
+      if let rotateAngle = view.rotateAngle {
+        context.rotate(by: rotateAngle * CGFloat.pi/180)
+      }
       context.bi.add(rect: rect,
                      image: view.image,
+                     contentMode: view.contentMode,
                      cornerRadius: cornerRadius)
-      
       context.restoreGState()
     }
   }

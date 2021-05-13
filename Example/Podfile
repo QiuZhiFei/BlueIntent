@@ -26,3 +26,13 @@ target 'BlueIntent_Watch_Example WatchKit Extension' do
   pod 'BlueIntent/UIKit', :path => '../BlueIntent.podspec'
   
 end
+
+target 'BlueIntent_BezierPath_Example' do
+  
+  platform :ios, '9.0'
+  inhibit_all_warnings!
+  use_frameworks! :linkage => :static
+  
+  pod 'BlueIntent/BezierPath', :path => '../BlueIntent.podspec'
+  
+end
