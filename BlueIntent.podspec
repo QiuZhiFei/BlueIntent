@@ -103,5 +103,11 @@ Pod::Spec.new do |s|
     ss.dependency 'BlueIntent/Base' 
     ss.dependency 'YYText',           '~> 1.0.7'
   end
+
+  s.subspec 'ControllerTransitioning' do |ss|
+    ss.ios.deployment_target = '9.0'
+    ss.source_files = 'BlueIntent/ControllerTransitioning/Classes/**/*'
+    ss.dependency 'BlueIntent/Base' 
+  end
   
 end
