@@ -2,6 +2,8 @@ PODS:
   - BlueIntent (0.12.0):
     - BlueIntent/Foundation (= 0.12.0)
     - BlueIntent/UIKit (= 0.12.0)
+  - BlueIntent/AppleLogin (0.12.0):
+    - BlueIntent/Base
   - BlueIntent/Base (0.12.0)
   - BlueIntent/BezierPath (0.12.0):
     - BlueIntent/Base
@@ -32,6 +34,7 @@ PODS:
 
 DEPENDENCIES:
   - BlueIntent (from `../BlueIntent.podspec`)
+  - BlueIntent/AppleLogin (from `../BlueIntent.podspec`)
   - BlueIntent/BezierPath (from `../BlueIntent.podspec`)
   - BlueIntent/ControllerTransitioning (from `../BlueIntent.podspec`)
   - BlueIntent/Crypto (from `../BlueIntent.podspec`)
@@ -58,6 +61,6 @@ SPEC CHECKSUMS:
   PureLayout: e9e5921347547e1068333f3149e737c972cb6037
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: a7047cc9de5cf9b68fb95b6323be89d135c876d6
+PODFILE CHECKSUM: 8f90b3e9af15d2365d0deacbe6df2655085c1578
 
 COCOAPODS: 1.10.1
