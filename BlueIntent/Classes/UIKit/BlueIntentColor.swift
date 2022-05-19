@@ -121,7 +121,6 @@ public extension BlueIntent.ColorHSL {
     var hCalc = CGFloat(hue)
     if saturation == 0.0 {
       let grayValue = Int(lightness * 255)
-      BlueIntent.ColorRGBA(1, 1, 1)
       return BlueIntent.ColorRGBA(grayValue, grayValue, grayValue)
     }
     var tmp1: CGFloat

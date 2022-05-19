@@ -1,7 +1,5 @@
 target 'BlueIntent_Example' do
-  
   platform :ios, '9.0'
-  inhibit_all_warnings!
   use_frameworks! :linkage => :static
   
   pod 'BlueIntent', :path => '../BlueIntent.podspec'
@@ -15,26 +13,19 @@ target 'BlueIntent_Example' do
   target 'BlueIntent_Tests' do
     inherit! :search_paths
   end
-  
 end
 
 target 'BlueIntent_Watch_Example WatchKit Extension' do
-  
   platform :watchos, '6.0'
-  inhibit_all_warnings!
   use_frameworks! :linkage => :static
   
   pod 'BlueIntent/Foundation', :path => '../BlueIntent.podspec'
   pod 'BlueIntent/UIKit', :path => '../BlueIntent.podspec'
-  
 end
 
 target 'BlueIntent_BezierPath_Example' do
-  
   platform :ios, '9.0'
-  inhibit_all_warnings!
   use_frameworks! :linkage => :static
   
   pod 'BlueIntent/BezierPath', :path => '../BlueIntent.podspec'
-  
 end
