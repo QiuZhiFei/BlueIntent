@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import BlueIntent
 
 public extension BlueIntent.ControllerTransitioning.Present {
   // 关闭方式

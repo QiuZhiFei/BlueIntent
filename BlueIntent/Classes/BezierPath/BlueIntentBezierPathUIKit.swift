@@ -27,7 +27,7 @@ extension BlueIntent.BezierPath.Label: BlueIntentCompatible { }
 // MARK: - View
 
 public extension BlueIntent.BezierPath {
-  public struct View: BlueIntentBezierPathViewRendering, BlueIntentBezierPathViewTransform {
+  struct View: BlueIntentBezierPathViewRendering, BlueIntentBezierPathViewTransform {
     public var frame: CGRect
     public var backgroundColor: UIColor?
     
@@ -49,7 +49,7 @@ public extension BlueIntent.BezierPath {
 // MARK: - Label
 
 public extension BlueIntent.BezierPath {
-  public enum TruncationType {
+  enum TruncationType {
     case none
     case start
     case end
@@ -69,7 +69,7 @@ public extension BlueIntent.BezierPath {
     }
   }
   
-  public struct Label: BlueIntentBezierPathViewRendering {
+  struct Label: BlueIntentBezierPathViewRendering {
     public var frame: CGRect
     public var backgroundColor: UIColor?
     
@@ -179,11 +179,6 @@ extension BlueIntentExtension where Base: CGContext {
     guard let layout = view.layout else { return }
     
     if let backgroundColor = view.backgroundColor {
-      let textBoundingRect = layout.textBoundingRect
-      let rect = CGRect(x: textBoundingRect.origin.x + view.frame.origin.x,
-                        y: textBoundingRect.origin.y + view.frame.origin.y,
-                        width: textBoundingRect.width,
-                        height: textBoundingRect.height)
       var view = BlueIntent.BezierPath.View(frame: view.fitBoundingRect)
       view.backgroundColor = backgroundColor
       self.add(view)

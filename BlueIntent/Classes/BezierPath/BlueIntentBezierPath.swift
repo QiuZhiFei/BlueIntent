@@ -92,7 +92,7 @@ public extension BlueIntentExtension where Base: CGContext {
 // MARK: - image
 
 public extension BlueIntent.BezierPath {
-  public enum ContentMode {
+  enum ContentMode {
     case scaleToFill
     case scaleAspectFit
     case scaleAspectFill
@@ -138,6 +138,8 @@ public extension BlueIntent.BezierPath {
         self = .bottomLeft
       case .bottomRight:
         self = .bottomRight
+      @unknown default:
+        fatalError()
       }
     }
   }
@@ -177,7 +179,7 @@ public extension BlueIntentExtension where Base: UIImage {
       return self.frame(containerFrame: containerFrame, contentMode: .scaleToFill)
     case .center:
       let imageSize = self.base.size
-      var width = imageSize.width
+      let width = imageSize.width
       let height = imageSize.height
       return CGRect(x: (containerFrame.width - width) / 2.0,
                     y: (containerFrame.height - height) / 2.0,
@@ -185,7 +187,7 @@ public extension BlueIntentExtension where Base: UIImage {
                     height: height)
     case .top:
       let imageSize = self.base.size
-      var width = imageSize.width
+      let width = imageSize.width
       let height = imageSize.height
       return CGRect(x: (containerFrame.width - width) / 2.0,
                     y: containerFrame.height - height,
@@ -193,7 +195,7 @@ public extension BlueIntentExtension where Base: UIImage {
                     height: height)
     case .bottom:
       let imageSize = self.base.size
-      var width = imageSize.width
+      let width = imageSize.width
       let height = imageSize.height
       return CGRect(x: (containerFrame.width - width) / 2.0,
                     y: 0,
@@ -201,7 +203,7 @@ public extension BlueIntentExtension where Base: UIImage {
                     height: height)
     case .left:
       let imageSize = self.base.size
-      var width = imageSize.width
+      let width = imageSize.width
       let height = imageSize.height
       return CGRect(x: 0,
                     y: (containerFrame.height - height) / 2.0,
@@ -209,7 +211,7 @@ public extension BlueIntentExtension where Base: UIImage {
                     height: height)
     case .right:
       let imageSize = self.base.size
-      var width = imageSize.width
+      let width = imageSize.width
       let height = imageSize.height
       return CGRect(x: containerFrame.width - width,
                     y: (containerFrame.height - height) / 2.0,
@@ -217,7 +219,7 @@ public extension BlueIntentExtension where Base: UIImage {
                     height: height)
     case .topLeft:
       let imageSize = self.base.size
-      var width = imageSize.width
+      let width = imageSize.width
       let height = imageSize.height
       return CGRect(x: self.frame(containerFrame: containerFrame, contentMode: .left).origin.x,
                     y: self.frame(containerFrame: containerFrame, contentMode: .top).origin.y,
@@ -225,7 +227,7 @@ public extension BlueIntentExtension where Base: UIImage {
                     height: height)
     case .topRight:
       let imageSize = self.base.size
-      var width = imageSize.width
+      let width = imageSize.width
       let height = imageSize.height
       return CGRect(x: self.frame(containerFrame: containerFrame, contentMode: .right).origin.x,
                     y: self.frame(containerFrame: containerFrame, contentMode: .top).origin.y,
@@ -233,7 +235,7 @@ public extension BlueIntentExtension where Base: UIImage {
                     height: height)
     case .bottomLeft:
       let imageSize = self.base.size
-      var width = imageSize.width
+      let width = imageSize.width
       let height = imageSize.height
       return CGRect(x: self.frame(containerFrame: containerFrame, contentMode: .left).origin.x,
                     y: self.frame(containerFrame: containerFrame, contentMode: .bottom).origin.y,
@@ -241,7 +243,7 @@ public extension BlueIntentExtension where Base: UIImage {
                     height: height)
     case .bottomRight:
       let imageSize = self.base.size
-      var width = imageSize.width
+      let width = imageSize.width
       let height = imageSize.height
       return CGRect(x: self.frame(containerFrame: containerFrame, contentMode: .right).origin.x,
                     y: self.frame(containerFrame: containerFrame, contentMode: .bottom).origin.y,
@@ -263,8 +265,6 @@ public extension BlueIntentExtension where Base: UIImage {
                     y: (containerFrame.height - height) / 2.0,
                     width: width,
                     height: height)
-    default:
-      return self.frame(containerFrame: containerFrame, contentMode: .scaleToFill)
     }
   }
 }

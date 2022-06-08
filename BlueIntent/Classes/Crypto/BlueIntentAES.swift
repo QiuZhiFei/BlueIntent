@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import BlueIntent
 import CryptoSwift
 
 extension BlueIntent {
