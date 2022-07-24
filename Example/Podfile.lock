@@ -22,6 +22,10 @@ PODS:
   - BlueIntent/Layout (0.12.0):
     - BlueIntent/Base
     - PureLayout (~> 3.1.6)
+  - BlueIntent/PAGX (0.12.0):
+    - BlueIntent/Base
+    - libpag (~> 4.0.5)
+    - SDWebImage (~> 5.13)
   - BlueIntent/UIKit (0.12.0):
     - BlueIntent/Base
     - BlueIntent/Foundation
@@ -29,7 +33,11 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - libpag (4.0.5.17)
   - PureLayout (3.1.9)
+  - SDWebImage (5.13.0):
+    - SDWebImage/Core (= 5.13.0)
+  - SDWebImage/Core (5.13.0)
   - YYText (1.0.7)
 
 DEPENDENCIES:
@@ -41,13 +49,16 @@ DEPENDENCIES:
   - BlueIntent/DB (from `../BlueIntent.podspec`)
   - BlueIntent/Foundation (from `../BlueIntent.podspec`)
   - BlueIntent/Layout (from `../BlueIntent.podspec`)
+  - BlueIntent/PAGX (from `../BlueIntent.podspec`)
   - BlueIntent/UIKit (from `../BlueIntent.podspec`)
 
 SPEC REPOS:
   trunk:
     - CryptoSwift
     - FMDB
+    - libpag
     - PureLayout
+    - SDWebImage
     - YYText
 
 EXTERNAL SOURCES:
@@ -55,12 +66,14 @@ EXTERNAL SOURCES:
     :path: "../BlueIntent.podspec"
 
 SPEC CHECKSUMS:
-  BlueIntent: 7b79b8eb2b67e34f73cce8bc7ba408ba49b201c9
+  BlueIntent: 5cd4df6ae50caea66475ce029a4c6a00a989eafd
   CryptoSwift: 01b0f0cba1d5c212e5a335ff6c054fb75a204f00
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  libpag: c704ce5c2a4c3fcb59e0fcde4d5e18610d5b789d
   PureLayout: 5fb5e5429519627d60d079ccb1eaa7265ce7cf88
+  SDWebImage: 0327043dbb9533e75f2eff8445b3df0f2ceca6ac
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 991aa2c821a2007492cc501faf4080a8272798e0
+PODFILE CHECKSUM: 865e2d401f64cfd58a7050eb3b507e45c004ef0a
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

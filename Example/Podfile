@@ -29,3 +29,10 @@ target 'BlueIntent_BezierPath_Example' do
   
   pod 'BlueIntent/BezierPath', :path => '../BlueIntent.podspec'
 end
+
+target 'BlueIntent_PAGX_Example' do
+  platform :ios, '9.0'
+  use_frameworks! :linkage => :static
+  
+  pod 'BlueIntent/PAGX', :path => '../BlueIntent.podspec'
+end

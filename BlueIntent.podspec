@@ -109,5 +109,13 @@ Pod::Spec.new do |s|
     ss.source_files = 'BlueIntent/ControllerTransitioning/Classes/**/*'
     ss.dependency 'BlueIntent/Base' 
   end
+
+  s.subspec 'PAGX' do |ss|
+    ss.ios.deployment_target = '9.0'
+    ss.source_files = 'BlueIntent/PAGX/Classes/**/*'
+    ss.dependency 'BlueIntent/Base'
+    ss.dependency 'libpag',           '~> 4.0.5'
+    ss.dependency 'SDWebImage',       '~> 5.13'
+  end
   
 end

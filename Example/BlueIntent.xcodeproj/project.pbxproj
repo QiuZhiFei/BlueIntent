@@ -29,6 +29,12 @@
 		5BBD55C025469E94007E762B /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD55BF25469E94007E762B /* NotificationController.swift */; };
 		5BBD55C225469E94007E762B /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD55C125469E94007E762B /* ComplicationController.swift */; };
 		5BBD55C425469E95007E762B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD55C325469E95007E762B /* Assets.xcassets */; };
+		5BEBE72C288D057E0083DF58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBE72B288D057E0083DF58 /* AppDelegate.swift */; };
+		5BEBE72E288D057E0083DF58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBE72D288D057E0083DF58 /* SceneDelegate.swift */; };
+		5BEBE730288D057E0083DF58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBE72F288D057E0083DF58 /* ViewController.swift */; };
+		5BEBE733288D057E0083DF58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BEBE731288D057E0083DF58 /* Main.storyboard */; };
+		5BEBE735288D05800083DF58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BEBE734288D05800083DF58 /* Assets.xcassets */; };
+		5BEBE738288D05800083DF58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BEBE736288D05800083DF58 /* LaunchScreen.storyboard */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -37,6 +43,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		67B209AAB585A114DF8C1FDE /* Pods_BlueIntent_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8024FE4A8AA751D7310266F0 /* Pods_BlueIntent_Example.framework */; };
 		9EEA4C410DC7EA61F02CD486 /* Pods_BlueIntent_Watch_Example_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA04E03EEB722A9120E81CB /* Pods_BlueIntent_Watch_Example_WatchKit_Extension.framework */; };
+		D6DCCCC4EB6B0CCA70DC2A46 /* Pods_BlueIntent_PAGX_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 851B51FAA74CD218886C4BD5 /* Pods_BlueIntent_PAGX_Example.framework */; };
 		F5E569DBE593D22EC5F853DF /* Pods_BlueIntent_BezierPath_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0D5575C7AE3C811CF753E3 /* Pods_BlueIntent_BezierPath_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +111,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1754CE2820A1EB3FAA53D99C /* Pods-BlueIntent_PAGX_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_PAGX_Example.debug.xcconfig"; path = "Target Support Files/Pods-BlueIntent_PAGX_Example/Pods-BlueIntent_PAGX_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		1CAE72AD8744A20DF53C9382 /* Pods-BlueIntent_Watch_Example WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Watch_Example WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Watch_Example WatchKit Extension/Pods-BlueIntent_Watch_Example WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		34FDAD6D062300B72152D91D /* Pods-BlueIntent_Watch_Example WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Watch_Example WatchKit Extension.debug.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Watch_Example WatchKit Extension/Pods-BlueIntent_Watch_Example WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		3B058D676181A4B6409DE5F7 /* Pods-BlueIntent_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Tests.debug.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Tests/Pods-BlueIntent_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +165,17 @@
 		5BBD55C525469E95007E762B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BBD55C625469E95007E762B /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		5BC2E3C2257E004E0091F416 /* BlueIntentDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentDB.swift; path = ../BlueIntent/Classes/DB/BlueIntentDB.swift; sourceTree = "<group>"; };
+		5BEBE729288D057E0083DF58 /* BlueIntent_PAGX_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueIntent_PAGX_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BEBE72B288D057E0083DF58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5BEBE72D288D057E0083DF58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5BEBE72F288D057E0083DF58 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5BEBE732288D057E0083DF58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5BEBE734288D05800083DF58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5BEBE737288D05800083DF58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5BEBE739288D05800083DF58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BF15A48288D4F2B001AE4C8 /* PAGView+BlueIntent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PAGView+BlueIntent.swift"; path = "Classes/PAGView+BlueIntent.swift"; sourceTree = "<group>"; };
+		5BF15A49288D4F2B001AE4C8 /* PAGX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PAGX.swift; path = Classes/PAGX.swift; sourceTree = "<group>"; };
+		5BF15A4C288D5012001AE4C8 /* PAGCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PAGCoder.swift; path = Classes/PAGCoder.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* BlueIntent_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueIntent_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +191,7 @@
 		8024FE4A8AA751D7310266F0 /* Pods_BlueIntent_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueIntent_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		840B42A2264ADF2B00A95869 /* BlueIntentYYText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BlueIntentYYText.h; path = ../BlueIntent/Classes/BezierPath/BlueIntentYYText.h; sourceTree = "<group>"; };
 		840B42A3264ADF2B00A95869 /* BlueIntentYYText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BlueIntentYYText.m; path = ../BlueIntent/Classes/BezierPath/BlueIntentYYText.m; sourceTree = "<group>"; };
+		851B51FAA74CD218886C4BD5 /* Pods_BlueIntent_PAGX_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueIntent_PAGX_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A8420186A39DB93996F6D1E /* Pods-BlueIntent_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Tests.release.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Tests/Pods-BlueIntent_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9380DB111A8F55FDEDF2A022 /* Pods-BlueIntent_BezierPath_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_BezierPath_Example.release.xcconfig"; path = "Target Support Files/Pods-BlueIntent_BezierPath_Example/Pods-BlueIntent_BezierPath_Example.release.xcconfig"; sourceTree = "<group>"; };
 		9D67E5F80ECEF3C395C4AE8D /* Pods_BlueIntent_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueIntent_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +199,7 @@
 		BFD497FFB10F4F74C6FABDAB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		CA4363287F0FFD1066F34EF7 /* Pods-BlueIntent_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_Example.debug.xcconfig"; path = "Target Support Files/Pods-BlueIntent_Example/Pods-BlueIntent_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D900086B184C4F3BCF1C9D77 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		F128F41CDE70D5CCDBCC6273 /* Pods-BlueIntent_PAGX_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueIntent_PAGX_Example.release.xcconfig"; path = "Target Support Files/Pods-BlueIntent_PAGX_Example/Pods-BlueIntent_PAGX_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +240,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5BEBE726288D057E0083DF58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6DCCCC4EB6B0CCA70DC2A46 /* Pods_BlueIntent_PAGX_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +281,7 @@
 				9D67E5F80ECEF3C395C4AE8D /* Pods_BlueIntent_Tests.framework */,
 				6DA04E03EEB722A9120E81CB /* Pods_BlueIntent_Watch_Example_WatchKit_Extension.framework */,
 				4A0D5575C7AE3C811CF753E3 /* Pods_BlueIntent_BezierPath_Example.framework */,
+				851B51FAA74CD218886C4BD5 /* Pods_BlueIntent_PAGX_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -346,6 +376,31 @@
 			path = "BlueIntent_Watch_Example WatchKit Extension";
 			sourceTree = "<group>";
 		};
+		5BEBE706288D04C40083DF58 /* PAGX */ = {
+			isa = PBXGroup;
+			children = (
+				5BF15A48288D4F2B001AE4C8 /* PAGView+BlueIntent.swift */,
+				5BF15A49288D4F2B001AE4C8 /* PAGX.swift */,
+				5BF15A4C288D5012001AE4C8 /* PAGCoder.swift */,
+			);
+			name = PAGX;
+			path = ../BlueIntent/PAGX;
+			sourceTree = "<group>";
+		};
+		5BEBE72A288D057E0083DF58 /* BlueIntent_PAGX_Example */ = {
+			isa = PBXGroup;
+			children = (
+				5BEBE72B288D057E0083DF58 /* AppDelegate.swift */,
+				5BEBE72D288D057E0083DF58 /* SceneDelegate.swift */,
+				5BEBE72F288D057E0083DF58 /* ViewController.swift */,
+				5BEBE731288D057E0083DF58 /* Main.storyboard */,
+				5BEBE734288D05800083DF58 /* Assets.xcassets */,
+				5BEBE736288D05800083DF58 /* LaunchScreen.storyboard */,
+				5BEBE739288D05800083DF58 /* Info.plist */,
+			);
+			path = BlueIntent_PAGX_Example;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +412,7 @@
 				5B007DF8264CD305009D3FE5 /* BlueIntent_BezierPath_Example */,
 				5B007E0F264CD306009D3FE5 /* BlueIntent_BezierPath_ExampleTests */,
 				5B007E1A264CD307009D3FE5 /* BlueIntent_BezierPath_ExampleUITests */,
+				5BEBE72A288D057E0083DF58 /* BlueIntent_PAGX_Example */,
 				607FACD11AFB9204008FA782 /* Products */,
 				661322C477BB29D545C82BE4 /* Pods */,
 				113B9C7B47393611492C8C4B /* Frameworks */,
@@ -374,6 +430,7 @@
 				5B007DF7264CD305009D3FE5 /* BlueIntent_BezierPath_Example.app */,
 				5B007E0C264CD306009D3FE5 /* BlueIntent_BezierPath_ExampleTests.xctest */,
 				5B007E17264CD307009D3FE5 /* BlueIntent_BezierPath_ExampleUITests.xctest */,
+				5BEBE729288D057E0083DF58 /* BlueIntent_PAGX_Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -423,6 +480,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				5BEBE706288D04C40083DF58 /* PAGX */,
 				5B2CD21E267B33CB00A814A1 /* ControllerTransitioning */,
 				7C3C0D06F07EC524AC5AC22C /* BlueIntent.podspec */,
 				BFD497FFB10F4F74C6FABDAB /* README.md */,
@@ -459,6 +517,8 @@
 				1CAE72AD8744A20DF53C9382 /* Pods-BlueIntent_Watch_Example WatchKit Extension.release.xcconfig */,
 				4E5DF80085E6A54FD5632C90 /* Pods-BlueIntent_BezierPath_Example.debug.xcconfig */,
 				9380DB111A8F55FDEDF2A022 /* Pods-BlueIntent_BezierPath_Example.release.xcconfig */,
+				1754CE2820A1EB3FAA53D99C /* Pods-BlueIntent_PAGX_Example.debug.xcconfig */,
+				F128F41CDE70D5CCDBCC6273 /* Pods-BlueIntent_PAGX_Example.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -574,6 +634,25 @@
 			productReference = 5BBD55B625469E94007E762B /* BlueIntent_Watch_Example WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
+		5BEBE728288D057E0083DF58 /* BlueIntent_PAGX_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BEBE73C288D05800083DF58 /* Build configuration list for PBXNativeTarget "BlueIntent_PAGX_Example" */;
+			buildPhases = (
+				1738990629E94F95068512EC /* [CP] Check Pods Manifest.lock */,
+				5BEBE725288D057E0083DF58 /* Sources */,
+				5BEBE726288D057E0083DF58 /* Frameworks */,
+				5BEBE727288D057E0083DF58 /* Resources */,
+				5F28926AF25C8D4F6F4290CE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlueIntent_PAGX_Example;
+			productName = BlueIntent_PAGX_Example;
+			productReference = 5BEBE729288D057E0083DF58 /* BlueIntent_PAGX_Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 		607FACCF1AFB9204008FA782 /* BlueIntent_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "BlueIntent_Example" */;
@@ -617,7 +696,7 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
@@ -651,6 +730,11 @@
 					5BBD55B525469E94007E762B = {
 						CreatedOnToolsVersion = 12.0.1;
 						DevelopmentTeam = AYZZSQA769;
+						ProvisioningStyle = Automatic;
+					};
+					5BEBE728288D057E0083DF58 = {
+						CreatedOnToolsVersion = 13.4.1;
+						DevelopmentTeam = FBYGS2UG54;
 						ProvisioningStyle = Automatic;
 					};
 					607FACCF1AFB9204008FA782 = {
@@ -688,6 +772,7 @@
 				5B007DF6264CD305009D3FE5 /* BlueIntent_BezierPath_Example */,
 				5B007E0B264CD306009D3FE5 /* BlueIntent_BezierPath_ExampleTests */,
 				5B007E16264CD307009D3FE5 /* BlueIntent_BezierPath_ExampleUITests */,
+				5BEBE728288D057E0083DF58 /* BlueIntent_PAGX_Example */,
 			);
 		};
 /* End PBXProject section */
@@ -741,6 +826,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5BEBE727288D057E0083DF58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BEBE738288D05800083DF58 /* LaunchScreen.storyboard in Resources */,
+				5BEBE735288D05800083DF58 /* Assets.xcassets in Resources */,
+				5BEBE733288D057E0083DF58 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCE1AFB9204008FA782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -761,6 +856,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1738990629E94F95068512EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlueIntent_PAGX_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		44EE5BF10325E5FEAEE7129C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -803,6 +920,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F28926AF25C8D4F6F4290CE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BlueIntent_PAGX_Example/Pods-BlueIntent_PAGX_Example-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/libpag/libpag.framework/libpag",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libpag.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlueIntent_PAGX_Example/Pods-BlueIntent_PAGX_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D6F34A4FD5F6816A9CF95F87 /* [CP] Check Pods Manifest.lock */ = {
@@ -890,6 +1025,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5BEBE725288D057E0083DF58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BEBE730288D057E0083DF58 /* ViewController.swift in Sources */,
+				5BEBE72C288D057E0083DF58 /* AppDelegate.swift in Sources */,
+				5BEBE72E288D057E0083DF58 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -963,6 +1108,22 @@
 				5BBD55AD25469E92007E762B /* Base */,
 			);
 			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		5BEBE731288D057E0083DF58 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BEBE732288D057E0083DF58 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5BEBE736288D05800083DF58 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BEBE737288D05800083DF58 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
@@ -1344,6 +1505,85 @@
 			};
 			name = Release;
 		};
+		5BEBE73A288D05800083DF58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1754CE2820A1EB3FAA53D99C /* Pods-BlueIntent_PAGX_Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = FBYGS2UG54;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BlueIntent_PAGX_Example/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.doufine.BlueIntent-PAGX-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5BEBE73B288D05800083DF58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F128F41CDE70D5CCDBCC6273 /* Pods-BlueIntent_PAGX_Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FBYGS2UG54;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BlueIntent_PAGX_Example/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.doufine.BlueIntent-PAGX-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		607FACED1AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1572,6 +1812,15 @@
 			buildConfigurations = (
 				5BBD55C725469E95007E762B /* Debug */,
 				5BBD55C825469E95007E762B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BEBE73C288D05800083DF58 /* Build configuration list for PBXNativeTarget "BlueIntent_PAGX_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BEBE73A288D05800083DF58 /* Debug */,
+				5BEBE73B288D05800083DF58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
