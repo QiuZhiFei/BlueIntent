@@ -292,9 +292,9 @@ public extension BlueIntentExtension where Base: UIView {
   func topLayout(_ controller: UIViewController,
                  inset: CGFloat = 0,
                  relation: NSLayoutConstraint.Relation = .equal) -> NSLayoutConstraint {
-    return base.autoPin(toTopLayoutGuideOf: controller,
-                        withInset: inset,
-                        relation: relation)
+    return base.autoPinEdge(toSuperviewSafeArea: .top,
+                            withInset: inset,
+                            relation: relation)
   }
   
   @discardableResult
@@ -306,9 +306,9 @@ public extension BlueIntentExtension where Base: UIView {
   func bottomLayout(_ controller: UIViewController,
                     inset: CGFloat = 0,
                     relation: NSLayoutConstraint.Relation = .equal) -> NSLayoutConstraint {
-    return base.autoPin(toBottomLayoutGuideOf: controller,
-                        withInset: inset,
-                        relation: relation)
+    return base.autoPinEdge(toSuperviewSafeArea: .bottom,
+                            withInset: inset,
+                            relation: relation)
   }
   
   @discardableResult
