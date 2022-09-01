@@ -111,7 +111,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'PAGX' do |ss|
-    ss.ios.deployment_target = '9.0'
+    ss.ios.deployment_target = '11.0'
     ss.source_files = 'BlueIntent/PAGX/Classes/**/*'
     ss.dependency 'BlueIntent/Base'
     ss.dependency 'libpag',           '~> 4.0.5'
