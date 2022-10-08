@@ -204,6 +204,17 @@ public extension BlueIntentExtension where Base: UIColor {
   }
 }
 
+public extension BlueIntentExtension where Base: UIColor {
+  /**
+   * Get RGB hex string, like `#000000`.
+   */
+  var hexString: String {
+    var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0
+    base.getRed(&r, green: &g, blue: &b, alpha: nil)
+    return [r, g, b].map { String(format: "%02lX", Int($0 * 255)) }.reduce("#", +)
+  }
+}
+
 #if os(iOS)
 public extension BlueIntentExtension where Base: UIColor {
   static func dynamic(_ light: UInt, dark: UInt? = nil) -> UIColor {
