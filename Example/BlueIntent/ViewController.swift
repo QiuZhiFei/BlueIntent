@@ -17,10 +17,14 @@ class ViewController: UIViewController {
     
 
     let image = UIImage(named: "IMG_7459")!
-    let color = image.bi.getDominantColor()
-//    view.backgroundColor = color
     
-    view.backgroundColor = image.getColors().backgroundColor
+    debugPrint(image.getColors()?.background.bi.rgba)
+    
+    let color = image.bi.getDominantColor()
+    debugPrint(color?.bi.rgba)
+    view.backgroundColor = color
+    
+//    view.backgroundColor = image.getColors()?.background
     
     
 //    let whiteImage = UIImage(named: "1")!
