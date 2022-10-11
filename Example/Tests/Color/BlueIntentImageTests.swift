@@ -26,7 +26,7 @@ class BlueIntentImageTests: XCTestCase {
     let redImage = CGContext.bi.generate(color: UIColor.red)!
     assert(redImage.bi.getDominantColor()!.bi.hexString == "#FF0000")
 
-    let whiteAndBlackImage = {
+    let whiteAndBlackImage: UIImage = {
       let size = CGSize(width: 10, height: 10)
       return CGContext.bi.screenshot(size: size,
                                      scale: UIScreen.main.scale) {
