@@ -45,7 +45,7 @@ extension BlueIntentExtension where Base: UIImage {
       guard let context = CGContext(data: nil,
                                     width: width,
                                     height: height,
-                                    bitsPerComponent: 8,      // bits per component
+                                    bitsPerComponent: 8,     // bits per component
                                     bytesPerRow: width * 4,  // bytes per row
                                     space: CGColorSpaceCreateDeviceRGB(),
                                     bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return nil }
@@ -54,11 +54,17 @@ extension BlueIntentExtension where Base: UIImage {
       let imageColors = NSCountedSet(capacity: width * height)
       for x in 0 ..< width {
         for y in 0 ..< height {
-          let  offset = 4 * x * y
-          let red = data.load(fromByteOffset: offset, as: UInt8.self)
-          let green = data.load(fromByteOffset: offset + 1, as: UInt8.self)
-          let blue = data.load(fromByteOffset: offset + 2, as: UInt8.self)
-          let alpha = data.load(fromByteOffset: offset + 3, as: UInt8.self)
+//          let  offset = 4 * x * y
+          let bytesPerPixel = 4
+          let offset = ((width * y) + x) * bytesPerPixel
+          let alpha = data.load(fromByteOffset: offset, as: UInt8.self)
+          let red = data.load(fromByteOffset: offset+1, as: UInt8.self)
+          let green = data.load(fromByteOffset: offset+2, as: UInt8.self)
+          let blue = data.load(fromByteOffset: offset+3, as: UInt8.self)
+//          let red = data.load(fromByteOffset: offset, as: UInt8.self)
+//          let green = data.load(fromByteOffset: offset + 1, as: UInt8.self)
+//          let blue = data.load(fromByteOffset: offset + 2, as: UInt8.self)
+//          let alpha = data.load(fromByteOffset: offset + 3, as: UInt8.self)
           imageColors.add("\(red),\(green),\(blue),\(alpha)")
         }
       }

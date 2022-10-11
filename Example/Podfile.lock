@@ -38,6 +38,7 @@ PODS:
   - SDWebImage (5.13.0):
     - SDWebImage/Core (= 5.13.0)
   - SDWebImage/Core (5.13.0)
+  - UIImageColors (2.1.0)
   - YYText (1.0.7)
 
 DEPENDENCIES:
@@ -51,6 +52,7 @@ DEPENDENCIES:
   - BlueIntent/Layout (from `../BlueIntent.podspec`)
   - BlueIntent/PAGX (from `../BlueIntent.podspec`)
   - BlueIntent/UIKit (from `../BlueIntent.podspec`)
+  - UIImageColors
 
 SPEC REPOS:
   trunk:
@@ -59,6 +61,7 @@ SPEC REPOS:
     - libpag
     - PureLayout
     - SDWebImage
+    - UIImageColors
     - YYText
 
 EXTERNAL SOURCES:
@@ -72,8 +75,9 @@ SPEC CHECKSUMS:
   libpag: c704ce5c2a4c3fcb59e0fcde4d5e18610d5b789d
   PureLayout: 5fb5e5429519627d60d079ccb1eaa7265ce7cf88
   SDWebImage: 0327043dbb9533e75f2eff8445b3df0f2ceca6ac
+  UIImageColors: d2ef3b0877d203cbb06489eeb78ea8b7788caabe
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 865e2d401f64cfd58a7050eb3b507e45c004ef0a
+PODFILE CHECKSUM: d85f2aacda44159aa2f93e7adf4a58a8536297cc
 
 COCOAPODS: 1.11.3

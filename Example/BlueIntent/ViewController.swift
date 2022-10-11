@@ -8,27 +8,29 @@
 
 import UIKit
 import BlueIntent
+import UIImageColors
 
 class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-//    let whiteImage = CGContext.bi.generate(color: .white)!
-    let whiteImage = UIImage(named: "1")!
-//    let startTime = CFAbsoluteTimeGetCurrent()
-//    
-//    let linkTime = CFAbsoluteTimeGetCurrent() - startTime
-//    debugPrint("zhifei log 压缩 耗时间 \(linkTime * 1000)")
-//  
+
+    let image = UIImage(named: "IMG_7459")!
+    let color = image.bi.getDominantColor()
+//    view.backgroundColor = color
     
-    getTime(string: "0") {
-      debugPrint(whiteImage.bi.getDominantColor()?.bi.hexString)
-    }
+    view.backgroundColor = image.getColors().backgroundColor
     
-    getTime(string: "1") {
-      debugPrint(whiteImage.bi.getDominantColor1()?.bi.hexString)
-    }
+    
+//    let whiteImage = UIImage(named: "1")!
+//    getTime(string: "0") {
+//      debugPrint(whiteImage.bi.getDominantColor()?.bi.hexString)
+//    }
+//
+//    getTime(string: "1") {
+//      debugPrint(whiteImage.bi.getDominantColor1()?.bi.hexString)
+//    }
   }
   
 }
