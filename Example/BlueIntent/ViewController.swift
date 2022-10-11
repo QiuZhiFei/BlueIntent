@@ -9,6 +9,7 @@
 import UIKit
 import BlueIntent
 import UIImageColors
+import DominantColor
 
 class ViewController: UIViewController {
   
@@ -18,11 +19,13 @@ class ViewController: UIViewController {
 
     let image = UIImage(named: "IMG_7459")!
     
-    debugPrint(image.getColors()?.background.bi.rgba)
+    debugPrint(image.getColors(quality: .low)?.background.bi.rgba)
     
     let color = image.bi.getDominantColor()
-    debugPrint(color?.bi.rgba)
     view.backgroundColor = color
+    debugPrint(color?.bi.rgba)
+    
+//    debugPrint(image.dominantColors().first?.bi.rgba)
     
 //    view.backgroundColor = image.getColors()?.background
     

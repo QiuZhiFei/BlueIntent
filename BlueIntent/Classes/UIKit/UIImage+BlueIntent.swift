@@ -21,6 +21,16 @@ extension BlueIntentExtension where Base: UIImage {
     return image.bi.getDominantColor(pixelLimit: pixelLimit)
   }
   
+  struct UIImageColorsCounter {
+      let color: String
+      let count: Int
+      init(color: String, count: Int) {
+          self.color = color
+          self.count = count
+      }
+  }
+  
+  
   /**
    * 获取主色
    * @param pixelLimit 计算的最大像素点, 值越小误差越大. 等于0时, 为图片自身的像素点. 默认值为 100 * 100
@@ -42,30 +52,69 @@ extension BlueIntentExtension where Base: UIImage {
     guard width > 0, height > 0 else { return nil }
     
     // 取每个点的像素值
-    guard let context = CGContext(data: nil,
-                                  width: width,
-                                  height: height,
-                                  bitsPerComponent: 8,     // bits per component
-                                  bytesPerRow: width * 4,  // bytes per row
-                                  space: CGColorSpaceCreateDeviceRGB(),
-                                  bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return nil }
-    context.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
-    guard let data = context.data else { return nil }
+    UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), false, 0)
+    base.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+    let finalImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    //    let path = URL(fileURLWithPath: NSHomeDirectory() + "/1.png")
+    //    debugPrint(path)
+    //    debugPrint(NSHomeDirectory())
+    //    debugPrint(finalImage?.pngData())
+    //    do {
+    //      try finalImage?.pngData()?.write(to: path)
+    //    } catch let error {
+    //      debugPrint(error)
+    //    }
+    //    try? finalImage?.pngData()?.write(to: path)
+#if os(OSX)
+    guard let cgImage = finalImage?.cgImage(forProposedRect: nil, context: nil, hints: nil) else { return nil }
+#else
+    guard let cgImage = finalImage?.cgImage else { return nil }
+#endif
+    guard let data = CFDataGetBytePtr(cgImage.dataProvider!.data) else {
+      fatalError("UIImageColors.getColors failed: could not get cgImage data.")
+    }
+    
+    //    guard let data = context.data else { return nil }
     let imageColors = NSCountedSet(capacity: width * height)
     for x in 0 ..< width {
       for y in 0 ..< height {
-        let  offset = 4 * x * y
-        let red = data.load(fromByteOffset: offset, as: UInt8.self)
-        let green = data.load(fromByteOffset: offset + 1, as: UInt8.self)
-        let blue = data.load(fromByteOffset: offset + 2, as: UInt8.self)
-        let alpha = data.load(fromByteOffset: offset + 3, as: UInt8.self)
-        imageColors.add("\(red),\(green),\(blue),\(alpha)")
+        //        let  offset = 4 * x * y
+//        let offset = (y * cgImage.bytesPerRow) + (x * 4)
+//        let blue = data[offset]
+//        let green = data[offset + 1]
+//        let red = data[offset + 2]
+//        let alpha = data[offset + 3]
+        let pixel: Int = (y * cgImage.bytesPerRow) + (x * 4)
+        if 127 <= data[pixel+3] {
+          imageColors.add("\((Double(data[pixel+2])*1000000)+(Double(data[pixel+1])*1000)+(Double(data[pixel])))")
+        }
+        //        imageColors.add("\(red),\(green),\(blue),\(alpha)")
       }
     }
     guard imageColors.count > 0 else { return nil }
     
     // 遍历出出现次数最多的颜色
     let enumerator = imageColors.objectEnumerator()
+    var sortedColors = NSMutableArray(capacity: imageColors.count)
+    while let K = enumerator.nextObject() as? String {
+      let C = imageColors.count(for: K)
+      sortedColors.add(UIImageColorsCounter(color: K, count: C))
+    }
+    let sortedColorComparator: Comparator = { (main, other) -> ComparisonResult in
+        let m = main as! UIImageColorsCounter, o = other as! UIImageColorsCounter
+        if m.count < o.count {
+            return .orderedDescending
+        } else if m.count == o.count {
+            return .orderedSame
+        } else {
+            return .orderedAscending
+        }
+    }
+    sortedColors.sort(comparator: sortedColorComparator)
+    
+    
     var maxColor: String = ""
     var maxCount = 0
     while let curColor = enumerator.nextObject() as? String, !curColor.isEmpty {

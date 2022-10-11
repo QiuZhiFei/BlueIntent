@@ -10,6 +10,7 @@ target 'BlueIntent_Example' do
   pod 'BlueIntent/ControllerTransitioning', :path => '../BlueIntent.podspec'
   pod 'BlueIntent/AppleLogin', :path => '../BlueIntent.podspec'
   pod 'UIImageColors'
+  pod 'DominantColor'
 
   target 'BlueIntent_Tests' do
     inherit! :search_paths
