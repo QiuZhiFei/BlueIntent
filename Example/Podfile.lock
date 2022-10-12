@@ -30,7 +30,6 @@ PODS:
     - BlueIntent/Base
     - BlueIntent/Foundation
   - CryptoSwift (1.3.8)
-  - DominantColor (0.2.0)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -53,13 +52,11 @@ DEPENDENCIES:
   - BlueIntent/Layout (from `../BlueIntent.podspec`)
   - BlueIntent/PAGX (from `../BlueIntent.podspec`)
   - BlueIntent/UIKit (from `../BlueIntent.podspec`)
-  - DominantColor
   - UIImageColors
 
 SPEC REPOS:
   trunk:
     - CryptoSwift
-    - DominantColor
     - FMDB
     - libpag
     - PureLayout
@@ -74,7 +71,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   BlueIntent: f52b3e7797050a999e7aaaf8104e7b46cb8eec04
   CryptoSwift: 01b0f0cba1d5c212e5a335ff6c054fb75a204f00
-  DominantColor: 960c25e8d7eaf598bb5adae5c99a67a205ad3099
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   libpag: c704ce5c2a4c3fcb59e0fcde4d5e18610d5b789d
   PureLayout: 5fb5e5429519627d60d079ccb1eaa7265ce7cf88
@@ -82,6 +78,6 @@ SPEC CHECKSUMS:
   UIImageColors: d2ef3b0877d203cbb06489eeb78ea8b7788caabe
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 6d46319bec2b31077414df314a68afe767ccc63e
+PODFILE CHECKSUM: 0637a71ad281a93a341b623f200ae71e3f4283cd
 
 COCOAPODS: 1.11.3

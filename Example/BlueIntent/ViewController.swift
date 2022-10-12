@@ -9,7 +9,7 @@
 import UIKit
 import BlueIntent
 import UIImageColors
-import DominantColor
+//import DominantColor
 
 class ViewController: UIViewController {
   
@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
 
-//    let image = UIImage(named: "IMG_0666")!
+    let image = UIImage(named: "IMG_0666")!
 //
 //    debugPrint(image.getColors(quality: .low)?.background.bi.rgba)
 //
@@ -32,13 +32,17 @@ class ViewController: UIViewController {
 //    view.backgroundColor = image.getColors()?.background
     
     
-    let whiteImage = UIImage(named: "1")!
-//    getTime(string: "0") {
-//      debugPrint(whiteImage.bi.getDominantColor()?.bi.hexString)
-//    }
+//    let whiteImage = UIImage(named: "1")!
+    getTime(string: "0") {
+      debugPrint(image.bi.getDominantColor()?.bi.hexString)
+    }
 //
     getTime(string: "1") {
-      debugPrint(whiteImage.bi.getDominantColor1()?.bi.hexString)
+      debugPrint(image.bi.getDominantColor1()?.bi.hexString)
+    }
+
+    getTime(string: "2") {
+      debugPrint(image.bi.getDominantColor2()?.bi.hexString)
     }
   }
 
