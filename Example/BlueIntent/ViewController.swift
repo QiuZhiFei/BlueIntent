@@ -15,9 +15,10 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
 
-    let image = UIImage(named: "IMG_0666")!
+    let image = UIImage(named: "IMG_7459")!
+//    let image = UIImage(named: "IMG_0666")!
+//    let image = UIImage(named: "123")!
 //
 //    debugPrint(image.getColors(quality: .low)?.background.bi.rgba)
 //

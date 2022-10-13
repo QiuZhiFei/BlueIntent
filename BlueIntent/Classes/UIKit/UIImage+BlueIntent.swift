@@ -84,66 +84,66 @@ extension BlueIntentExtension where Base: UIImage {
   }
 
   public func getDominantColor1(pixelLimit: UInt = 10000) -> UIColor? {
-      guard let cgImage = base.cgImage else { return nil }
-      guard base.size.width >= 1, base.size.height >= 1 else { return nil }
-      // 压缩图片, 加快计算速度, 值越小误差越大
-      let (width, height): (Int, Int) = {
-        if pixelLimit <= 0 {
-          return (Int(base.size.width), Int(base.size.height))
-        }
-        if base.size.width * base.size.height > CGFloat(pixelLimit) {
-          let ratio = CGFloat(sqrtf(Float(CGFloat(pixelLimit) / (base.size.width * base.size.height))))
-          return (Int(ratio * base.size.width), Int(ratio * base.size.height))
-        }
+    guard let cgImage = base.cgImage else { return nil }
+    guard base.size.width >= 1, base.size.height >= 1 else { return nil }
+    // 压缩图片, 加快计算速度, 值越小误差越大
+    let (width, height): (Int, Int) = {
+      if pixelLimit <= 0 {
         return (Int(base.size.width), Int(base.size.height))
-      }()
-      guard width > 0, height > 0 else { return nil }
-
-      // 取每个点的像素值
-      guard let context = CGContext(data: nil,
-                                    width: width,
-                                    height: height,
-                                    bitsPerComponent: 8,      // bits per component
-                                    bytesPerRow: width * 4,  // bytes per row
-                                    space: CGColorSpaceCreateDeviceRGB(),
-                                    bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return nil }
-      context.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
-      guard let data = context.data else { return nil }
-      let imageColors = NSCountedSet(capacity: width * height)
-      for x in 0 ..< width {
-        for y in 0 ..< height {
-          let  offset = context.bytesPerRow * y + 4 * x
-          let red = data.load(fromByteOffset: offset, as: UInt8.self)
-          let green = data.load(fromByteOffset: offset + 1, as: UInt8.self)
-          let blue = data.load(fromByteOffset: offset + 2, as: UInt8.self)
-          let alpha = data.load(fromByteOffset: offset + 3, as: UInt8.self)
-          imageColors.add("\(red),\(green),\(blue),\(alpha)")
-        }
       }
-      guard imageColors.count > 0 else { return nil }
-
-      // 遍历出出现次数最多的颜色
-      let enumerator = imageColors.objectEnumerator()
-      var maxColor: String = ""
-      var maxCount = 0
-      while let curColor = enumerator.nextObject() as? String, !curColor.isEmpty {
-        let tmpCount = imageColors.count(for: curColor)
-        if tmpCount < maxCount { continue }
-        maxCount = tmpCount
-        maxColor = curColor
+      if base.size.width * base.size.height > CGFloat(pixelLimit) {
+        let ratio = CGFloat(sqrtf(Float(CGFloat(pixelLimit) / (base.size.width * base.size.height))))
+        return (Int(ratio * base.size.width), Int(ratio * base.size.height))
       }
-      if maxColor.count > 0 {
-        let colors: [Int] = maxColor.split(separator: ",").map{ Int($0) ?? 0 }
-        if colors.count == 4 {
-          return UIColor(red: CGFloat(colors[0]) / 255.0,
-                         green: CGFloat(colors[1]) / 255.0,
-                         blue: CGFloat(colors[2]) / 255.0,
-                         alpha: CGFloat(colors[3]) / 255.0)
-        }
-      }
+      return (Int(base.size.width), Int(base.size.height))
+    }()
+    guard width > 0, height > 0 else { return nil }
 
-      return nil
+    // 取每个点的像素值
+    guard let context = CGContext(data: nil,
+                                  width: width,
+                                  height: height,
+                                  bitsPerComponent: 8,      // bits per component
+                                  bytesPerRow: width * 4,  // bytes per row
+                                  space: CGColorSpaceCreateDeviceRGB(),
+                                  bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return nil }
+    context.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+    guard let data = context.data else { return nil }
+    let imageColors = NSCountedSet(capacity: width * height)
+    for x in 0 ..< width {
+      for y in 0 ..< height {
+        let  offset = context.bytesPerRow * y + 4 * x
+        let red = data.load(fromByteOffset: offset, as: UInt8.self)
+        let green = data.load(fromByteOffset: offset + 1, as: UInt8.self)
+        let blue = data.load(fromByteOffset: offset + 2, as: UInt8.self)
+        let alpha = data.load(fromByteOffset: offset + 3, as: UInt8.self)
+        imageColors.add("\(red),\(green),\(blue),\(alpha)")
+      }
     }
+    guard imageColors.count > 0 else { return nil }
+
+    // 遍历出出现次数最多的颜色
+    let enumerator = imageColors.objectEnumerator()
+    var maxColor: String = ""
+    var maxCount = 0
+    while let curColor = enumerator.nextObject() as? String, !curColor.isEmpty {
+      let tmpCount = imageColors.count(for: curColor)
+      if tmpCount < maxCount { continue }
+      maxCount = tmpCount
+      maxColor = curColor
+    }
+    if maxColor.count > 0 {
+      let colors: [Int] = maxColor.split(separator: ",").map{ Int($0) ?? 0 }
+      if colors.count == 4 {
+        return UIColor(red: CGFloat(colors[0]) / 255.0,
+                       green: CGFloat(colors[1]) / 255.0,
+                       blue: CGFloat(colors[2]) / 255.0,
+                       alpha: CGFloat(colors[3]) / 255.0)
+      }
+    }
+
+    return nil
+  }
 
   private struct RGBA: Hashable {
     let red: UInt8
@@ -152,76 +152,448 @@ extension BlueIntentExtension where Base: UIImage {
     let alpha: UInt8
   }
 
-  private struct RGBACounter: Hashable {
-    let rgba: RGBA
+  private class RGBACounter: NSObject {
+    let rgba: UIColor
     let count: Int
+    var combiningCount: Int
+
+    init(rgba: UIColor, count: Int) {
+      self.rgba = rgba
+      self.count = count
+      self.combiningCount = count
+    }
   }
 
   public func getDominantColor2(pixelLimit: UInt = 10000) -> UIColor? {
-      guard let cgImage = base.cgImage else { return nil }
-      guard base.size.width >= 1, base.size.height >= 1 else { return nil }
-      // 压缩图片, 加快计算速度, 值越小误差越大
-      let (width, height): (Int, Int) = {
-        if pixelLimit <= 0 {
-          return (Int(base.size.width), Int(base.size.height))
-        }
-        if base.size.width * base.size.height > CGFloat(pixelLimit) {
-          let ratio = CGFloat(sqrtf(Float(CGFloat(pixelLimit) / (base.size.width * base.size.height))))
-          return (Int(ratio * base.size.width), Int(ratio * base.size.height))
-        }
+    guard let cgImage = base.cgImage else { return nil }
+    guard base.size.width >= 1, base.size.height >= 1 else { return nil }
+    // 压缩图片, 加快计算速度, 值越小误差越大
+    let (width, height): (Int, Int) = {
+      if pixelLimit <= 0 {
         return (Int(base.size.width), Int(base.size.height))
-      }()
-      guard width > 0, height > 0 else { return nil }
-
-      // 取每个点的像素值
-      guard let context = CGContext(data: nil,
-                                    width: width,
-                                    height: height,
-                                    bitsPerComponent: 8,      // bits per component
-                                    bytesPerRow: width * 4,  // bytes per row
-                                    space: CGColorSpaceCreateDeviceRGB(),
-                                    bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return nil }
-      context.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
-      guard let data = context.data else { return nil }
-      let imageColors = NSCountedSet(capacity: width * height)
-      for x in 0 ..< width {
-        for y in 0 ..< height {
-          let  offset = context.bytesPerRow * y + 4 * x
-          let red = data.load(fromByteOffset: offset, as: UInt8.self)
-          let green = data.load(fromByteOffset: offset + 1, as: UInt8.self)
-          let blue = data.load(fromByteOffset: offset + 2, as: UInt8.self)
-          let alpha = data.load(fromByteOffset: offset + 3, as: UInt8.self)
-
-//          imageColors.add("\(red),\(green),\(blue),\(alpha)")
-
-//          let color = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: CGFloat(alpha))
-//          imageColors.add(color)
-
-          imageColors.add(RGBA(red: red, green: green, blue: blue, alpha: alpha))
-        }
       }
-      guard imageColors.count > 0 else { return nil }
-
-      // 遍历出出现次数最多的颜色
-      let enumerator = imageColors.objectEnumerator()
-      var maxColor: String = ""
-      var maxCount = 0
-      while let curColor = enumerator.nextObject() as? String, !curColor.isEmpty {
-        let tmpCount = imageColors.count(for: curColor)
-        if tmpCount < maxCount { continue }
-        maxCount = tmpCount
-        maxColor = curColor
+      if base.size.width * base.size.height > CGFloat(pixelLimit) {
+        let ratio = CGFloat(sqrtf(Float(CGFloat(pixelLimit) / (base.size.width * base.size.height))))
+        return (Int(ratio * base.size.width), Int(ratio * base.size.height))
       }
-      if maxColor.count > 0 {
-        let colors: [Int] = maxColor.split(separator: ",").map{ Int($0) ?? 0 }
-        if colors.count == 4 {
-          return UIColor(red: CGFloat(colors[0]) / 255.0,
-                         green: CGFloat(colors[1]) / 255.0,
-                         blue: CGFloat(colors[2]) / 255.0,
-                         alpha: CGFloat(colors[3]) / 255.0)
-        }
-      }
+      return (Int(base.size.width), Int(base.size.height))
+    }()
+    guard width > 0, height > 0 else { return nil }
 
-      return nil
+    // 取每个点的像素值
+    guard let context = CGContext(data: nil,
+                                  width: width,
+                                  height: height,
+                                  bitsPerComponent: 8,      // bits per component
+                                  bytesPerRow: width * 4,  // bytes per row
+                                  space: CGColorSpaceCreateDeviceRGB(),
+                                  bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return nil }
+    context.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+    guard let data = context.data else { return nil }
+    let imageRGBAs = NSCountedSet(capacity: width * height)
+    for x in 0 ..< width {
+      for y in 0 ..< height {
+        let  offset = context.bytesPerRow * y + 4 * x
+        let red = data.load(fromByteOffset: offset, as: UInt8.self)
+        let green = data.load(fromByteOffset: offset + 1, as: UInt8.self)
+        let blue = data.load(fromByteOffset: offset + 2, as: UInt8.self)
+        let alpha = data.load(fromByteOffset: offset + 3, as: UInt8.self)
+
+        //        imageRGBAs.add("\(red),\(green),\(blue),\(alpha)")
+
+        let color = UIColor(red: CGFloat(red) / 255.0,
+                            green: CGFloat(green) / 255.0,
+                            blue: CGFloat(blue) / 255.0,
+                            alpha: CGFloat(alpha) / 255.0)
+        imageRGBAs.add(color)
+
+        //        imageRGBAs.add(RGBA(red: red, green: green, blue: blue, alpha: alpha))
+      }
     }
+    guard imageRGBAs.count > 0 else { return nil }
+
+    // 遍历出出现次数最多的颜色
+    let imageRGBACounters = Array(imageRGBAs.compactMap { (rgba) -> RGBACounter? in
+      //      guard let rgba = rgba as? RGBA else { return nil }
+      guard let rgba = rgba as? UIColor else { return nil }
+      let count = imageRGBAs.count(for: rgba)
+      return RGBACounter(rgba: rgba, count: count)
+    }.sorted { (lhs, rhs) -> Bool in
+      return lhs.count > rhs.count
+    }.prefix(200))
+//    debugPrint(imageRGBACounters)
+    for (index, rbgaCounter) in imageRGBACounters.enumerated() {
+      if index == imageRGBACounters.count - 1 {
+        break
+      }
+      let rightStartIdnex = index + 1
+      for rightIndex in rightStartIdnex..<imageRGBACounters.count {
+        let counter = imageRGBACounters[rightIndex]
+        let differenceScore = rbgaCounter.rgba.difference(from: counter.rgba, using: .CIE76).associatedValue
+        if differenceScore < 10 {
+          let leftCount = rbgaCounter.count
+          let rightCount = counter.count
+          debugPrint("left: \(index)")
+          debugPrint("left color: \(rbgaCounter.rgba)")
+          debugPrint("left count: \(rbgaCounter.count)")
+          debugPrint("rightIndex: \(rightIndex)")
+          debugPrint("right color: \(counter.rgba)")
+          debugPrint("right count: \(counter.count)")
+          debugPrint("-----------------------")
+          rbgaCounter.combiningCount = rbgaCounter.count + rightCount
+          counter.combiningCount = counter.count + leftCount
+        }
+      }
+    }
+    //    debugPrint(Array(imageRGBACounters[0..<10]))
+    //    debugPrint(imageRGBACounters)
+
+
+    //    let enumerator = imageColors.objectEnumerator()
+    //    var maxColor: String = ""
+    //    var maxCount = 0
+    //    while let curColor = enumerator.nextObject() as? String, !curColor.isEmpty {
+    //      let tmpCount = imageColors.count(for: curColor)
+    //      if tmpCount < maxCount { continue }
+    //      maxCount = tmpCount
+    //      maxColor = curColor
+    //    }
+    //    if maxColor.count > 0 {
+    //      let colors: [Int] = maxColor.split(separator: ",").map{ Int($0) ?? 0 }
+    //      if colors.count == 4 {
+    //        return UIColor(red: CGFloat(colors[0]) / 255.0,
+    //                       green: CGFloat(colors[1]) / 255.0,
+    //                       blue: CGFloat(colors[2]) / 255.0,
+    //                       alpha: CGFloat(colors[3]) / 255.0)
+    //      }
+    //    }
+
+    return nil
+  }
+}
+
+
+
+
+
+
+
+
+
+
+extension UIColor {
+
+    public enum ColorDifferenceResult: Comparable {
+
+        /// There is no difference between the two colors.
+        case indentical(CGFloat)
+
+        /// The difference between the two colors is not perceptible by human eye.
+        case similar(CGFloat)
+
+        /// The difference between the two colors is perceptible through close observation.
+        case close(CGFloat)
+
+        /// The difference between the two colors is perceptible at a glance.
+        case near(CGFloat)
+
+        /// The two colors are different, but not opposite.
+        case different(CGFloat)
+
+        /// The two colors are more opposite than similar.
+        case far(CGFloat)
+
+        init(value: CGFloat) {
+            if value == 0 {
+                self = .indentical(value)
+            } else if value <= 1.0 {
+                self = .similar(value)
+            } else if value <= 2.0 {
+                self = .close(value)
+            } else if value <= 10.0 {
+                self = .near(value)
+            } else if value <= 50.0 {
+                self = .different(value)
+            } else {
+                self = .far(value)
+            }
+        }
+
+        var associatedValue: CGFloat {
+            switch self {
+            case .indentical(let value),
+                 .similar(let value),
+                 .close(let value),
+                 .near(let value),
+                 .different(let value),
+                 .far(let value):
+                 return value
+            }
+        }
+
+        public static func < (lhs: UIColor.ColorDifferenceResult, rhs: UIColor.ColorDifferenceResult) -> Bool {
+            return lhs.associatedValue < rhs.associatedValue
+        }
+
+    }
+
+    /// The different algorithms for comparing colors.
+    /// @see https://en.wikipedia.org/wiki/Color_difference
+    public enum DeltaEFormula {
+        /// The euclidean algorithm is the simplest and fastest one, but will yield results that are unexpected to the human eye. Especially in the green range.
+        /// It simply calculates the euclidean distance in the RGB color space.
+        case euclidean
+
+        /// The `CIE76`algorithm is fast and yields acceptable results in most scenario.
+        case CIE76
+
+        /// The `CIE94` algorithm is an improvement to the `CIE76`, especially for the saturated regions. It's marginally slower than `CIE76`.
+        case CIE94
+
+        /// The `CIEDE2000` algorithm is the most precise algorithm to compare colors.
+        /// It is considerably slower than its predecessors.
+        case CIEDE2000
+    }
+
+    /// Computes the difference between the passed in `UIColor` instance.
+    ///
+    /// - Parameters:
+    ///   - color: The color to compare this instance to.
+    ///   - formula: The algorithm to use to make the comparaison.
+    /// - Returns: The different between the passed in `UIColor` instance and this instance.
+    public func difference(from color: UIColor, using formula: DeltaEFormula = .CIE94) -> ColorDifferenceResult {
+        switch formula {
+        case .euclidean:
+            let differenceValue = sqrt(pow(self.red255 - color.red255, 2) + pow(self.green255 - color.green255, 2) + pow(self.blue255 - color.blue255, 2))
+            let roundedDifferenceValue = differenceValue.rounded(.toNearestOrEven, precision: 100)
+            return ColorDifferenceResult(value: roundedDifferenceValue)
+        case .CIE76:
+            let differenceValue = sqrt(pow(color.L - self.L, 2) + pow(color.a - self.a, 2) + pow(color.b - self.b, 2))
+            let roundedDifferenceValue = differenceValue.rounded(.toNearestOrEven, precision: 100)
+            return ColorDifferenceResult(value: roundedDifferenceValue)
+        case .CIE94:
+            let differenceValue = UIColor.deltaECIE94(lhs: self, rhs: color)
+            let roundedDifferenceValue = differenceValue.rounded(.toNearestOrEven, precision: 100)
+            return ColorDifferenceResult(value: roundedDifferenceValue)
+        default:
+            return ColorDifferenceResult(value: -1)
+        }
+    }
+
+    private static func deltaECIE94(lhs: UIColor, rhs: UIColor) -> CGFloat {
+        let kL: CGFloat = 1.0
+        let kC: CGFloat = 1.0
+        let kH: CGFloat = 1.0
+        let k1: CGFloat = 0.045
+        let k2: CGFloat = 0.015
+        let sL: CGFloat = 1.0
+
+        let c1 = sqrt(pow(lhs.a, 2) + pow(lhs.b, 2))
+        let sC = 1 + k1 * c1
+        let sH = 1 + k2 * c1
+
+        let deltaL = lhs.L - rhs.L
+        let deltaA = lhs.a - rhs.a
+        let deltaB = lhs.b - rhs.b
+
+        let c2 = sqrt(pow(rhs.a, 2) + pow(rhs.b, 2))
+        let deltaCab = c1 - c2
+
+        let deltaHab = sqrt(pow(deltaA, 2) + pow(deltaB, 2) - pow(deltaCab, 2))
+
+        let p1 = pow(deltaL / (kL * sL), 2)
+        let p2 = pow(deltaCab / (kC * sC), 2)
+        let p3 = pow(deltaHab / (kH * sH), 2)
+
+        let deltaE = sqrt(p1 + p2 + p3)
+
+        return deltaE;
+    }
+
+}
+
+
+
+import UIKit
+
+struct RGB {
+    let R: CGFloat
+    let G: CGFloat
+    let B: CGFloat
+}
+
+extension UIColor {
+
+    // MARK: - Pulic
+
+    /// The red (R) channel of the RGB color space as a value from 0.0 to 1.0.
+    public var red: CGFloat {
+        CIColor(color: self).red
+    }
+
+    /// The green (G) channel of the RGB color space as a value from 0.0 to 1.0.
+    public var green: CGFloat {
+        CIColor(color: self).green
+    }
+
+    /// The blue (B) channel of the RGB color space as a value from 0.0 to 1.0.
+    public var blue: CGFloat {
+        CIColor(color: self).blue
+    }
+
+    /// The alpha (a) channel of the RGBa color space as a value from 0.0 to 1.0.
+    public var alpha: CGFloat {
+        CIColor(color: self).alpha
+    }
+
+    // MARK: Internal
+
+    var red255: CGFloat {
+        self.red * 255.0
+    }
+
+    var green255: CGFloat {
+        self.green * 255.0
+    }
+
+    var blue255: CGFloat {
+        self.blue * 255.0
+    }
+
+    var rgb: RGB {
+        return RGB(R: self.red, G: self.green, B: self.blue)
+    }
+
+}
+
+
+import CoreGraphics
+
+extension CGFloat {
+
+    func rounded(_ rule: FloatingPointRoundingRule, precision: Int) -> CGFloat {
+        return (self * CGFloat(precision)).rounded(rule) / CGFloat(precision)
+    }
+
+}
+
+
+import UIKit
+
+struct Lab {
+    let L: CGFloat
+    let a: CGFloat
+    let b: CGFloat
+}
+
+struct LabCalculator {
+    static func convert(RGB: RGB) -> Lab {
+        let XYZ = XYZCalculator.convert(rgb: RGB)
+        let Lab = LabCalculator.convert(XYZ: XYZ)
+        return Lab
+    }
+
+    static let referenceX: CGFloat = 95.047
+    static let referenceY: CGFloat = 100.0
+    static let referenceZ: CGFloat = 108.883
+
+    static func convert(XYZ: XYZ) -> Lab {
+        func transform(value: CGFloat) -> CGFloat {
+            if value > 0.008856 {
+                return pow(value, 1 / 3)
+            } else {
+                return (7.787 * value) + (16 / 116)
+            }
+        }
+
+        let X = transform(value: XYZ.X / referenceX)
+        let Y = transform(value: XYZ.Y / referenceY)
+        let Z = transform(value: XYZ.Z / referenceZ)
+
+        let L = ((116.0 * Y) - 16.0).rounded(.toNearestOrEven, precision: 100)
+        let a = (500.0 * (X - Y)).rounded(.toNearestOrEven, precision: 100)
+        let b = (200.0 * (Y - Z)).rounded(.toNearestOrEven, precision: 100)
+
+        return Lab(L: L, a: a, b: b)
+    }
+}
+
+extension UIColor {
+
+    /// The L* value of the CIELAB color space.
+    /// L* represents the lightness of the color from 0 (black) to 100 (white).
+    public var L: CGFloat {
+        let Lab = LabCalculator.convert(RGB: self.rgb)
+        return Lab.L
+    }
+
+    /// The a* value of the CIELAB color space.
+    /// a* represents colors from green to red.
+    public var a: CGFloat {
+        let Lab = LabCalculator.convert(RGB: self.rgb)
+        return Lab.a
+    }
+
+    /// The b* value of the CIELAB color space.
+    /// b* represents colors from blue to yellow.
+    public var b: CGFloat {
+        let Lab = LabCalculator.convert(RGB: self.rgb)
+        return Lab.b
+    }
+
+}
+
+
+import UIKit
+
+struct XYZ {
+    let X: CGFloat
+    let Y: CGFloat
+    let Z: CGFloat
+}
+
+struct XYZCalculator {
+
+    static func convert(rgb: RGB) -> XYZ {
+        func transform(value: CGFloat) -> CGFloat {
+            if value > 0.04045 {
+                return pow((value + 0.055) / 1.055, 2.4)
+            }
+
+            return value / 12.92
+        }
+
+        let red = transform(value: rgb.R) * 100.0
+        let green = transform(value: rgb.G) * 100.0
+        let blue = transform(value: rgb.B) * 100.0
+
+        let X = (red * 0.4124 + green * 0.3576 + blue * 0.1805).rounded(.toNearestOrEven, precision: 100)
+        let Y = (red * 0.2126 + green * 0.7152 + blue * 0.0722).rounded(.toNearestOrEven, precision: 100)
+        let Z = (red * 0.0193 + green * 0.1192 + blue * 0.9505).rounded(.toNearestOrEven, precision: 100)
+
+        return XYZ(X: X, Y: Y, Z: Z)
+    }
+
+}
+
+extension UIColor {
+
+    /// The X value of the XYZ color space.
+    public var X: CGFloat {
+        let XYZ = XYZCalculator.convert(rgb: self.rgb)
+        return XYZ.X
+    }
+
+    /// The Y value of the XYZ color space.
+    public var Y: CGFloat {
+        let XYZ = XYZCalculator.convert(rgb: self.rgb)
+        return XYZ.Y
+    }
+
+    /// The Z value of the XYZ color space.
+    public var Z: CGFloat {
+        let XYZ = XYZCalculator.convert(rgb: self.rgb)
+        return XYZ.Z
+    }
+
 }
