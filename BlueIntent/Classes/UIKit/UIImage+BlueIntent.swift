@@ -145,28 +145,27 @@ extension BlueIntentExtension where Base: UIImage {
     return nil
   }
 
-  private struct RGBA: Hashable {
-    let red: UInt8
-    let green: UInt8
-    let blue: UInt8
-    let alpha: UInt8
-  }
-
-  private class RGBACounter: NSObject {
-    let rgba: UIColor
+  private class ColorCounter: CustomStringConvertible {
+    let color: UIColor
     let count: Int
     var combiningCount: Int
+    var combiningColors: [UIColor] = []
 
-    init(rgba: UIColor, count: Int) {
-      self.rgba = rgba
+    init(color: UIColor, count: Int) {
+      self.color = color
       self.count = count
       self.combiningCount = count
     }
+
+    var description: String {
+      return "color: \(color.bi.rgba), count: \(count), combiningCount: \(combiningCount) \n"
+    }
   }
 
-  public func getDominantColor2(pixelLimit: UInt = 10000) -> UIColor? {
+  public func getDominantColor2(pixelLimit: UInt = 10000) -> [UIColor]? {
     guard let cgImage = base.cgImage else { return nil }
     guard base.size.width >= 1, base.size.height >= 1 else { return nil }
+
     // 压缩图片, 加快计算速度, 值越小误差越大
     let (width, height): (Int, Int) = {
       if pixelLimit <= 0 {
@@ -190,7 +189,7 @@ extension BlueIntentExtension where Base: UIImage {
                                   bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return nil }
     context.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
     guard let data = context.data else { return nil }
-    let imageRGBAs = NSCountedSet(capacity: width * height)
+    let imageColors = NSCountedSet(capacity: width * height)
     for x in 0 ..< width {
       for y in 0 ..< height {
         let  offset = context.bytesPerRow * y + 4 * x
@@ -199,54 +198,72 @@ extension BlueIntentExtension where Base: UIImage {
         let blue = data.load(fromByteOffset: offset + 2, as: UInt8.self)
         let alpha = data.load(fromByteOffset: offset + 3, as: UInt8.self)
 
-        //        imageRGBAs.add("\(red),\(green),\(blue),\(alpha)")
-
         let color = UIColor(red: CGFloat(red) / 255.0,
                             green: CGFloat(green) / 255.0,
                             blue: CGFloat(blue) / 255.0,
                             alpha: CGFloat(alpha) / 255.0)
-        imageRGBAs.add(color)
-
-        //        imageRGBAs.add(RGBA(red: red, green: green, blue: blue, alpha: alpha))
+        imageColors.add(color)
       }
     }
-    guard imageRGBAs.count > 0 else { return nil }
 
-    // 遍历出出现次数最多的颜色
-    let imageRGBACounters = Array(imageRGBAs.compactMap { (rgba) -> RGBACounter? in
-      //      guard let rgba = rgba as? RGBA else { return nil }
-      guard let rgba = rgba as? UIColor else { return nil }
-      let count = imageRGBAs.count(for: rgba)
-      return RGBACounter(rgba: rgba, count: count)
+    guard imageColors.count > 0 else { return nil }
+
+    // 排序, 获取出现次数最多的50个颜色
+    var imageColorCounters = Array(imageColors.compactMap { (color) -> ColorCounter? in
+      guard let rgba = color as? UIColor else { return nil }
+      let count = imageColors.count(for: rgba)
+      return ColorCounter(color: rgba, count: count)
     }.sorted { (lhs, rhs) -> Bool in
       return lhs.count > rhs.count
-    }.prefix(200))
-//    debugPrint(imageRGBACounters)
-    for (index, rbgaCounter) in imageRGBACounters.enumerated() {
-      if index == imageRGBACounters.count - 1 {
+    }.prefix(50))
+
+    // 合并颜色
+    for (index, counter) in imageColorCounters.enumerated() {
+      if index == imageColorCounters.count - 1 {
         break
       }
       let rightStartIdnex = index + 1
-      for rightIndex in rightStartIdnex..<imageRGBACounters.count {
-        let counter = imageRGBACounters[rightIndex]
-        let differenceScore = rbgaCounter.rgba.difference(from: counter.rgba, using: .CIE76).associatedValue
-        if differenceScore < 10 {
-          let leftCount = rbgaCounter.count
-          let rightCount = counter.count
-          debugPrint("left: \(index)")
-          debugPrint("left color: \(rbgaCounter.rgba)")
-          debugPrint("left count: \(rbgaCounter.count)")
-          debugPrint("rightIndex: \(rightIndex)")
-          debugPrint("right color: \(counter.rgba)")
-          debugPrint("right count: \(counter.count)")
-          debugPrint("-----------------------")
-          rbgaCounter.combiningCount = rbgaCounter.count + rightCount
-          counter.combiningCount = counter.count + leftCount
+      for rightIndex in rightStartIdnex..<imageColorCounters.count {
+        let rightCounter = imageColorCounters[rightIndex]
+        let score = counter.color.bi.compare(color: rightCounter.color, using: .CIEDE2000)
+        if score <= 10 {
+          let leftCount = counter.count
+          let rightCount = rightCounter.count
+          counter.combiningCount += rightCount
+          counter.combiningColors.append(rightCounter.color)
+          rightCounter.combiningCount += leftCount
+          rightCounter.combiningColors.append(counter.color)
         }
       }
     }
-    //    debugPrint(Array(imageRGBACounters[0..<10]))
-    //    debugPrint(imageRGBACounters)
+    
+    // 合并颜色后, 重新排序
+    imageColorCounters = imageColorCounters.sorted { (lhs, rhs) -> Bool in
+      return lhs.combiningCount > rhs.combiningCount
+    }
+
+    // 去除相似颜色
+    var result: [ColorCounter] = []
+    for counter in imageColorCounters {
+      if !(result.last?.combiningColors.contains(counter.color) ?? false) {
+        result.append(counter)
+      }
+    }
+    guard result.count > 0 else { return nil }
+    return result.map({ $0.color })
+
+//    imageColorCounters = imageColorCounters.filter({ counter in
+//      guard let lastCounter = imageColorCounters.last else { return false }
+//      debugPrint(lastCounter)
+//      return !lastCounter.combiningColors.contains(counter.color)
+//    })
+
+
+    return nil
+//    return Array(imageColorCounters.prefix(8))
+//    debugPrint(imageColorCounters.prefix(8))
+    //    debugPrint(Array(imageColorCounters[0..<10]))
+    //    debugPrint(imageColorCounters)
 
 
     //    let enumerator = imageColors.objectEnumerator()
@@ -319,7 +336,7 @@ extension UIColor {
             }
         }
 
-        var associatedValue: CGFloat {
+        public var associatedValue: CGFloat {
             switch self {
             case .indentical(let value),
                  .similar(let value),
