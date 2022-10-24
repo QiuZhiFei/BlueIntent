@@ -205,7 +205,6 @@ extension BlueIntentExtension where Base: UIImage {
         imageColors.add(color)
       }
     }
-
     guard imageColors.count > 0 else { return nil }
 
     // 排序, 获取出现次数最多的50个颜色

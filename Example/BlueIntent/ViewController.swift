@@ -19,7 +19,7 @@ class ViewController: UIViewController {
 //    let image = UIImage(named: "IMG_7459")!
 //    let image = UIImage(named: "IMG_0666")!
 //    let image = UIImage(named: "123")!
-    let image = UIImage(named: "Cafe Terrace at Night - Vincent Van Gogh")!
+
 //
 //    debugPrint(image.getColors(quality: .low)?.background.bi.rgba)
 //
@@ -40,17 +40,26 @@ class ViewController: UIViewController {
 //      debugPrint(image.bi.getDominantColor()?.bi.hexString)
 //    }
 
-    getTime(string: "1") {
-      debugPrint(image.bi.getDominantColor1()?.bi.hexString)
+    let image = UIImage(named: "Cafe Terrace at Night - Vincent Van Gogh")!
+
+    DispatchQueue.main.after
+
+
+    DispatchQueue.main.async {
+      getTime(string: "2") {
+        let image = UIImage(named: "Cafe Terrace at Night - Vincent Van Gogh")!
+        debugPrint(image.bi.getDominantColor2())
+      }
+
+      getTime(string: "1") {
+        let image = UIImage(named: "Cafe Terrace at Night - Vincent Van Gogh")!
+        debugPrint(image.bi.getDominantColor1())
+      }
+
     }
 
-    getTime(string: "2") {
-      debugPrint(image.bi.getDominantColor2())
-    }
-
-
-    let differenceScore = BlueIntent.ColorRGBA(167, 91, 82).color.bi.compare(color: BlueIntent.ColorRGBA(170, 94, 85).color)
-    debugPrint(differenceScore)
+//    let differenceScore = BlueIntent.ColorRGBA(167, 91, 82).color.bi.compare(color: BlueIntent.ColorRGBA(170, 94, 85).color)
+//    debugPrint(differenceScore)
 
 
 //    let differenceScore = UIColor.white.bi.compare(color: UIColor.black, using: .CIEDE2000)
