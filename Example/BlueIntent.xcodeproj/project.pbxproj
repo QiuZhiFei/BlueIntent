@@ -21,6 +21,7 @@
 		5B3942BF2581475A000F668C /* BlueIntentDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3942BE2581475A000F668C /* BlueIntentDBTests.swift */; };
 		5B586C1F28F1227400A938D1 /* BlueIntentImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B586C1E28F1227400A938D1 /* BlueIntentImageTests.swift */; };
 		5B6A407E259B2C860066DFD3 /* BlueIntentColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6A407D259B2C860066DFD3 /* BlueIntentColorTests.swift */; };
+		5B85D83029DEB326007EA844 /* UIColorCodableWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B85D82F29DEB326007EA844 /* UIColorCodableWrapperTests.swift */; };
 		5BBD55A825469E92007E762B /* BlueIntent_Watch_Example WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5BBD55A725469E92007E762B /* BlueIntent_Watch_Example WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5BBD55AE25469E92007E762B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD55AC25469E92007E762B /* Interface.storyboard */; };
 		5BBD55B025469E94007E762B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD55AF25469E94007E762B /* Assets.xcassets */; };
@@ -149,6 +150,8 @@
 		5B586C1E28F1227400A938D1 /* BlueIntentImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueIntentImageTests.swift; sourceTree = "<group>"; };
 		5B6A407D259B2C860066DFD3 /* BlueIntentColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueIntentColorTests.swift; sourceTree = "<group>"; };
 		5B6A40DB259C89160066DFD3 /* UIView+BlueIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+BlueIntent.swift"; path = "../BlueIntent/Classes/UIKit/UIView+BlueIntent.swift"; sourceTree = "<group>"; };
+		5B85D82E29DEAFBC007EA844 /* UIColorCodableWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIColorCodableWrapper.swift; path = ../BlueIntent/Classes/UIKit/UIColorCodableWrapper.swift; sourceTree = "<group>"; };
+		5B85D82F29DEB326007EA844 /* UIColorCodableWrapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorCodableWrapperTests.swift; sourceTree = "<group>"; };
 		5B8CE2E1253031C70087F739 /* BlueIntentAppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentAppleLogin.swift; path = ../BlueIntent/Classes/AppleLogin/BlueIntentAppleLogin.swift; sourceTree = "<group>"; };
 		5B8CE5902531591F0087F739 /* BlueIntentLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentLayout.swift; path = ../BlueIntent/Classes/Layout/BlueIntentLayout.swift; sourceTree = "<group>"; };
 		5B9CE27C264A941E0025B172 /* BlueIntentBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlueIntentBezierPath.swift; path = ../BlueIntent/Classes/BezierPath/BlueIntentBezierPath.swift; sourceTree = "<group>"; };
@@ -352,6 +355,7 @@
 			children = (
 				5B6A407D259B2C860066DFD3 /* BlueIntentColorTests.swift */,
 				5B586C1E28F1227400A938D1 /* BlueIntentImageTests.swift */,
+				5B85D82F29DEB326007EA844 /* UIColorCodableWrapperTests.swift */,
 			);
 			path = Color;
 			sourceTree = "<group>";
@@ -500,6 +504,7 @@
 				5B8CE5902531591F0087F739 /* BlueIntentLayout.swift */,
 				5B1ACEB02536DB6F00F45C49 /* BlueIntentAES.swift */,
 				5BBD555C25467D2D007E762B /* BlueIntentColor.swift */,
+				5B85D82E29DEAFBC007EA844 /* UIColorCodableWrapper.swift */,
 				5B3DCFF528DC3BC3007EFA31 /* UIImage+BlueIntent.swift */,
 				5B6A40DB259C89160066DFD3 /* UIView+BlueIntent.swift */,
 				5B9CE27C264A941E0025B172 /* BlueIntentBezierPath.swift */,
@@ -1055,6 +1060,7 @@
 			files = (
 				5B586C1F28F1227400A938D1 /* BlueIntentImageTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				5B85D83029DEB326007EA844 /* UIColorCodableWrapperTests.swift in Sources */,
 				5B6A407E259B2C860066DFD3 /* BlueIntentColorTests.swift in Sources */,
 				5B3942BF2581475A000F668C /* BlueIntentDBTests.swift in Sources */,
 				5B1ACEE22536E6A700F45C49 /* BlueIntentAESTests.swift in Sources */,
