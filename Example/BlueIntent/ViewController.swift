@@ -20,9 +20,13 @@ class ViewController: UIViewController {
     livePhotoView.frame = CGRect(x: 100, y: 100, width: 200, height: 200)
     view.addSubview(livePhotoView)
 
-    showPickerController()
+//    showPickerController()
 
 //    combiningLivePhoto()
+
+    debugPrint("1234")
+    let result = fetchPhotos(.smartAlbumFavorites, fetchLimit: 10)
+    debugPrint("result?.firstObject == \(result?.firstObject)")
   }
   
 }
@@ -48,7 +52,7 @@ extension ViewController {
 
   func showPickerController() {
     if #available(iOS 10.3, *) {
-      if let asset: PHAsset = fetchPhotos(.smartAlbumLivePhotos, fetchLimit: 10)?.lastObject {
+      if let asset: PHAsset = fetchPhotos(.smartAlbumLivePhotos, fetchLimit: 20)?.lastObject {
         assert(asset.mediaSubtypes == .photoLive)
 
         // HEIC + MOV
