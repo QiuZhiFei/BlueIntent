@@ -190,6 +190,9 @@ public extension BlueIntentExtension where Base: UIColor {
   static func hex(_ hex: String?, alpha: CGFloat = 1) -> UIColor? {
     guard let hex = hex else { return nil }
     guard hex.first == "#" else { return nil }
+    if hex.count == 3 || hex.count == 6 {
+      return Self.hex("#\(hex)", alpha: alpha)
+    }
     if hex.count == 4 {
       let hex = "#" + Array(hex).map { (char) -> String in
         if char == "#" { return "" }
