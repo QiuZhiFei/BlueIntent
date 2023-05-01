@@ -71,14 +71,17 @@ class BlueIntentColorTests: XCTestCase {
   }
   
   func testHexString() throws {
+    XCTAssertTrue(UIColor.bi.hex("fff")!.bi.hexString == "#FFFFFF")
     XCTAssertTrue(UIColor.bi.hex("#fff")!.bi.hexString == "#FFFFFF")
     XCTAssertTrue(UIColor.bi.hex("#FFF")!.bi.hexString == "#FFFFFF")
     XCTAssertTrue(UIColor.bi.hex("#FFFFFF")!.bi.hexString == "#FFFFFF")
     XCTAssertTrue(UIColor.bi.hex("#fff")!.withAlphaComponent(0.1).bi.hexString == "#FFFFFF")
 
+    XCTAssertTrue(UIColor.bi.hex("000")!.bi.hexString == "#000000")
     XCTAssertTrue(UIColor.bi.hex("#000")!.bi.hexString == "#000000")
     XCTAssertTrue(UIColor.bi.hex("#000")!.withAlphaComponent(0.1).bi.hexString == "#000000")
 
+    XCTAssertTrue(UIColor.bi.hex("275A76")!.bi.hexString == "#275A76")
     XCTAssertTrue(UIColor.bi.hex("#275A76")!.bi.hexString == "#275A76")
     XCTAssertTrue(UIColor.bi.hex("#275A76")!.withAlphaComponent(0.1).bi.hexString == "#275A76")
   }

@@ -712,18 +712,15 @@
 				TargetAttributes = {
 					5B007DF6264CD305009D3FE5 = {
 						CreatedOnToolsVersion = 12.4;
-						DevelopmentTeam = QWQ7FU2HXV;
 						ProvisioningStyle = Automatic;
 					};
 					5B007E0B264CD306009D3FE5 = {
 						CreatedOnToolsVersion = 12.4;
-						DevelopmentTeam = QWQ7FU2HXV;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 5B007DF6264CD305009D3FE5;
 					};
 					5B007E16264CD307009D3FE5 = {
 						CreatedOnToolsVersion = 12.4;
-						DevelopmentTeam = QWQ7FU2HXV;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 5B007DF6264CD305009D3FE5;
 					};
@@ -734,27 +731,25 @@
 					};
 					5BBD55A625469E92007E762B = {
 						CreatedOnToolsVersion = 12.0.1;
-						DevelopmentTeam = AYZZSQA769;
 						ProvisioningStyle = Automatic;
 					};
 					5BBD55B525469E94007E762B = {
 						CreatedOnToolsVersion = 12.0.1;
-						DevelopmentTeam = AYZZSQA769;
 						ProvisioningStyle = Automatic;
 					};
 					5BEBE728288D057E0083DF58 = {
 						CreatedOnToolsVersion = 13.4.1;
-						DevelopmentTeam = FBYGS2UG54;
 						ProvisioningStyle = Automatic;
 					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = AYZZSQA769;
+						DevelopmentTeam = KD976452UD;
 						LastSwiftMigration = 1200;
+						ProvisioningStyle = Automatic;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = AYZZSQA769;
+						DevelopmentTeam = KD976452UD;
 						LastSwiftMigration = 1200;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -1174,7 +1169,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = QWQ7FU2HXV;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = BlueIntent_BezierPath_Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1205,7 +1200,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QWQ7FU2HXV;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = BlueIntent_BezierPath_Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1234,7 +1229,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = QWQ7FU2HXV;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = BlueIntent_BezierPath_ExampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
@@ -1265,7 +1260,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QWQ7FU2HXV;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = BlueIntent_BezierPath_ExampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
@@ -1294,7 +1289,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = QWQ7FU2HXV;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = BlueIntent_BezierPath_ExampleUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
@@ -1324,7 +1319,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QWQ7FU2HXV;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = BlueIntent_BezierPath_ExampleUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
@@ -1406,7 +1401,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = AYZZSQA769;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				IBSC_MODULE = BlueIntent_Watch_Example_WatchKit_Extension;
 				INFOPLIST_FILE = "BlueIntent_Watch_Example WatchKit App/Info.plist";
@@ -1470,7 +1465,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = AYZZSQA769;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "BlueIntent_Watch_Example WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -1502,7 +1497,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AYZZSQA769;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "BlueIntent_Watch_Example WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -1535,7 +1530,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = FBYGS2UG54;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BlueIntent_PAGX_Example/Info.plist;
@@ -1575,7 +1570,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FBYGS2UG54;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BlueIntent_PAGX_Example/Info.plist;
@@ -1700,12 +1695,15 @@
 			baseConfigurationReference = CA4363287F0FFD1066F34EF7 /* Pods-BlueIntent_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AYZZSQA769;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KD976452UD;
 				INFOPLIST_FILE = BlueIntent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1716,12 +1714,15 @@
 			baseConfigurationReference = B13C74B5904B126B9A9E8897 /* Pods-BlueIntent_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AYZZSQA769;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KD976452UD;
 				INFOPLIST_FILE = BlueIntent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1732,7 +1733,7 @@
 			baseConfigurationReference = 3B058D676181A4B6409DE5F7 /* Pods-BlueIntent_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BlueIntent_Example.app/BlueIntent_Example";
-				DEVELOPMENT_TEAM = AYZZSQA769;
+				DEVELOPMENT_TEAM = KD976452UD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1756,7 +1757,7 @@
 			baseConfigurationReference = 8A8420186A39DB93996F6D1E /* Pods-BlueIntent_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BlueIntent_Example.app/BlueIntent_Example";
-				DEVELOPMENT_TEAM = AYZZSQA769;
+				DEVELOPMENT_TEAM = KD976452UD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
