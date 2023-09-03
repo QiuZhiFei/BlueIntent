@@ -56,7 +56,7 @@ public final class FlexStackView: UIView {
   private var arrangedSubviews: [UIView] = []
   private let layout: FlexStackViewLayout
   
-  public required init(layout: FlexStackViewLayout) {
+  public required init(layout: FlexStackViewLayout = RowLayout()) {
     self.layout = layout
     super.init(frame: .zero)
     directionalLayoutMargins = .zero
