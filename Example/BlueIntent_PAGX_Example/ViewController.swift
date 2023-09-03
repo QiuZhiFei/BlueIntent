@@ -18,31 +18,48 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    pagView.frame = CGRect(x: 0, y: 100, width: view.bounds.width, height: view.bounds.width)
-    view.addSubview(pagView)
-    pagView.bi.repeats = true
-    pagView.bi.play(url: "http://img2.doufine.com/pagfiles/cat.pag") { [weak self] (pagView) in
-      guard let sself = self else { return }
-      guard let frameRate = pagView.bi.frameRate else { return }
-      sself.timer?.invalidate()
-      sself.timer = Timer.scheduledTimer(timeInterval: 1 / frameRate, target: sself, selector: #selector(sself.handleSyncPagViewProgress), userInfo: nil, repeats: true)
-      if let timer = sself.timer {
-        RunLoop.main.add(timer, forMode: .common)
-      }
-    }
+    let label1 = UILabel()
+    label1.text = "test1"
+    label1.backgroundColor = .blue
 
-    slider.frame = {
-      let originX: CGFloat = 40
-      let originY: CGFloat = pagView.frame.maxY + 20
-      let height: CGFloat = 20
-      let width = view.bounds.width - originX * 2
-      return CGRect(x: originX,
-                    y: originY,
-                    width: width,
-                    height: height)
+
+    let label2 = UILabel()
+    label2.text = "test2"
+    label2.backgroundColor = .blue
+    label2.font = .systemFont(ofSize: 30)
+
+
+    let rowLayout = FlexStackView.RowLayout(minimumLineSpacing: 8,
+                                            minimumInteritemSpacing: 8,
+                                            alignItems: .center,
+                                            lineLint: 12)
+
+    let stackView = FlexStackView(layout: rowLayout)
+    stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+    stackView.directionalLayoutMargins = .zero
+    stackView.backgroundColor = .yellow
+    stackView.frame = CGRect(x: 0, y: 100, width: 50, height: 30)
+    stackView.addArrangedSubview(label1)
+    stackView.addArrangedSubview(label2)
+
+    view.addSubview(stackView)
+
+    let label3 = UILabel()
+    label3.text = "test3444444444"
+    label3.backgroundColor = .blue
+    stackView.addArrangedSubview(label3)
+
+    let label4 = UILabel()
+    label4.text = "test4"
+    label4.backgroundColor = .blue
+    label4.font = .systemFont(ofSize: 30)
+    stackView.addArrangedSubview(label4)
+
+    stackView.frame = {
+      var frame = stackView.frame
+      frame.size = stackView.sizeThatFits(width: 240)
+      return frame
     }()
-    slider.addTarget(self, action: #selector(handleSliderValueChanged(slider:)), for: .valueChanged)
-    view.addSubview(slider)
   }
 
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
