@@ -58,6 +58,7 @@ class ViewController: UIViewController {
     let layout: FlexStackView.RowLayout? = (stackView.layout as? FlexStackView.RowLayout)
     layout?.setCustomInteritemSpacing(0, after: label1)
     layout?.setCustomInteritemSpacing(0, after: label3)
+    layout?.setCustomInteritemSpacing(FlexStackView.RowLayout.spacingUseDefault, after: label3)
     
     stackView.frame = {
       var frame = stackView.frame

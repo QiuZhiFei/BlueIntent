@@ -47,7 +47,7 @@ extension FlexStackView.RowLayout {
     /// |           |
     ///  -----------
     case flexStart
-    
+
     /// 下对齐。
     ///
     ///  -----------
@@ -56,7 +56,7 @@ extension FlexStackView.RowLayout {
     /// |■ ■ ■ ■ ■ ■|
     ///  -----------
     case flexEnd
-    
+
     /// 居中。
     ///
     ///  -----------
@@ -80,7 +80,7 @@ extension FlexStackView.RowLayout {
     }
     customInteritemSpacings[arrangedSubview] = interitemSpacing
   }
-  
+
   /// 获取 view 的列间距
   public func customInteritemSpacing(after arrangedSubview: UIView) -> CGFloat {
     return customInteritemSpacings[arrangedSubview] ?? minimumInteritemSpacing
@@ -98,45 +98,45 @@ extension FlexStackView.RowLayout: FlexStackViewLayout {
       self.item = item
       self.frame = frame
     }
-    
+
     var box: FlexStackView.ItemBox {
       return FlexStackView.ItemBox(frame: frame)
     }
   }
-  
+
   /// 每行的布局
   private final class RowLineBox {
     /// 第几行
     var index: Int
-    
+
     /// 行的 frame
     var frame: CGRect
-    
+
     /// 行内所有 item 的 frame
     var itemBoxes: [RowItemBox]
-    
+
     init(index: Int, frame: CGRect, itemBoxes: [RowItemBox]) {
       self.index = index
       self.frame = frame
       self.itemBoxes = itemBoxes
     }
-    
+
     var box: FlexStackView.LineBox {
-      return FlexStackView.LineBox(index: index, frame: frame, itemBoxes: itemBoxes.map{ $0.box })
+      return FlexStackView.LineBox(index: index, frame: frame, itemBoxes: itemBoxes.map { $0.box })
     }
   }
-  
+
   /// 渲染并得到最终的 box
   public func render(maxWidth: CGFloat,
                      maxHeight: CGFloat,
                      arrangedSubviews: [UIView]) -> FlexStackView.ContentBox {
-    let itemSizes = arrangedSubviews.map{
+    let itemSizes = arrangedSubviews.map {
       $0.sizeThatFits(CGSize(width: maxWidth, height: maxHeight))
     }
 
     /// 每行的布局
     var rowLineBoxes: [RowLineBox] = []
-    
+
     for (index, itemSize) in itemSizes.enumerated() {
       /// 要布局的 item
       let item = arrangedSubviews[index]
@@ -175,50 +175,50 @@ extension FlexStackView.RowLayout: FlexStackViewLayout {
         let currentLineBox = RowLineBox(index: rowLineBoxes.count, frame: .zero, itemBoxes: [itemBox])
         rowLineBoxes.append(currentLineBox)
       }
-      
+
       /// 当前行添加 item 后，修正其 frame
       let currentLineBox = rowLineBoxes.last!
       currentLineBox.frame = {
         let width: CGFloat = currentLineBox.itemBoxes.last!.frame.maxX
-        let height: CGFloat = currentLineBox.itemBoxes.map{ $0.frame }.max(by: { $0.height < $1.height })!.height
+        let height: CGFloat = currentLineBox.itemBoxes.map { $0.frame }.max(by: { $0.height < $1.height })!.height
         let originX: CGFloat = 0
         let originY: CGFloat = currentLineBox.index == 0 ? 0 : (rowLineBoxes[currentLineBox.index - 1].frame.maxY + minimumLineSpacing)
         return CGRect(x: originX, y: originY, width: width, height: height)
       }()
     }
-    
+
     /// 适配 alignItems
     switch alignItems {
     case .flexStart:
-      for (_, lineBox) in rowLineBoxes.enumerated() {
-        for (_, itemBox) in lineBox.itemBoxes.enumerated() {
+      for lineBox in rowLineBoxes {
+        for itemBox in lineBox.itemBoxes {
           itemBox.frame.origin.y = lineBox.frame.origin.y
         }
       }
     case .flexEnd:
-      for (_, lineBox) in rowLineBoxes.enumerated() {
-        for (_, itemBox) in lineBox.itemBoxes.enumerated() {
+      for lineBox in rowLineBoxes {
+        for itemBox in lineBox.itemBoxes {
           itemBox.frame.origin.y = lineBox.frame.origin.y + lineBox.frame.height - itemBox.frame.height
         }
       }
     case .center:
-      for (_, lineBox) in rowLineBoxes.enumerated() {
-        for (_, itemBox) in lineBox.itemBoxes.enumerated() {
+      for lineBox in rowLineBoxes {
+        for itemBox in lineBox.itemBoxes {
           itemBox.frame.origin.y = lineBox.frame.origin.y + (lineBox.frame.height - itemBox.frame.height) / 2.0
         }
       }
     }
-    
+
     /// 所有 view 的 frame。
     let viewFrames = rowLineBoxes.flatMap({ $0.itemBoxes }).compactMap({ $0.frame })
-    
+
     /// 内容高度 = 最后一行最高内容的 maxY
     let height = (rowLineBoxes.last?.frame.maxY ?? 0).rounded(.up)
     /// 内容宽度 = 可展示的最大宽度
-    let width = (rowLineBoxes.map{ $0.frame }.max(by: { $0.width < $1.width })?.width ?? 0).rounded(.up)
-    
+    let width = (rowLineBoxes.map { $0.frame }.max(by: { $0.width < $1.width })?.width ?? 0).rounded(.up)
+
     return FlexStackView.ContentBox(viewFrames: viewFrames,
-                                    lineBoxes: rowLineBoxes.map{ $0.box },
+                                    lineBoxes: rowLineBoxes.map { $0.box },
                                     size: CGSize(width: width, height: height))
   }
 }

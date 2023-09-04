@@ -12,32 +12,32 @@ extension FlexStackView {
   /// 每个 item 的布局。
   public struct ItemBox {
     let frame: CGRect
-    
+
     init(frame: CGRect) {
       self.frame = frame
     }
   }
-  
+
   /// 每行的布局
   public struct LineBox {
     /// 第几行
     let index: Int
-    
+
     /// 行的 frame
     let frame: CGRect
-    
+
     /// 行内所有 itemBox
     let itemBoxes: [ItemBox]
   }
-  
+
   /// 所有内容的布局
   public struct ContentBox {
     /// 每个 view 的布局
     let viewFrames: [CGRect]
-    
+
     /// 每行的布局
     let lineBoxes: [LineBox]
-    
+
     /// 内容的 size
     let size: CGSize
   }
@@ -57,23 +57,23 @@ public final class FlexStackView: UIView {
 
   private let contentView = UIView()
   public private(set) var arrangedSubviews: [UIView] = []
-  
+
   public required init(layout: FlexStackViewLayout = RowLayout()) {
     self.layout = layout
     super.init(frame: .zero)
     directionalLayoutMargins = .zero
     self.addSubview(contentView)
   }
-  
+
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
+
   public override func layoutSubviews() {
     super.layoutSubviews()
     let maxWidth = bounds.size.width - directionalLayoutMargins.leading - directionalLayoutMargins.trailing
     let box = layout.render(maxWidth: maxWidth, maxHeight: CGFloat.greatestFiniteMagnitude, arrangedSubviews: arrangedSubviews)
-    
+
     let contentViewFrame = CGRect(x: directionalLayoutMargins.leading,
                                   y: directionalLayoutMargins.top,
                                   width: max(0, bounds.width - directionalLayoutMargins.leading - directionalLayoutMargins.trailing),
@@ -81,7 +81,7 @@ public final class FlexStackView: UIView {
     if contentView.frame != contentViewFrame {
       contentView.frame = contentViewFrame
     }
-    
+
     for (index, frame) in box.viewFrames.enumerated() {
       let view = arrangedSubviews[index]
       if view.frame != frame {
@@ -89,12 +89,12 @@ public final class FlexStackView: UIView {
       }
     }
   }
-  
+
   public override func sizeThatFits(_ size: CGSize) -> CGSize {
     let maxWidth = size.width - directionalLayoutMargins.leading - directionalLayoutMargins.trailing
     let maxHeight = CGFloat.greatestFiniteMagnitude
     let box = layout.render(maxWidth: maxWidth, maxHeight: CGFloat.greatestFiniteMagnitude, arrangedSubviews: arrangedSubviews)
-    
+
     /// 无内容
     if box.lineBoxes.count == 0 {
       return .zero
