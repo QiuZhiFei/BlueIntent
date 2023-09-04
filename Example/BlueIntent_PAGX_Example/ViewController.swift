@@ -60,6 +60,9 @@ class ViewController: UIViewController {
       frame.size = stackView.sizeThatFits(width: 240)
       return frame
     }()
+    
+    let layout: FlexStackView.RowLayout? = (stackView.layout as? FlexStackView.RowLayout)
+    layout?.setCustomInteritemSpacing(FlexStackView.RowLayout.spacingUseDefault, after: stackView.arrangedSubviews.firstIndex(of: label1))
   }
 
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

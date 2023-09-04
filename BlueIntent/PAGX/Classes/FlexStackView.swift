@@ -48,7 +48,7 @@ public protocol FlexStackViewLayout {
   /// 渲染并得到最终的 box
   func render(maxWidth: CGFloat,
               maxHeight: CGFloat,
-              itemSizes: [CGSize]) -> FlexStackView.ContentBox
+              arrangedSubviews: [UIView]) -> FlexStackView.ContentBox
 }
 
 /// Flex 布局，规则同 Web CSS flex。
@@ -56,7 +56,7 @@ public final class FlexStackView: UIView {
   public let layout: FlexStackViewLayout
 
   private let contentView = UIView()
-  private var arrangedSubviews: [UIView] = []
+  public private(set) var arrangedSubviews: [UIView] = []
   
   public required init(layout: FlexStackViewLayout = RowLayout()) {
     self.layout = layout
@@ -72,8 +72,7 @@ public final class FlexStackView: UIView {
   public override func layoutSubviews() {
     super.layoutSubviews()
     let maxWidth = bounds.size.width - directionalLayoutMargins.leading - directionalLayoutMargins.trailing
-    let itemSizes = arrangedSubviews.map{ $0.sizeThatFits(bounds.size) }
-    let box = layout.render(maxWidth: maxWidth, maxHeight: CGFloat.greatestFiniteMagnitude, itemSizes: itemSizes)
+    let box = layout.render(maxWidth: maxWidth, maxHeight: CGFloat.greatestFiniteMagnitude, arrangedSubviews: arrangedSubviews)
     
     let contentViewFrame = CGRect(x: directionalLayoutMargins.leading,
                                   y: directionalLayoutMargins.top,
@@ -94,8 +93,7 @@ public final class FlexStackView: UIView {
   public override func sizeThatFits(_ size: CGSize) -> CGSize {
     let maxWidth = size.width - directionalLayoutMargins.leading - directionalLayoutMargins.trailing
     let maxHeight = CGFloat.greatestFiniteMagnitude
-    let itemSizes = arrangedSubviews.map{ $0.sizeThatFits(CGSize(width: maxWidth, height: maxHeight)) }
-    let box = layout.render(maxWidth: maxWidth, maxHeight: CGFloat.greatestFiniteMagnitude, itemSizes: itemSizes)
+    let box = layout.render(maxWidth: maxWidth, maxHeight: CGFloat.greatestFiniteMagnitude, arrangedSubviews: arrangedSubviews)
     
     /// 无内容
     if box.lineBoxes.count == 0 {

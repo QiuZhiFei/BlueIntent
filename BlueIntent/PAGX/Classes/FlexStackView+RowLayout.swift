@@ -65,6 +65,16 @@ extension FlexStackView.RowLayout {
   }
 }
 
+extension FlexStackView.RowLayout {
+  /// spacingUseDefault
+  public static let spacingUseDefault: CGFloat = CGFloat.greatestFiniteMagnitude
+
+  /// 自定义 index 列间距
+  public func setCustomInteritemSpacing(_ interitemSpacing: CGFloat, after index: Int?) {
+    guard let index = index else { return }
+  }
+}
+
 extension FlexStackView.RowLayout: FlexStackViewLayout {
   /// 每个 item 的布局。
   private final class RowItemBox {
@@ -104,7 +114,11 @@ extension FlexStackView.RowLayout: FlexStackViewLayout {
   /// 渲染并得到最终的 box
   public func render(maxWidth: CGFloat,
                      maxHeight: CGFloat,
-                     itemSizes: [CGSize]) -> FlexStackView.ContentBox {
+                     arrangedSubviews: [UIView]) -> FlexStackView.ContentBox {
+    let itemSizes = arrangedSubviews.map{
+      $0.sizeThatFits(CGSize(width: maxWidth, height: maxHeight))
+    }
+
     /// 每行的布局
     var rowLineBoxes: [RowLineBox] = []
     
