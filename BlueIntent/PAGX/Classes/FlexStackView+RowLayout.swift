@@ -20,7 +20,10 @@ extension FlexStackView {
 
     /// 最大行
     public let lineLimit: Int
-    
+
+    /// 记录 view 自定义的列间距
+    private var customInteritemSpacings: [UIView: CGFloat] = [:]
+
     public init(minimumLineSpacing: CGFloat = 8,
                 minimumInteritemSpacing: CGFloat = 8,
                 alignItems: AlignItems = .center,
@@ -70,8 +73,17 @@ extension FlexStackView.RowLayout {
   public static let spacingUseDefault: CGFloat = CGFloat.greatestFiniteMagnitude
 
   /// 自定义 index 列间距
-  public func setCustomInteritemSpacing(_ interitemSpacing: CGFloat, after index: Int?) {
-    guard let index = index else { return }
+  public func setCustomInteritemSpacing(_ interitemSpacing: CGFloat, after arrangedSubview: UIView) {
+    if interitemSpacing == FlexStackView.RowLayout.spacingUseDefault {
+      customInteritemSpacings.removeValue(forKey: arrangedSubview)
+      return
+    }
+    customInteritemSpacings[arrangedSubview] = interitemSpacing
+  }
+  
+  /// 获取 view 的列间距
+  public func customInteritemSpacing(after arrangedSubview: UIView) -> CGFloat {
+    return customInteritemSpacings[arrangedSubview] ?? minimumInteritemSpacing
   }
 }
 
@@ -79,8 +91,11 @@ extension FlexStackView.RowLayout: FlexStackViewLayout {
   /// 每个 item 的布局。
   private final class RowItemBox {
     var frame: CGRect
-    
-    init(frame: CGRect) {
+
+    let item: UIView
+
+    init(item: UIView, frame: CGRect) {
+      self.item = item
       self.frame = frame
     }
     
@@ -122,22 +137,26 @@ extension FlexStackView.RowLayout: FlexStackViewLayout {
     /// 每行的布局
     var rowLineBoxes: [RowLineBox] = []
     
-    for itemSize in itemSizes {
+    for (index, itemSize) in itemSizes.enumerated() {
+      /// 要布局的 item
+      let item = arrangedSubviews[index]
+
       /// 保证每个 item.width 不超过 maxWidth
       let itemSize = CGSize(width: min(itemSize.width, maxWidth), height: itemSize.height)
 
       /// 当前行剩余的空间
       let contentRemainingWidth: CGFloat = {
-        if let lastItemBoxFrame = rowLineBoxes.last?.itemBoxes.last?.frame {
-          return maxWidth - lastItemBoxFrame.maxX - minimumInteritemSpacing
+        if let lastItemBox = rowLineBoxes.last?.itemBoxes.last {
+          return maxWidth - lastItemBox.frame.maxX - customInteritemSpacing(after: lastItemBox.item)
         }
         return maxWidth
       }()
-      
+
       /// item 添加到当前的布局
       if let currentLineBox = rowLineBoxes.last, itemSize.width <= contentRemainingWidth {
         /// 当前行有足够的空间，在当前行继续
-        let itemBox = RowItemBox(frame: CGRect(x: currentLineBox.itemBoxes.last!.frame.maxX + minimumInteritemSpacing,
+        let itemBox = RowItemBox(item: item,
+                                 frame: CGRect(x: currentLineBox.itemBoxes.last!.frame.maxX + customInteritemSpacing(after: currentLineBox.itemBoxes.last!.item),
                                                y: currentLineBox.frame.origin.y,
                                                width: itemSize.width,
                                                height: itemSize.height))
@@ -148,7 +167,8 @@ extension FlexStackView.RowLayout: FlexStackViewLayout {
           /// 超过可渲染的最大行数
           break
         }
-        let itemBox = RowItemBox(frame: CGRect(x: 0,
+        let itemBox = RowItemBox(item: item,
+                                 frame: CGRect(x: 0,
                                                y: rowLineBoxes.last == nil ? 0 : rowLineBoxes.last!.frame.maxY + minimumLineSpacing,
                                                width: itemSize.width,
                                                height: itemSize.height))

@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     view.addSubview(stackView)
 
     let label3 = UILabel()
-    label3.text = "test3444444444"
+    label3.text = "test3444444445"
     label3.backgroundColor = .blue
     stackView.addArrangedSubview(label3)
 
@@ -54,15 +54,18 @@ class ViewController: UIViewController {
     label4.backgroundColor = .blue
     label4.font = .systemFont(ofSize: 30)
     stackView.addArrangedSubview(label4)
-
+    
+    let layout: FlexStackView.RowLayout? = (stackView.layout as? FlexStackView.RowLayout)
+    layout?.setCustomInteritemSpacing(0, after: label1)
+    layout?.setCustomInteritemSpacing(0, after: label3)
+    
     stackView.frame = {
       var frame = stackView.frame
       frame.size = stackView.sizeThatFits(width: 240)
       return frame
     }()
-    
-    let layout: FlexStackView.RowLayout? = (stackView.layout as? FlexStackView.RowLayout)
-    layout?.setCustomInteritemSpacing(FlexStackView.RowLayout.spacingUseDefault, after: stackView.arrangedSubviews.firstIndex(of: label1))
+
+//    layout?.setCustomInteritemSpacing(FlexStackView.RowLayout.spacingUseDefault, after: stackView.arrangedSubviews.firstIndex(of: label1))
   }
 
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
