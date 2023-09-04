@@ -43,6 +43,7 @@ extension FlexStackView {
   }
 }
 
+/// Flex 布局协议
 public protocol FlexStackViewLayout {
   /// 渲染并得到最终的 box
   func render(maxWidth: CGFloat,
@@ -50,11 +51,12 @@ public protocol FlexStackViewLayout {
               itemSizes: [CGSize]) -> FlexStackView.ContentBox
 }
 
-/// 流式布局，规则同 web css flex。
+/// Flex 布局，规则同 Web CSS flex。
 public final class FlexStackView: UIView {
+  public let layout: FlexStackViewLayout
+
   private let contentView = UIView()
   private var arrangedSubviews: [UIView] = []
-  private let layout: FlexStackViewLayout
   
   public required init(layout: FlexStackViewLayout = RowLayout()) {
     self.layout = layout
