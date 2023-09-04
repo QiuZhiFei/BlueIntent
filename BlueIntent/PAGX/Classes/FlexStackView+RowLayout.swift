@@ -8,16 +8,16 @@
 import Foundation
 
 extension FlexStackView {
-  public struct RowLayout {
+  public final class RowLayout {
     /// 行间距, default is 8。
     public let minimumLineSpacing: CGFloat
-    
+
     /// 列间距, default is 8。
     public let minimumInteritemSpacing: CGFloat
-    
+
     /// 行内对齐方式，default is center。
     public let alignItems: AlignItems
-    
+
     /// 最大行
     public let lineLimit: Int
     
@@ -111,7 +111,7 @@ extension FlexStackView.RowLayout: FlexStackViewLayout {
     for itemSize in itemSizes {
       /// 保证每个 item.width 不超过 maxWidth
       let itemSize = CGSize(width: min(itemSize.width, maxWidth), height: itemSize.height)
-      
+
       /// 当前行剩余的空间
       let contentRemainingWidth: CGFloat = {
         if let lastItemBoxFrame = rowLineBoxes.last?.itemBoxes.last?.frame {

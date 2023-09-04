@@ -62,7 +62,6 @@ public final class FlexStackView: UIView {
     self.layout = layout
     super.init(frame: .zero)
     directionalLayoutMargins = .zero
-    contentView.backgroundColor = .red
     self.addSubview(contentView)
   }
   
@@ -71,6 +70,7 @@ public final class FlexStackView: UIView {
   }
   
   public override func layoutSubviews() {
+    super.layoutSubviews()
     let maxWidth = bounds.size.width - directionalLayoutMargins.leading - directionalLayoutMargins.trailing
     let itemSizes = arrangedSubviews.map{ $0.sizeThatFits(bounds.size) }
     let box = layout.render(maxWidth: maxWidth, maxHeight: CGFloat.greatestFiniteMagnitude, itemSizes: itemSizes)
