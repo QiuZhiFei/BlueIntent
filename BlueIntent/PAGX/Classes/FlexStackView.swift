@@ -26,7 +26,7 @@ extension FlexStackView {
     /// 行的 frame
     let frame: CGRect
     
-    /// 行内所有 item 的 frame
+    /// 行内所有 itemBox
     let itemBoxes: [ItemBox]
   }
   
@@ -107,19 +107,30 @@ public final class FlexStackView: UIView {
 
 /// Public Methods
 extension FlexStackView {
+  /// 添加子视图
   public func addArrangedSubview(_ view: UIView) {
     arrangedSubviews.append(view)
     contentView.addSubview(view)
     setNeedsLayout()
   }
-  
+
+  /// 删除子视图
   public func removeArrangedSubview(_ view: UIView) {
     guard let index = arrangedSubviews.firstIndex(of: view) else { return }
     arrangedSubviews.remove(at: index)
     view.removeFromSuperview()
     setNeedsLayout()
   }
-  
+
+  /// 删除所有子视图
+  public func removeAllArrangedSubviews() {
+    for view in arrangedSubviews {
+      view.removeFromSuperview()
+    }
+    arrangedSubviews.removeAll()
+  }
+
+  /// 根据宽度返回最合适的尺寸
   public func sizeThatFits(width: CGFloat) -> CGSize {
     return sizeThatFits(CGSize(width: width, height: .greatestFiniteMagnitude))
   }
